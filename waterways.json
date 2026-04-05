@@ -1,0 +1,558 @@
+{
+  "iwt_terminals": [
+    {
+      "terminal_id": 1,
+      "terminal_name": "Varanasi Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 25.3176,
+      "longitude": 82.9739,
+      "source": "https://iwai.nic.in",
+      "notes": "Multi-modal terminal on NW-1 facilitating cargo movement along the Ganga river system."
+    },
+    {
+      "terminal_id": 2,
+      "terminal_name": "Haldia Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 22.0667,
+      "longitude": 88.0698,
+      "source": "https://iwai.nic.in",
+      "notes": "Major riverine terminal on NW-1 supporting bulk cargo handling near the Hooghly stretch."
+    },
+    {
+      "terminal_id": 3,
+      "terminal_name": "Sahibganj Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 25.25,
+      "longitude": 87.65,
+      "source": "https://iwai.nic.in",
+      "notes": "Strategic NW-1 terminal enhancing inland cargo connectivity in eastern India."
+    },
+    {
+      "terminal_id": 4,
+      "terminal_name": "Patna IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 25.5941,
+      "longitude": 85.1376,
+      "source": "https://iwai.nic.in",
+      "notes": "Key inland terminal on NW-1 serving freight transport operations in Bihar region."
+    },
+    {
+      "terminal_id": 5,
+      "terminal_name": "Farakka IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 24.8167,
+      "longitude": 87.9236,
+      "source": "https://iwai.nic.in",
+      "notes": "Important NW-1 terminal located near the Farakka barrage supporting navigation."
+    },
+    {
+      "terminal_id": 6,
+      "terminal_name": "Ghaziabad IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 28.6692,
+      "longitude": 77.4538,
+      "source": "https://iwai.nic.in",
+      "notes": "Inland terminal on NW-1 extending cargo connectivity towards the NCR region."
+    },
+    {
+      "terminal_id": 7,
+      "terminal_name": "Jogighopa IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 26.2006,
+      "longitude": 90.5977,
+      "source": "https://iwai.nic.in",
+      "notes": "Terminal on NW-2 supporting cargo operations along the Brahmaputra river."
+    },
+    {
+      "terminal_id": 8,
+      "terminal_name": "Pandu IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 26.1584,
+      "longitude": 91.706,
+      "source": "https://iwai.nic.in",
+      "notes": "Primary river port facility on NW-2 located in Guwahati for regional trade."
+    },
+    {
+      "terminal_id": 9,
+      "terminal_name": "Dhubri IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 26.0186,
+      "longitude": 89.9856,
+      "source": "https://iwai.nic.in",
+      "notes": "Inland water transport terminal on NW-2 serving western Assam cargo needs."
+    },
+    {
+      "terminal_id": 10,
+      "terminal_name": "Silghat IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 26.22,
+      "longitude": 92.774,
+      "source": "https://iwai.nic.in",
+      "notes": "Riverine terminal on NW-2 aiding bulk cargo movement in upper Assam."
+    },
+    {
+      "terminal_id": 11,
+      "terminal_name": "Karimganj IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 24.87,
+      "longitude": 92.36,
+      "source": "https://iwai.nic.in",
+      "notes": "Terminal facility supporting cargo operations in the Barak river system."
+    },
+    {
+      "terminal_id": 12,
+      "terminal_name": "Kollam IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 10.215,
+      "longitude": 76.195,
+      "source": "https://iwai.nic.in",
+      "notes": "Inland terminal on NW-3 facilitating movement through the West Coast Canal."
+    },
+    {
+      "terminal_id": 13,
+      "terminal_name": "Kottapuram IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 9.4981,
+      "longitude": 76.3388,
+      "source": "https://iwai.nic.in",
+      "notes": "Strategic IWT terminal on NW-3 supporting Kerala’s canal-based transport."
+    },
+    {
+      "terminal_id": 14,
+      "terminal_name": "Alappuzha IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 9.4981,
+      "longitude": 76.3388,
+      "source": "https://iwai.nic.in",
+      "notes": "Canal-based terminal on NW-3 enhancing regional cargo distribution."
+    },
+    {
+      "terminal_id": 15,
+      "terminal_name": "Kakinada IWT Terminal",
+      "waterway_name": "National Waterway",
+      "terminal_type": "IWT Terminal",
+      "latitude": 16.5062,
+      "longitude": 80.648,
+      "source": "https://iwai.nic.in",
+      "notes": "River-sea terminal supporting cargo movement in the Godavari river system."
+    },
+    {
+      "terminal_id": 16,
+      "terminal_name": "Vijayawada IWT Terminal",
+      "waterway_name": "NW-4 (Godavari-Krishna)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 16.51,
+      "longitude": 80.62,
+      "source": "https://iwai.nic.in",
+      "notes": "Key IWT terminal on NW-4 aiding agricultural and bulk cargo transport."
+    },
+    {
+      "terminal_id": 17,
+      "terminal_name": "Paradip IWT Terminal",
+      "waterway_name": "National Waterway",
+      "terminal_type": "IWT Terminal",
+      "latitude": 20.7825,
+      "longitude": 86.3985,
+      "source": "https://iwai.nic.in",
+      "notes": "Port-linked terminal contributing to coastal and inland cargo integration."
+    },
+    {
+      "terminal_id": 18,
+      "terminal_name": "Dhamra IWT Terminal",
+      "waterway_name": "National Waterway",
+      "terminal_type": "IWT Terminal",
+      "latitude": 20.77,
+      "longitude": 86.52,
+      "source": "https://iwai.nic.in",
+      "notes": "Strategic terminal supporting mineral and bulk cargo logistics."
+    },
+    {
+      "terminal_id": 19,
+      "terminal_name": "Kolkata IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 22.5726,
+      "longitude": 88.3639,
+      "source": "https://iwai.nic.in",
+      "notes": "Major inland terminal enhancing cargo handling in the lower Ganga stretch."
+    },
+    {
+      "terminal_id": 20,
+      "terminal_name": "Badarpur IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "terminal_type": "IWT Terminal",
+      "latitude": 24.792,
+      "longitude": 92.7,
+      "source": "https://iwai.nic.in",
+      "notes": "Inland water transport terminal serving the Barak river navigation route."
+    }
+  ],
+  "river_monitoring_stations": [
+    {
+      "station_id": 1,
+      "station_name": "Polavaram",
+      "river_name": "Godavari",
+      "latitude": 17.2473,
+      "longitude": 81.6466,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD",
+        "TDS"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "monthly physcio-chemical monitering"
+    },
+    {
+      "station_id": 2,
+      "station_name": "Nashik",
+      "river_name": "Godavari",
+      "latitude": 20.011,
+      "longitude": 73.799,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "river stretch monitering"
+    },
+    {
+      "station_id": 3,
+      "station_name": "Rajahmundry",
+      "river_name": "Godavari",
+      "latitude": 16.989,
+      "longitude": 81.791,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "downstream monitering"
+    },
+    {
+      "station_id": 4,
+      "station_name": "Vijaywada",
+      "river_name": "Krishna",
+      "latitude": 16.4924,
+      "longitude": 80.6408,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "major river point"
+    },
+    {
+      "station_id": 5,
+      "station_name": "Sangameshwaram",
+      "river_name": "Krishna",
+      "latitude": 16.0018,
+      "longitude": 78.3649,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD",
+        "TDS"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "confluence monitering"
+    },
+    {
+      "station_id": 6,
+      "station_name": "Khadakwasla",
+      "river_name": "Krishna",
+      "latitude": 18.445,
+      "longitude": 73.759,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "reservoir monitering"
+    },
+    {
+      "station_id": 7,
+      "station_name": "Kurnool",
+      "river_name": "Tungabhadra",
+      "latitude": 15.843,
+      "longitude": 78.0349,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "upstream sampeling"
+    },
+    {
+      "station_id": 8,
+      "station_name": "Siddavatam",
+      "river_name": "Pennar",
+      "latitude": 14.4643,
+      "longitude": 78.9642,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "seasonal monitering"
+    },
+    {
+      "station_id": 9,
+      "station_name": "Confluence Point",
+      "river_name": "Muneru",
+      "latitude": 16.6708,
+      "longitude": 80.2977,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "tributary monitering"
+    },
+    {
+      "station_id": 10,
+      "station_name": "Confluence Point",
+      "river_name": "Palleru",
+      "latitude": 16.9516,
+      "longitude": 80.0484,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "tributary monitering"
+    },
+    {
+      "station_id": 11,
+      "station_name": "Bylka",
+      "river_name": "Cauvery",
+      "latitude": 12.931,
+      "longitude": 77.57,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "basin monitering"
+    },
+    {
+      "station_id": 12,
+      "station_name": "Belur Cross",
+      "river_name": "Cauvery",
+      "latitude": 13.199,
+      "longitude": 77.049,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "midstream monitering"
+    },
+    {
+      "station_id": 13,
+      "station_name": "Gerusoppa",
+      "river_name": "Sharavathi",
+      "latitude": 14.182,
+      "longitude": 74.549,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "river stretch monitering"
+    },
+    {
+      "station_id": 14,
+      "station_name": "Mangaluru",
+      "river_name": "Nathravathi",
+      "latitude": 12.9141,
+      "longitude": 74.8551,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "coastal river monitering"
+    },
+    {
+      "station_id": 15,
+      "station_name": "Curchorem",
+      "river_name": "Mandovi",
+      "latitude": 15.227,
+      "longitude": 74.081,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "salinity"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "estuarine monitering"
+    },
+    {
+      "station_id": 16,
+      "station_name": "Ahmedabad",
+      "river_name": "Sabarmati",
+      "latitude": 23.029,
+      "longitude": 72.587,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "urban river monitering"
+    },
+    {
+      "station_id": 17,
+      "station_name": "Surat",
+      "river_name": "Tapi",
+      "latitude": 21.196,
+      "longitude": 72.83,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "industrial zone monitering"
+    },
+    {
+      "station_id": 18,
+      "station_name": "Rishikesh",
+      "river_name": "Ganga",
+      "latitude": 30.116,
+      "longitude": 78.315,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "upper stretch"
+    },
+    {
+      "station_id": 19,
+      "station_name": "Haridwar",
+      "river_name": "Ganga",
+      "latitude": 29.945,
+      "longitude": 78.163,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "religios/urban impact"
+    },
+    {
+      "station_id": 20,
+      "station_name": "Palla",
+      "river_name": "Yamuna",
+      "latitude": 28.8452,
+      "longitude": 77.2125,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "entry to delhi"
+    },
+    {
+      "station_id": 21,
+      "station_name": "Delhi Railway Bridge",
+      "river_name": "Yamuna",
+      "latitude": 28.6626,
+      "longitude": 77.249,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "urban  stretch"
+    },
+    {
+      "station_id": 22,
+      "station_name": "Bharuch",
+      "river_name": "Narmada",
+      "latitude": 21.714,
+      "longitude": 72.998,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "downstream monitering"
+    },
+    {
+      "station_id": 23,
+      "station_name": "Cuttack",
+      "river_name": "Mahanadi",
+      "latitude": 20.462,
+      "longitude": 85.883,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "delta monitering"
+    },
+    {
+      "station_id": 24,
+      "station_name": "Guwahati",
+      "river_name": "Bramhaputra",
+      "latitude": 26.145,
+      "longitude": 91.7362,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "major river monitering"
+    },
+    {
+      "station_id": 25,
+      "station_name": "Aluva",
+      "river_name": "Periyar",
+      "latitude": 10.107,
+      "longitude": 76.351,
+      "parameters_measured": [
+        "pH",
+        "DO",
+        "BOD"
+      ],
+      "source": "https://indiawris.gov.in/",
+      "notes": "downstream monitering"
+    }
+  ]
+}

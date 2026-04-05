@@ -1,0 +1,402 @@
+[
+  {
+    "port_id": 1,
+    "port_name": "Deendayal Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 23.0333,
+    "longitude": 70.2167,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Major port in Gujarat handling bulk, container and petroleum cargo at Kandla."
+  },
+  {
+    "port_id": 2,
+    "port_name": "Mumbai Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 18.9474,
+    "longitude": 72.84,
+    "source": "http://shipmin.gov.in/",
+    "notes": "One of India’s oldest natural harbours handling bulk and general cargo."
+  },
+  {
+    "port_id": 3,
+    "port_name": "Jawaharlal Nehru Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 18.9606,
+    "longitude": 73.0158,
+    "source": "http://shipmin.gov.in/",
+    "notes": "India’s largest container port located at Nhava Sheva, Maharashtra."
+  },
+  {
+    "port_id": 4,
+    "port_name": "Mormugao Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 15.4143,
+    "longitude": 73.7997,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Goa’s major iron ore exporting port on the west coast."
+  },
+  {
+    "port_id": 5,
+    "port_name": "New Mangalore Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 12.9141,
+    "longitude": 74.807,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Karnataka’s major port handling crude oil, fertilizers and bulk cargo."
+  },
+  {
+    "port_id": 6,
+    "port_name": "Cochin Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 9.9667,
+    "longitude": 76.2673,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Kerala’s major port serving container, cruise and petroleum traffic."
+  },
+  {
+    "port_id": 7,
+    "port_name": "Chennai Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 13.0827,
+    "longitude": 80.2915,
+    "source": "http://shipmin.gov.in/",
+    "notes": "One of India’s oldest artificial ports handling containers and automobiles."
+  },
+  {
+    "port_id": 8,
+    "port_name": "V.O. Chidambaranar Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 8.7642,
+    "longitude": 78.1348,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Major port at Thoothukudi specializing in container and bulk cargo."
+  },
+  {
+    "port_id": 9,
+    "port_name": "Kamarajar Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 13.2516,
+    "longitude": 80.3203,
+    "source": "http://shipmin.gov.in/",
+    "notes": "India’s first corporatized major port near Ennore handling coal and LNG."
+  },
+  {
+    "port_id": 10,
+    "port_name": "Visakhapatnam Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 17.6868,
+    "longitude": 83.305,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Major east coast port handling iron ore, coal and containers."
+  },
+  {
+    "port_id": 11,
+    "port_name": "Paradip Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 20.2639,
+    "longitude": 86.6086,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Odisha’s major bulk cargo port mainly for coal and iron ore."
+  },
+  {
+    "port_id": 12,
+    "port_name": "Kolkata Port",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 22.5411,
+    "longitude": 88.3426,
+    "source": "http://shipmin.gov.in/",
+    "notes": "India’s only riverine major port located on the Hooghly River."
+  },
+  {
+    "port_id": 13,
+    "port_name": "Haldia Dock Complex",
+    "port_type": "Major Port",
+    "state": "",
+    "latitude": 22.0253,
+    "longitude": 88.0698,
+    "source": "http://shipmin.gov.in/",
+    "notes": "Dock complex handling petrochemicals and bulk cargo on the Hooghly River."
+  },
+  {
+    "port_id": 14,
+    "port_name": "Mundra Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 22.839,
+    "longitude": 69.721,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "India’s largest commercial private port located in Gujarat."
+  },
+  {
+    "port_id": 15,
+    "port_name": "Pipavav Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 20.907,
+    "longitude": 71.528,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat’s first private sector port handling containers and bulk cargo."
+  },
+  {
+    "port_id": 16,
+    "port_name": "Hazira Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 21.1192,
+    "longitude": 72.617,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Deep water port in Gujarat handling containers and LNG cargo."
+  },
+  {
+    "port_id": 17,
+    "port_name": "Dahej Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 21.6833,
+    "longitude": 72.624,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Industrial port in Gujarat mainly serving petrochemical industries."
+  },
+  {
+    "port_id": 18,
+    "port_name": "Magdalla Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 21.138,
+    "longitude": 72.637,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat port near Surat handling bulk and industrial cargo."
+  },
+  {
+    "port_id": 19,
+    "port_name": "Sikka Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 22.43,
+    "longitude": 69.834,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat port primarily handling crude oil and petroleum products."
+  },
+  {
+    "port_id": 20,
+    "port_name": "Okha Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 22.4676,
+    "longitude": 69.07,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Western Gujarat port serving salt, fertilizer and coastal cargo."
+  },
+  {
+    "port_id": 21,
+    "port_name": "Porbandar Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 21.6417,
+    "longitude": 69.615,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat port supporting fishing and coastal trade activities."
+  },
+  {
+    "port_id": 22,
+    "port_name": "Navlakhi Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 22.8367,
+    "longitude": 70.458,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat port mainly handling coal and bulk cargo."
+  },
+  {
+    "port_id": 23,
+    "port_name": "Bhavnagar Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 21.7645,
+    "longitude": 72.1519,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat port supporting ship recycling and bulk trade."
+  },
+  {
+    "port_id": 24,
+    "port_name": "Veraval Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 20.9077,
+    "longitude": 70.367,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat fishing and minor commercial port."
+  },
+  {
+    "port_id": 25,
+    "port_name": "Jafrabad Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 20.8517,
+    "longitude": 71.365,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Gujarat minor port handling bulk and industrial cargo."
+  },
+  {
+    "port_id": 26,
+    "port_name": "Krishnapatnam Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 14.25,
+    "longitude": 80.121,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Andhra Pradesh private deep water port handling containers and coal."
+  },
+  {
+    "port_id": 27,
+    "port_name": "Gangavaram Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 17.6599,
+    "longitude": 83.247,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Deep water private port near Visakhapatnam handling bulk cargo."
+  },
+  {
+    "port_id": 28,
+    "port_name": "Kakinada Seaport",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 16.9891,
+    "longitude": 82.2475,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Andhra Pradesh port serving fertilizer and bulk cargo industries."
+  },
+  {
+    "port_id": 29,
+    "port_name": "Kakinada Anchorage Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 16.9891,
+    "longitude": 82.2475,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Anchorage port handling lighterage cargo operations. [WARNING: duplicate coordinates - verify entry]"
+  },
+  {
+    "port_id": 30,
+    "port_name": "Ravva Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 16.482,
+    "longitude": 82.263,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Offshore support port serving oil and gas operations."
+  },
+  {
+    "port_id": 31,
+    "port_name": "Panaji Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 15.4989,
+    "longitude": 73.8278,
+    "source": "http://mmb.gov.in/",
+    "notes": "Goa minor port supporting riverine and coastal cargo movement."
+  },
+  {
+    "port_id": 32,
+    "port_name": "Jaigad Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 17.299,
+    "longitude": 73.192,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra deep water private port handling bulk cargo and power plant imports."
+  },
+  {
+    "port_id": 33,
+    "port_name": "Dighi Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 18.2474,
+    "longitude": 72.871,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra port developed for industrial and multi-cargo operations."
+  },
+  {
+    "port_id": 34,
+    "port_name": "Rewas Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 18.979,
+    "longitude": 72.95,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra port near Mumbai proposed for container and coastal shipping."
+  },
+  {
+    "port_id": 35,
+    "port_name": "Mandwa Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 18.8,
+    "longitude": 72.83,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra passenger and Ro-Ro ferry terminal near Alibag."
+  },
+  {
+    "port_id": 36,
+    "port_name": "Dabhol Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 17.5889,
+    "longitude": 73.183,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra port supporting LNG terminal and industrial cargo."
+  },
+  {
+    "port_id": 37,
+    "port_name": "Alibag Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 18.6414,
+    "longitude": 72.872,
+    "source": "http://mmb.gov.in/",
+    "notes": "Coastal minor port in Maharashtra mainly for local marine activity."
+  },
+  {
+    "port_id": 38,
+    "port_name": "Ratnagiri Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 16.9902,
+    "longitude": 73.311,
+    "source": "http://mmb.gov.in/",
+    "notes": "Maharashtra port supporting bulk cargo and fishing activity."
+  },
+  {
+    "port_id": 39,
+    "port_name": "Vijaydurg Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 16.556,
+    "longitude": 73.339,
+    "source": "http://mmb.gov.in/",
+    "notes": "Historical coastal port in Maharashtra with minor cargo operations."
+  },
+  {
+    "port_id": 40,
+    "port_name": "Karwar Port",
+    "port_type": "Non-Major Port",
+    "state": "",
+    "latitude": 14.8,
+    "longitude": 74.124,
+    "source": "http://sagarmala.gov.in/",
+    "notes": "Karnataka port supporting coastal cargo and naval activity."
+  }
+]

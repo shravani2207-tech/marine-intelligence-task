@@ -1,0 +1,92 @@
+[
+  {
+    "park_id": 1,
+    "park_name": "Jogighopa",
+    "state": "Assam",
+    "latitude": 26.24,
+    "longitude": 90.9595,
+    "source": "https://logistics.gov.in/",
+    "notes": "Proposed MMLP in Assam to improve connectivity to Northeast India and Bhutan trade routes."
+  },
+  {
+    "park_id": 2,
+    "park_name": "Guwahati",
+    "state": "Assam",
+    "latitude": 26.1445,
+    "longitude": 91.7362,
+    "source": "https://logistics.gov.in/",
+    "notes": "Strategic logistics hub in Assam supporting road, rail and river transport integration."
+  },
+  {
+    "park_id": 3,
+    "park_name": "Silchar",
+    "state": "Assam",
+    "latitude": 24.8333,
+    "longitude": 92.7979,
+    "source": "https://logistics.gov.in/",
+    "notes": "Planned logistics park in Barak Valley to enhance regional cargo movement in Northeast."
+  },
+  {
+    "park_id": 4,
+    "park_name": "Kolkata",
+    "state": "West Bengal",
+    "latitude": 22.5726,
+    "longitude": 88.3639,
+    "source": "https://logistics.gov.in/",
+    "notes": "Eastern India logistics hub near major port and rail network connectivity."
+  },
+  {
+    "park_id": 5,
+    "park_name": "Varanasi",
+    "state": "Uttar Pradesh",
+    "latitude": 25.3176,
+    "longitude": 83.0104,
+    "source": "https://logistics.gov.in/",
+    "notes": "Ganga-based logistics node supporting inland waterway and North India freight movement."
+  },
+  {
+    "park_id": 6,
+    "park_name": "Patna",
+    "state": "Bihar",
+    "latitude": 25.5941,
+    "longitude": 85.1376,
+    "source": "https://logistics.gov.in/",
+    "notes": "Key logistics center for Bihar improving multimodal freight connectivity in eastern corridor."
+  },
+  {
+    "park_id": 7,
+    "park_name": "Nagpur",
+    "state": "Maharashtra",
+    "latitude": 21.1458,
+    "longitude": 79.0882,
+    "source": "https://nicdc.in/",
+    "notes": "Central India logistics hub strengthening industrial and freight connectivity across corridors."
+  },
+  {
+    "park_id": 8,
+    "park_name": "Hyderabad",
+    "state": "Telangana",
+    "latitude": 17.385,
+    "longitude": 78.4867,
+    "source": "https://nicdc.in/",
+    "notes": "Major southern logistics hub enhancing multimodal integration for Telangana region."
+  },
+  {
+    "park_id": 9,
+    "park_name": "Chennai",
+    "state": "Tamil Nadu",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "source": "https://nicdc.in/",
+    "notes": "Port-linked logistics park boosting cargo efficiency in Tamil Nadu industrial belt."
+  },
+  {
+    "park_id": 10,
+    "park_name": "Bengaluru",
+    "state": "Karnataka",
+    "latitude": 12.9716,
+    "longitude": 77.5946,
+    "source": "https://nicdc.in/",
+    "notes": "Southern technology corridor logistics hub improving freight movement in Karnataka region."
+  }
+]

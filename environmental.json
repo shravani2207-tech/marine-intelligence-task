@@ -1,0 +1,122 @@
+[
+  {
+    "dataset_id": 1,
+    "dataset_name": "Bhuvan Mangrove Forest Cover Map",
+    "coverage_area": "India",
+    "dataset_type": "Spatial distribution and density of mangrove forests.",
+    "source": "https://bhuvan.nrsc.gov.in",
+    "notes": "Satellite-based map showing mangrove forest extent across India."
+  },
+  {
+    "dataset_id": 2,
+    "dataset_name": "Bhuvan Coastal Wetlands Map",
+    "coverage_area": "India",
+    "dataset_type": "Classification and mapping of coastal wetlands and associated ecosystems.",
+    "source": "https://bhuvan.nrsc.gov.in",
+    "notes": "Thematic dataset representing coastal wetland ecosystems."
+  },
+  {
+    "dataset_id": 3,
+    "dataset_name": "Bhuvan Coral Reef Mapping",
+    "coverage_area": "India (Coastal Regions)",
+    "dataset_type": "Geographic extent and location of coral reef ecosystems.",
+    "source": "https://bhuvan.nrsc.gov.in",
+    "notes": "Remote sensing layer identifying coral reef locations."
+  },
+  {
+    "dataset_id": 4,
+    "dataset_name": "Bhuvan Island Ecosystem Map",
+    "coverage_area": "India",
+    "dataset_type": "Ecological features and land cover characteristics of island environments.",
+    "source": "https://bhuvan.nrsc.gov.in",
+    "notes": "Ecological mapping of India’s island environments."
+  },
+  {
+    "dataset_id": 5,
+    "dataset_name": "Bhuvan Forest Cover Thematic Layer",
+    "coverage_area": "India",
+    "dataset_type": "Forest type classification and vegetation density assessment.",
+    "source": "https://bhuvan.nrsc.gov.in",
+    "notes": "National forest cover and vegetation density layer."
+  },
+  {
+    "dataset_id": 6,
+    "dataset_name": "World Database on Protected Areas (WDPA)",
+    "coverage_area": "Global",
+    "dataset_type": "Boundaries and attributes of terrestrial and marine protected areas worldwide.",
+    "source": "https://www.protectedplanet.net",
+    "notes": "Global repository of officially designated protected areas."
+  },
+  {
+    "dataset_id": 7,
+    "dataset_name": "Marine Protected Areas (MPA) Dataset",
+    "coverage_area": "Global Oceans",
+    "dataset_type": "Spatial distribution of designated marine conservation zones.",
+    "source": "https://www.protectedplanet.net",
+    "notes": "Database of marine protected zones for ocean conservation."
+  },
+  {
+    "dataset_id": 8,
+    "dataset_name": "National Parks Dataset",
+    "coverage_area": "Global",
+    "dataset_type": "Geographical boundaries and status of national parks.",
+    "source": "https://www.protectedplanet.net",
+    "notes": "Dataset outlining boundaries of national parks worldwide."
+  },
+  {
+    "dataset_id": 9,
+    "dataset_name": "Wildlife Sanctuaries Dataset",
+    "coverage_area": "Global",
+    "dataset_type": "Mapped extents of wildlife sanctuaries and conservation reserves.",
+    "source": "https://www.protectedplanet.net",
+    "notes": "Spatial layer of wildlife sanctuaries and conservation areas."
+  },
+  {
+    "dataset_id": 10,
+    "dataset_name": "Biosphere Reserves Dataset",
+    "coverage_area": "Global",
+    "dataset_type": "Locations and zoning details of biosphere reserves.",
+    "source": "https://www.protectedplanet.net",
+    "notes": "Global inventory of biosphere reserves under conservation programs."
+  },
+  {
+    "dataset_id": 11,
+    "dataset_name": "UNEP Global Coral Reef Distribution",
+    "coverage_area": "Global",
+    "dataset_type": "Global distribution and extent of coral reef ecosystems.",
+    "source": "https://www.unep.org",
+    "notes": "International dataset mapping coral reef ecosystems."
+  },
+  {
+    "dataset_id": 12,
+    "dataset_name": "UNEP Coral Bleaching Monitoring Data",
+    "coverage_area": "Global",
+    "dataset_type": "Monitoring and assessment of coral bleaching events and severity.",
+    "source": "https://www.unep.org",
+    "notes": "Monitoring dataset tracking coral bleaching events globally."
+  },
+  {
+    "dataset_id": 13,
+    "dataset_name": "UNEP Mangrove Ecosystem Data",
+    "coverage_area": "Global",
+    "dataset_type": "Global distribution and condition of mangrove ecosystems.",
+    "source": "https://www.unep.org",
+    "notes": "Global assessment dataset of mangrove ecosystems."
+  },
+  {
+    "dataset_id": 14,
+    "dataset_name": "UNEP Marine Biodiversity Data",
+    "coverage_area": "Global Oceans",
+    "dataset_type": "Marine species diversity and habitat distribution data.",
+    "source": "https://www.unep.org",
+    "notes": "Marine biodiversity database covering species and habitats."
+  },
+  {
+    "dataset_id": 15,
+    "dataset_name": "UNEP Coastal Ecosystem Assessment Data",
+    "coverage_area": "Global Coastal Regions",
+    "dataset_type": "Assessment of coastal ecosystem health, vulnerability, and environmental pressures.",
+    "source": "https://www.unep.org",
+    "notes": "Dataset evaluating health and vulnerability of coastal ecosystems."
+  }
+]

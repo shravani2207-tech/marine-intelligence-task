@@ -1,0 +1,92 @@
+[
+  {
+    "zone_id": 1,
+    "zone_name": "Kachchh Coastal Economic Zone",
+    "state": "Gujarat",
+    "latitude": 23.7337,
+    "longitude": 69.8597,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Port-led industrial cluster focused on petrochemicals, cement, and heavy industries."
+  },
+  {
+    "zone_id": 2,
+    "zone_name": "Saurashtra Coastal Economic Zone",
+    "state": "Gujarat",
+    "latitude": 21.6417,
+    "longitude": 69.6093,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Industrial coastal zone supporting automotive and apparel manufacturing."
+  },
+  {
+    "zone_id": 3,
+    "zone_name": "Suryapur Coastal Economic Zone",
+    "state": "Gujarat",
+    "latitude": 21.6417,
+    "longitude": 72.6296,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Coastal development belt centered on port-based energy and marine industries."
+  },
+  {
+    "zone_id": 4,
+    "zone_name": "North Konkan Coastal Economic Zone",
+    "state": "Maharashtra and Goa",
+    "latitude": 19.076,
+    "longitude": 72.8777,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Port-linked zone supporting electronics, power, and export-oriented industries."
+  },
+  {
+    "zone_id": 5,
+    "zone_name": "South Konkan Coastal Economic Zone",
+    "state": "Maharashtra and Goa",
+    "latitude": 16.705,
+    "longitude": 73.8,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Coastal industrial region focused on refining, steel, and food processing."
+  },
+  {
+    "zone_id": 6,
+    "zone_name": "Dakshin Kanara Coastal Economic Zone",
+    "state": "Karnataka",
+    "latitude": 12.9141,
+    "longitude": 74.8551,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Petrochemical-focused coastal industrial development zone."
+  },
+  {
+    "zone_id": 7,
+    "zone_name": "Malabar Coastal Economic Zone",
+    "state": "Kerala",
+    "latitude": 10.8505,
+    "longitude": 76.2711,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Port-supported manufacturing zone including furniture and light industries."
+  },
+  {
+    "zone_id": 8,
+    "zone_name": "Mannar Coastal Economic Zone",
+    "state": "Tamil Nadu",
+    "latitude": 8.7642,
+    "longitude": 78.1348,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Export-oriented zone supporting apparel and refinery-linked industries."
+  },
+  {
+    "zone_id": 9,
+    "zone_name": "Poompuhar Coastal Economic Zone",
+    "state": "Tamil Nadu",
+    "latitude": 10.7667,
+    "longitude": 79.8431,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Industrial cluster promoting leather processing and coastal power projects."
+  },
+  {
+    "zone_id": 10,
+    "zone_name": "South VCIC Coastal Economic Zone",
+    "state": "Tamil Nadu",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "source": "https://sagarmala.gov.in/coastal-economic-zones",
+    "notes": "Major port-based industrial corridor supporting steel, petrochemicals, electronics, and shipbuilding."
+  }
+]

@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "created_by": "Shravani",
+  "task": "Marine Intelligence – Task 3 (Schema Normalization Engine)",
+  "datasets": {
+    "ports": {
+      "file": "data/ports.json",
+      "description": "Major and non-major ports along the Indian coastline",
+      "source": "Ministry of Shipping (shipmin.gov.in), Sagarmala (sagarmala.gov.in), MMB",
+      "record_count": 40,
+      "schema": {
+        "port_id":   { "type": "integer", "required": true, "description": "Unique sequential identifier" },
+        "port_name": { "type": "string",  "required": true, "description": "Official name of the port" },
+        "port_type": { "type": "string",  "required": true, "enum": ["Major Port", "Non-Major Port"], "description": "Port classification under Indian port law" },
+        "state":     { "type": "string",  "required": false, "description": "State where port is located (optional enrichment field)" },
+        "latitude":  { "type": "number",  "required": true, "description": "WGS84 decimal latitude", "minimum": -90, "maximum": 90 },
+        "longitude": { "type": "number",  "required": true, "description": "WGS84 decimal longitude", "minimum": -180, "maximum": 180 },
+        "source":    { "type": "string",  "required": true, "description": "URL of authoritative data source" },
+        "notes":     { "type": "string",  "required": false, "description": "Operational context or data quality warnings" }
+      }
+    },
+    "coastal_zones": {
+      "file": "data/coastal_zones.json",
+      "description": "Sagarmala port-led coastal economic development zones across India",
+      "source": "Sagarmala Programme (sagarmala.gov.in)",
+      "record_count": 10,
+      "schema": {
+        "zone_id":   { "type": "integer", "required": true, "description": "Unique sequential identifier" },
+        "zone_name": { "type": "string",  "required": true, "description": "Official zone name" },
+        "state":     { "type": "string",  "required": true, "description": "State(s) where zone is located (may be multi-state)" },
+        "latitude":  { "type": "number",  "required": true, "description": "WGS84 decimal latitude of zone centroid" },
+        "longitude": { "type": "number",  "required": true, "description": "WGS84 decimal longitude of zone centroid" },
+        "source":    { "type": "string",  "required": true, "description": "URL of authoritative data source" },
+        "notes":     { "type": "string",  "required": false, "description": "Industry focus or zone characteristics" }
+      }
+    },
+    "waterways": {
+      "file": "data/waterways.json",
+      "description": "Inland waterway infrastructure: IWT terminals and river quality monitoring stations",
+      "source": "IWAI (iwai.nic.in), India-WRIS (indiawris.gov.in)",
+      "sub_datasets": {
+        "iwt_terminals": {
+          "record_count": 20,
+          "schema": {
+            "terminal_id":   { "type": "integer", "required": true, "description": "Unique sequential identifier" },
+            "terminal_name": { "type": "string",  "required": true, "description": "Official name of the terminal" },
+            "waterway_name": { "type": "string",  "required": true, "description": "National Waterway designation and river name" },
+            "terminal_type": { "type": "string",  "required": true, "description": "Classification of terminal" },
+            "latitude":      { "type": "number",  "required": true, "description": "WGS84 decimal latitude" },
+            "longitude":     { "type": "number",  "required": true, "description": "WGS84 decimal longitude" },
+            "source":        { "type": "string",  "required": true, "description": "URL of authoritative data source" },
+            "notes":         { "type": "string",  "required": false, "description": "Operational context" }
+          }
+        },
+        "river_monitoring_stations": {
+          "record_count": 25,
+          "schema": {
+            "station_id":          { "type": "integer",       "required": true, "description": "Unique sequential identifier" },
+            "station_name":        { "type": "string",        "required": true, "description": "Name of monitoring station location" },
+            "river_name":          { "type": "string",        "required": true, "description": "Name of the river being monitored" },
+            "latitude":            { "type": "number",        "required": true, "description": "WGS84 decimal latitude" },
+            "longitude":           { "type": "number",        "required": true, "description": "WGS84 decimal longitude" },
+            "parameters_measured": { "type": "array",         "required": true, "items": {"type": "string"}, "description": "List of water quality parameters (e.g. pH, DO, BOD)" },
+            "source":              { "type": "string",        "required": true, "description": "URL of authoritative data source" },
+            "notes":               { "type": "string",        "required": false, "description": "Monitoring context or methodology notes" }
+          }
+        }
+      }
+    },
+    "environmental": {
+      "file": "data/environmental.json",
+      "description": "Reference environmental and ecological datasets (Bhuvan, WDPA, UNEP) relevant to coastal and marine areas",
+      "source": "NRSC Bhuvan, UNEP, Protected Planet (WDPA)",
+      "record_count": 15,
+      "schema": {
+        "dataset_id":    { "type": "integer", "required": true, "description": "Unique sequential identifier" },
+        "dataset_name":  { "type": "string",  "required": true, "description": "Official name of the environmental dataset" },
+        "coverage_area": { "type": "string",  "required": true, "description": "Geographic scope (e.g. India, Global, Global Oceans)" },
+        "dataset_type":  { "type": "string",  "required": true, "description": "Nature of the data (spatial layer, monitoring data, etc.)" },
+        "source":        { "type": "string",  "required": true, "description": "URL of dataset source" },
+        "notes":         { "type": "string",  "required": false, "description": "Description of dataset contents and usage" }
+      }
+    },
+    "logistics": {
+      "file": "data/logistics.json",
+      "description": "National Multimodal Logistics Parks (MMLPs) under PM GatiShakti",
+      "source": "Ministry of Commerce – Logistics Division (logistics.gov.in), NICDC",
+      "record_count": 10,
+      "schema": {
+        "park_id":   { "type": "integer", "required": true, "description": "Unique sequential identifier" },
+        "park_name": { "type": "string",  "required": true, "description": "Name of the logistics park location / city" },
+        "state":     { "type": "string",  "required": true, "description": "State where the park is located" },
+        "latitude":  { "type": "number",  "required": true, "description": "WGS84 decimal latitude" },
+        "longitude": { "type": "number",  "required": true, "description": "WGS84 decimal longitude" },
+        "source":    { "type": "string",  "required": true, "description": "URL of authoritative data source" },
+        "notes":     { "type": "string",  "required": false, "description": "Connectivity and operational context" }
+      }
+    }
+  }
+}
