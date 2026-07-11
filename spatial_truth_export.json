@@ -1,0 +1,346 @@
+{
+  "layer_metadata": {
+    "owner": "Shravani (National Geospatial Intelligence Layer)",
+    "version": "1.0.0",
+    "spatial_reproducibility": "True"
+  },
+  "river_network": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_GAN_001",
+          "river_name": "Ganga"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              78.0,
+              30.0
+            ],
+            [
+              80.0,
+              26.0
+            ],
+            [
+              84.0,
+              25.0
+            ],
+            [
+              88.0,
+              22.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_YAM_001",
+          "river_name": "Yamuna"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              77.0,
+              31.0
+            ],
+            [
+              77.2,
+              28.6
+            ],
+            [
+              81.8,
+              25.4
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_BRA_001",
+          "river_name": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              82.0,
+              30.0
+            ],
+            [
+              91.0,
+              26.0
+            ],
+            [
+              92.0,
+              25.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_GOD_001",
+          "river_name": "Godavari"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              73.5,
+              19.9
+            ],
+            [
+              79.0,
+              18.5
+            ],
+            [
+              81.7,
+              16.7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_KRI_001",
+          "river_name": "Krishna"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              73.6,
+              17.9
+            ],
+            [
+              77.0,
+              16.0
+            ],
+            [
+              80.5,
+              15.8
+            ]
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_NAR_001",
+          "river_name": "Narmada"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              81.7,
+              22.7
+            ],
+            [
+              76.0,
+              22.2
+            ],
+            [
+              72.8,
+              21.6
+            ]
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_TAP_001",
+          "river_name": "Tapi"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              76.2,
+              21.8
+            ],
+            [
+              74.0,
+              21.3
+            ],
+            [
+              72.7,
+              21.1
+            ]
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_MAH_001",
+          "river_name": "Mahanadi"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              81.8,
+              20.2
+            ],
+            [
+              84.0,
+              21.5
+            ],
+            [
+              86.7,
+              20.3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_KAV_001",
+          "river_name": "Kaveri"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              75.7,
+              12.4
+            ],
+            [
+              78.0,
+              11.5
+            ],
+            [
+              79.8,
+              11.1
+            ]
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "type": "Feature",
+        "properties": {
+          "river_id": "RIV_IND_001",
+          "river_name": "Indus_Basin"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              75.0,
+              34.0
+            ],
+            [
+              73.0,
+              32.5
+            ],
+            [
+              71.0,
+              31.0
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "infrastructure_matrix": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_01",
+          "name": "Farakka Barrage Segment",
+          "type": "Barrage",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.0,
+            26.0
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_02",
+          "name": "Kolkata Port Terminal",
+          "type": "Port",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            88.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_03",
+          "name": "Guwahati Inland Jetty",
+          "type": "Jetty",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            91.0,
+            26.0
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_04",
+          "name": "Wazirabad Barrage",
+          "type": "Barrage",
+          "associated_river": "Yamuna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2,
+            28.6
+          ]
+        }
+      }
+    ]
+  },
+  "provenance_topology": [
+    {
+      "upstream_node": "Farakka Barrage Segment",
+      "downstream_node": "Kolkata Port Terminal",
+      "impact": "Water release directly changes navigability at downstream port."
+    }
+  ]
+}
