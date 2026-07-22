@@ -1,11 +1,11 @@
 {
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
-    "version": "2.0.0",
-    "generated_at": "2026-07-22T05:14:33Z",
+    "version": "3.0.0",
+    "generated_at": "2026-07-22T10:02:21Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
-    "coverage_note": "Representative multi-river prototype dataset. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md for production data-acquisition plan."
+    "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
   },
   "river_network": {
     "type": "FeatureCollection",
@@ -346,6 +346,136 @@
       }
     ]
   },
+  "tributaries": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "tributary_id": "TRIB_001",
+          "tributary_name": "Ghaghara_to_Ganga"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              81.0,
+              28.5
+            ],
+            [
+              82.5,
+              26.0
+            ],
+            [
+              84.0,
+              25.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "tributary_id": "TRIB_002",
+          "tributary_name": "Chambal_to_Yamuna"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              75.8,
+              24.0
+            ],
+            [
+              77.5,
+              26.5
+            ],
+            [
+              79.0,
+              27.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "tributary_id": "TRIB_003",
+          "tributary_name": "Subansiri_to_Brahmaputra"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              94.1,
+              27.5
+            ],
+            [
+              93.8,
+              26.8
+            ],
+            [
+              91.0,
+              26.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "type": "Feature",
+        "properties": {
+          "tributary_id": "TRIB_004",
+          "tributary_name": "Indravati_to_Godavari"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              81.6,
+              19.0
+            ],
+            [
+              80.5,
+              18.0
+            ],
+            [
+              79.0,
+              18.5
+            ]
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "type": "Feature",
+        "properties": {
+          "tributary_id": "TRIB_005",
+          "tributary_name": "Tungabhadra_to_Krishna"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              76.4,
+              15.3
+            ],
+            [
+              78.0,
+              16.0
+            ],
+            [
+              79.0,
+              16.0
+            ]
+          ]
+        }
+      }
+    ]
+  },
   "national_waterways": {
     "type": "FeatureCollection",
     "features": [
@@ -455,6 +585,72 @@
             [
               92.5,
               24.3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-8",
+          "nw_name": "Alappuzha-Changanassery",
+          "associated_river": "Kerala Backwaters"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              76.3,
+              9.5
+            ],
+            [
+              76.5,
+              9.4
+            ]
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-10",
+          "nw_name": "Amba River",
+          "associated_river": "Amba"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              73.1,
+              18.4
+            ],
+            [
+              72.9,
+              18.6
+            ]
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-73",
+          "nw_name": "Godavari (Bhadrachalam-Rajahmundry)",
+          "associated_river": "Godavari"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              80.9,
+              17.7
+            ],
+            [
+              81.8,
+              17.0
             ]
           ]
         }
@@ -803,6 +999,559 @@
             34.2
           ]
         }
+      },
+      {
+        "id": "20",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_21",
+          "name": "Farakka Navigation Lock",
+          "type": "Lock",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            87.9,
+            24.8
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_22",
+          "name": "Vikramshila Lock",
+          "type": "Lock",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            86.9,
+            25.3
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_23",
+          "name": "Sardar Sarovar Reservoir",
+          "type": "Reservoir",
+          "associated_river": "Narmada"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            73.75,
+            21.85
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_24",
+          "name": "Nagarjuna Sagar Reservoir",
+          "type": "Reservoir",
+          "associated_river": "Krishna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.35,
+            16.65
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_25",
+          "name": "Hirakud Reservoir",
+          "type": "Reservoir",
+          "associated_river": "Mahanadi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            83.95,
+            21.55
+          ]
+        }
+      },
+      {
+        "id": "25",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_26",
+          "name": "Sundarbans Wetland Complex",
+          "type": "Wetland",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            88.9,
+            21.9
+          ]
+        }
+      },
+      {
+        "id": "26",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_27",
+          "name": "Kaziranga Floodplain Wetlands",
+          "type": "Wetland",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            93.4,
+            26.6
+          ]
+        }
+      },
+      {
+        "id": "27",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_28",
+          "name": "Chilika-adjacent Mahanadi Wetlands",
+          "type": "Wetland",
+          "associated_river": "Mahanadi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            85.4,
+            19.7
+          ]
+        }
+      },
+      {
+        "id": "28",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_29",
+          "name": "Haldia Dock Complex",
+          "type": "Port",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            88.06,
+            22.03
+          ]
+        }
+      },
+      {
+        "id": "29",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_30",
+          "name": "Vishakhapatnam Port",
+          "type": "Port",
+          "associated_river": "Godavari"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            83.3,
+            17.7
+          ]
+        }
+      }
+    ]
+  },
+  "floodplains": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "floodplain_id": "FP_01",
+          "name": "Ganga-Bihar Floodplain",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                84.0,
+                24.5
+              ],
+              [
+                86.0,
+                24.5
+              ],
+              [
+                86.0,
+                25.8
+              ],
+              [
+                84.0,
+                25.8
+              ],
+              [
+                84.0,
+                24.5
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "floodplain_id": "FP_02",
+          "name": "Brahmaputra Assam Floodplain",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                92.0,
+                25.8
+              ],
+              [
+                94.5,
+                25.8
+              ],
+              [
+                94.5,
+                27.2
+              ],
+              [
+                92.0,
+                27.2
+              ],
+              [
+                92.0,
+                25.8
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "floodplain_id": "FP_03",
+          "name": "Mahanadi Delta Floodplain",
+          "associated_river": "Mahanadi"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                85.5,
+                19.9
+              ],
+              [
+                87.0,
+                19.9
+              ],
+              [
+                87.0,
+                20.7
+              ],
+              [
+                85.5,
+                20.7
+              ],
+              [
+                85.5,
+                19.9
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "watersheds": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "watershed_id": "WS_01",
+          "name": "Upper Ganga Watershed",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.5,
+                29.0
+              ],
+              [
+                81.0,
+                29.0
+              ],
+              [
+                81.0,
+                31.0
+              ],
+              [
+                77.5,
+                31.0
+              ],
+              [
+                77.5,
+                29.0
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "watershed_id": "WS_02",
+          "name": "Godavari Basin Watershed",
+          "associated_river": "Godavari"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                73.0,
+                17.5
+              ],
+              [
+                82.0,
+                17.5
+              ],
+              [
+                82.0,
+                21.0
+              ],
+              [
+                73.0,
+                21.0
+              ],
+              [
+                73.0,
+                17.5
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "watershed_id": "WS_03",
+          "name": "Narmada Basin Watershed",
+          "associated_river": "Narmada"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                72.5,
+                21.0
+              ],
+              [
+                82.0,
+                21.0
+              ],
+              [
+                82.0,
+                23.5
+              ],
+              [
+                72.5,
+                23.5
+              ],
+              [
+                72.5,
+                21.0
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "administrative_boundaries": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "admin_id": "ADM_01",
+          "name": "Uttar Pradesh (representative extent)"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                77.0,
+                24.0
+              ],
+              [
+                84.5,
+                24.0
+              ],
+              [
+                84.5,
+                30.5
+              ],
+              [
+                77.0,
+                30.5
+              ],
+              [
+                77.0,
+                24.0
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "admin_id": "ADM_02",
+          "name": "West Bengal (representative extent)"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                85.8,
+                21.5
+              ],
+              [
+                89.9,
+                21.5
+              ],
+              [
+                89.9,
+                27.2
+              ],
+              [
+                85.8,
+                27.2
+              ],
+              [
+                85.8,
+                21.5
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "admin_id": "ADM_03",
+          "name": "Assam (representative extent)"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                89.7,
+                24.1
+              ],
+              [
+                96.0,
+                24.1
+              ],
+              [
+                96.0,
+                28.0
+              ],
+              [
+                89.7,
+                28.0
+              ],
+              [
+                89.7,
+                24.1
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "industrial_corridors": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "corridor_id": "IC_01",
+          "name": "Amritsar-Kolkata Industrial Corridor (Ganga segment)"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              83.0,
+              25.3
+            ],
+            [
+              88.0,
+              22.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "corridor_id": "IC_02",
+          "name": "Vizag-Chennai Industrial Corridor (Godavari segment)"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              83.3,
+              17.7
+            ],
+            [
+              81.7,
+              16.7
+            ]
+          ]
+        }
       }
     ]
   },
@@ -816,8 +1565,20 @@
     {
       "river": "Ganga",
       "upstream_node": "Varanasi Multi-Modal Terminal",
+      "downstream_node": "Vikramshila Lock",
+      "impact": "Changes at Varanasi Multi-Modal Terminal directly affect downstream conditions at Vikramshila Lock."
+    },
+    {
+      "river": "Ganga",
+      "upstream_node": "Vikramshila Lock",
+      "downstream_node": "Farakka Navigation Lock",
+      "impact": "Changes at Vikramshila Lock directly affect downstream conditions at Farakka Navigation Lock."
+    },
+    {
+      "river": "Ganga",
+      "upstream_node": "Farakka Navigation Lock",
       "downstream_node": "Farakka Barrage",
-      "impact": "Changes at Varanasi Multi-Modal Terminal directly affect downstream conditions at Farakka Barrage."
+      "impact": "Changes at Farakka Navigation Lock directly affect downstream conditions at Farakka Barrage."
     },
     {
       "river": "Ganga",
@@ -826,10 +1587,28 @@
       "impact": "Changes at Farakka Barrage directly affect downstream conditions at Kolkata Port Terminal."
     },
     {
+      "river": "Ganga",
+      "upstream_node": "Kolkata Port Terminal",
+      "downstream_node": "Sundarbans Wetland Complex",
+      "impact": "Changes at Kolkata Port Terminal directly affect downstream conditions at Sundarbans Wetland Complex."
+    },
+    {
+      "river": "Ganga",
+      "upstream_node": "Sundarbans Wetland Complex",
+      "downstream_node": "Haldia Dock Complex",
+      "impact": "Changes at Sundarbans Wetland Complex directly affect downstream conditions at Haldia Dock Complex."
+    },
+    {
       "river": "Yamuna",
       "upstream_node": "Hathnikund Barrage",
       "downstream_node": "Wazirabad Barrage",
       "impact": "Changes at Hathnikund Barrage directly affect downstream conditions at Wazirabad Barrage."
+    },
+    {
+      "river": "Brahmaputra",
+      "upstream_node": "Kaziranga Floodplain Wetlands",
+      "downstream_node": "Guwahati Inland Jetty",
+      "impact": "Changes at Kaziranga Floodplain Wetlands directly affect downstream conditions at Guwahati Inland Jetty."
     },
     {
       "river": "Brahmaputra",
@@ -844,10 +1623,28 @@
       "impact": "Changes at Polavaram Dam (under construction) directly affect downstream conditions at Dowleswaram Barrage."
     },
     {
+      "river": "Godavari",
+      "upstream_node": "Dowleswaram Barrage",
+      "downstream_node": "Vishakhapatnam Port",
+      "impact": "Changes at Dowleswaram Barrage directly affect downstream conditions at Vishakhapatnam Port."
+    },
+    {
       "river": "Krishna",
       "upstream_node": "Nagarjuna Sagar Dam",
+      "downstream_node": "Nagarjuna Sagar Reservoir",
+      "impact": "Changes at Nagarjuna Sagar Dam directly affect downstream conditions at Nagarjuna Sagar Reservoir."
+    },
+    {
+      "river": "Krishna",
+      "upstream_node": "Nagarjuna Sagar Reservoir",
       "downstream_node": "Prakasam Barrage",
-      "impact": "Changes at Nagarjuna Sagar Dam directly affect downstream conditions at Prakasam Barrage."
+      "impact": "Changes at Nagarjuna Sagar Reservoir directly affect downstream conditions at Prakasam Barrage."
+    },
+    {
+      "river": "Narmada",
+      "upstream_node": "Sardar Sarovar Reservoir",
+      "downstream_node": "Sardar Sarovar Dam",
+      "impact": "Changes at Sardar Sarovar Reservoir directly affect downstream conditions at Sardar Sarovar Dam."
     },
     {
       "river": "Narmada",
@@ -858,8 +1655,20 @@
     {
       "river": "Mahanadi",
       "upstream_node": "Hirakud Dam",
+      "downstream_node": "Hirakud Reservoir",
+      "impact": "Changes at Hirakud Dam directly affect downstream conditions at Hirakud Reservoir."
+    },
+    {
+      "river": "Mahanadi",
+      "upstream_node": "Hirakud Reservoir",
+      "downstream_node": "Chilika-adjacent Mahanadi Wetlands",
+      "impact": "Changes at Hirakud Reservoir directly affect downstream conditions at Chilika-adjacent Mahanadi Wetlands."
+    },
+    {
+      "river": "Mahanadi",
+      "upstream_node": "Chilika-adjacent Mahanadi Wetlands",
       "downstream_node": "Paradip Port",
-      "impact": "Changes at Hirakud Dam directly affect downstream conditions at Paradip Port."
+      "impact": "Changes at Chilika-adjacent Mahanadi Wetlands directly affect downstream conditions at Paradip Port."
     },
     {
       "river": "Kaveri",
@@ -946,15 +1755,120 @@
       "cargo_type": "Coal, bulk minerals"
     }
   ],
+  "cargo_corridors": [
+    {
+      "corridor": "Haldia-Kolkata Cargo Route",
+      "commodity": "Containerized cargo, petroleum",
+      "river": "Ganga"
+    },
+    {
+      "corridor": "Vizag-Paradip Coastal Cargo Route",
+      "commodity": "Iron ore, coal",
+      "river": "Godavari/Mahanadi"
+    }
+  ],
+  "environmental_overlay": [
+    {
+      "river": "Ganga",
+      "feature": "Sundarbans Mangrove Forest",
+      "type": "Mangrove",
+      "protection_status": "UNESCO World Heritage, Ramsar Site"
+    },
+    {
+      "river": "Brahmaputra",
+      "feature": "Kaziranga Floodplain Grassland",
+      "type": "Grassland/Wetland",
+      "protection_status": "UNESCO World Heritage, National Park"
+    },
+    {
+      "river": "Mahanadi",
+      "feature": "Bhitarkanika Mangroves (delta-adjacent)",
+      "type": "Mangrove",
+      "protection_status": "Ramsar Site"
+    }
+  ],
+  "protected_area_overlay": [
+    {
+      "name": "Sundarbans National Park",
+      "associated_river": "Ganga",
+      "designation": "National Park + Tiger Reserve"
+    },
+    {
+      "name": "Kaziranga National Park",
+      "associated_river": "Brahmaputra",
+      "designation": "National Park + UNESCO World Heritage"
+    },
+    {
+      "name": "Bhitarkanika National Park",
+      "associated_river": "Mahanadi",
+      "designation": "National Park + Wildlife Sanctuary"
+    }
+  ],
+  "seasonal_navigability": [
+    {
+      "river": "Ganga",
+      "monsoon_navigability": "REDUCED (high flow, debris risk)",
+      "dry_season_navigability": "GOOD"
+    },
+    {
+      "river": "Brahmaputra",
+      "monsoon_navigability": "REDUCED (flooding, shifting channels)",
+      "dry_season_navigability": "MODERATE (sandbar exposure)"
+    },
+    {
+      "river": "Godavari",
+      "monsoon_navigability": "MODERATE",
+      "dry_season_navigability": "GOOD"
+    },
+    {
+      "river": "Narmada",
+      "monsoon_navigability": "GOOD (dam-regulated)",
+      "dry_season_navigability": "GOOD (dam-regulated)"
+    }
+  ],
+  "convergence_status": {
+    "marine_masterdb": {
+      "status": "skipped",
+      "reason": "MASTERDB_INGEST_ENDPOINT not configured yet"
+    },
+    "knowledge_graph": {
+      "status": "skipped",
+      "reason": "KG_INGEST_ENDPOINT not configured yet"
+    },
+    "goudha_runtime": {
+      "status": "skipped",
+      "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"
+    },
+    "bucket": {
+      "status": "skipped",
+      "reason": "BUCKET_ENDPOINT not configured yet"
+    },
+    "insightflow": {
+      "status": "skipped",
+      "reason": "INSIGHTFLOW_ENDPOINT not configured yet"
+    },
+    "replay": {
+      "status": "skipped",
+      "reason": "REPLAY_ENDPOINT not configured yet"
+    }
+  },
   "validation_results": {
     "crs_consistency": true,
     "river_count": 10,
     "expected_river_count": 10,
     "multi_river_coverage": true,
-    "infra_count": 20,
-    "topology_relationships": 10,
+    "tributary_count": 5,
+    "infra_count": 30,
+    "infra_type_diversity": 9,
+    "waterway_segments": 8,
+    "floodplain_count": 3,
+    "watershed_count": 3,
+    "admin_boundary_count": 3,
+    "industrial_corridor_count": 2,
+    "topology_relationships": 20,
     "rivers_with_topology": 8,
-    "waterway_segments": 5,
-    "geometry_validity": true
+    "geometry_validity": true,
+    "convergence_adapters_ready": 6,
+    "convergence_adapters_live": 0
   }
 }
