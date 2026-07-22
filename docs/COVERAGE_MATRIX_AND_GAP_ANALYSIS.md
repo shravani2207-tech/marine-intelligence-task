@@ -113,3 +113,51 @@
 **What this does not yet deliver:** Survey-grade geometry, full National Waterways catalogue (NW1-111), several infrastructure categories (locks, wetlands, floodplains-as-geometry, watersheds, admin boundaries, industrial corridors), cross-basin connectivity, environmental/protected-area/seasonal-navigability overlays, and live integration with Marine MasterDB, Knowledge Graph, GOUDHA Runtime, Replay, InsightFlow, Bucket, or TMS.
 
 **Recommended interpretation:** This is a national-scale *prototype and architecture proof*, demonstrating the pattern (per-river geometry -> infrastructure matrix -> topology -> overlays -> validated export) at a representative scale. Scaling to full survey-grade national coverage requires the data-acquisition sources named in the original brief (Survey of India, CWC, IWAI, NRSC Bhuvan) and is out of scope for an AI-assisted execution sprint without direct API/data access to those sources.
+
+---
+---
+
+# v3 UPDATE -- 22 July 2026
+
+## Updated Coverage Summary (post-expansion)
+
+| Category | v2 | v3 | Change |
+|---|---|---|---|
+| Rivers | 10 | 10 | No change (already complete) |
+| Tributaries | 0 | 5 | NEW |
+| National Waterways | 5 | 8 | +3 (still 8/111, gap remains) |
+| Infrastructure nodes | 20 | 30 | +10, added Locks, Reservoirs, Wetlands categories |
+| Infrastructure type diversity | 6 types | 9 types | +Locks, Reservoirs, Wetlands |
+| Floodplains (as geometry) | 0 | 3 | NEW -- was previously only a risk label, now actual polygons |
+| Watersheds | 0 | 3 | NEW |
+| Administrative boundaries | 0 | 3 | NEW |
+| Industrial corridors | 0 | 2 | NEW |
+| Topology relationships | 10 | 20 | +10, same 8/10 rivers, more detail per river |
+| Cargo corridors | 0 | 2 | NEW (distinct from navigation corridors) |
+| Environmental overlay (spatial) | 0 | 3 | NEW |
+| Protected-area overlay | 0 | 3 | NEW |
+| Seasonal navigability | 0 | 4 rivers | NEW |
+| Convergence adapters (stubs) | 0 | 6 | NEW -- MasterDB, KG, Runtime, Bucket, InsightFlow, Replay all have ready-but-not-live adapter classes |
+
+## Still Not Covered (remaining gaps after v3)
+- Locks: only 2 (both on Ganga) -- other rivers still have none
+- Reservoirs: only 3 (Narmada, Krishna, Mahanadi) -- other 7 rivers have none
+- Wetlands: only 3 -- far short of India's actual wetland count
+- National Waterways: 8/111 -- still a large gap
+- Tapi and Indus Basin: still only 1 infra node each, no topology possible
+- Convergence adapters are STRUCTURALLY ready but NOT live -- zero live pushes have occurred to any of the 6 downstream systems (MasterDB, KG, Runtime, Bucket, InsightFlow, Replay). This requires actual endpoint URLs from Chandragupta, Ankita, Nupur, and the BHIV team respectively -- none have been provided to this layer yet.
+- No screenshots or visual proofs yet (Phase 6 gap, unchanged)
+- Geometry remains representative/approximate, not survey-grade (unchanged)
+
+## Revised Realistic Completion Estimate
+
+| Phase | v2 estimate | v3 estimate |
+|---|---|---|
+| Phase 1 (Dataset Expansion) | ~25% | ~45% |
+| Phase 2 (Spatial Intelligence) | ~35% | ~55% |
+| Phase 3 (GIS & TANTRA Convergence) | ~5% | ~15% (adapters exist and are structurally correct, but zero live connections) |
+| Phase 4 (Validation) | ~40% | ~50% (more checks run, still no performance/runtime testing) |
+| Phase 5 (Documentation) | 100% | 100% (this update is part of that continuity) |
+| Phase 6 (Review Packet & Proof) | ~55% | ~55% (unchanged -- screenshots still missing) |
+
+**Overall realistic completion: ~45-50%** (up from ~35-40%).
