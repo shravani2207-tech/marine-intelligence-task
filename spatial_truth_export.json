@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-22T10:02:21Z",
+    "generated_at": "2026-07-22T10:26:48Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -1169,6 +1169,193 @@
             17.7
           ]
         }
+      },
+      {
+        "id": "30",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_31",
+          "name": "Yamuna Lock (Agra Barrage)",
+          "type": "Lock",
+          "associated_river": "Yamuna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.0,
+            27.2
+          ]
+        }
+      },
+      {
+        "id": "31",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_32",
+          "name": "Yamuna Reservoir (Hathnikund)",
+          "type": "Reservoir",
+          "associated_river": "Yamuna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.35,
+            30.35
+          ]
+        }
+      },
+      {
+        "id": "32",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_33",
+          "name": "Yamuna Floodplain Wetland (Delhi)",
+          "type": "Wetland",
+          "associated_river": "Yamuna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.25,
+            28.65
+          ]
+        }
+      },
+      {
+        "id": "33",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_34",
+          "name": "Brahmaputra Navigation Lock (Pandu)",
+          "type": "Lock",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            91.65,
+            26.15
+          ]
+        }
+      },
+      {
+        "id": "34",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_35",
+          "name": "Brahmaputra Char Wetland Complex",
+          "type": "Wetland",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            93.0,
+            26.5
+          ]
+        }
+      },
+      {
+        "id": "35",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_36",
+          "name": "Ukai Reservoir",
+          "type": "Reservoir",
+          "associated_river": "Tapi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            73.65,
+            21.25
+          ]
+        }
+      },
+      {
+        "id": "36",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_37",
+          "name": "Tapi Estuary Wetland (Surat)",
+          "type": "Wetland",
+          "associated_river": "Tapi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            72.75,
+            21.15
+          ]
+        }
+      },
+      {
+        "id": "37",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_38",
+          "name": "Kaveri Delta Lock (Grand Anicut)",
+          "type": "Lock",
+          "associated_river": "Kaveri"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.9,
+            11.2
+          ]
+        }
+      },
+      {
+        "id": "38",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_39",
+          "name": "Krishna Raja Sagara Reservoir",
+          "type": "Reservoir",
+          "associated_river": "Kaveri"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            76.55,
+            12.35
+          ]
+        }
+      },
+      {
+        "id": "39",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_40",
+          "name": "Point Calimere Wetland (Kaveri delta)",
+          "type": "Wetland",
+          "associated_river": "Kaveri"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.85,
+            10.3
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_41",
+          "name": "Indus Reservoir (Zanskar confluence)",
+          "type": "Reservoir",
+          "associated_river": "Indus_Basin"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            76.5,
+            33.5
+          ]
+        }
       }
     ]
   },
@@ -1600,21 +1787,51 @@
     },
     {
       "river": "Yamuna",
+      "upstream_node": "Yamuna Reservoir (Hathnikund)",
+      "downstream_node": "Hathnikund Barrage",
+      "impact": "Changes at Yamuna Reservoir (Hathnikund) directly affect downstream conditions at Hathnikund Barrage."
+    },
+    {
+      "river": "Yamuna",
       "upstream_node": "Hathnikund Barrage",
+      "downstream_node": "Yamuna Floodplain Wetland (Delhi)",
+      "impact": "Changes at Hathnikund Barrage directly affect downstream conditions at Yamuna Floodplain Wetland (Delhi)."
+    },
+    {
+      "river": "Yamuna",
+      "upstream_node": "Yamuna Floodplain Wetland (Delhi)",
       "downstream_node": "Wazirabad Barrage",
-      "impact": "Changes at Hathnikund Barrage directly affect downstream conditions at Wazirabad Barrage."
+      "impact": "Changes at Yamuna Floodplain Wetland (Delhi) directly affect downstream conditions at Wazirabad Barrage."
+    },
+    {
+      "river": "Yamuna",
+      "upstream_node": "Wazirabad Barrage",
+      "downstream_node": "Yamuna Lock (Agra Barrage)",
+      "impact": "Changes at Wazirabad Barrage directly affect downstream conditions at Yamuna Lock (Agra Barrage)."
     },
     {
       "river": "Brahmaputra",
       "upstream_node": "Kaziranga Floodplain Wetlands",
+      "downstream_node": "Brahmaputra Char Wetland Complex",
+      "impact": "Changes at Kaziranga Floodplain Wetlands directly affect downstream conditions at Brahmaputra Char Wetland Complex."
+    },
+    {
+      "river": "Brahmaputra",
+      "upstream_node": "Brahmaputra Char Wetland Complex",
       "downstream_node": "Guwahati Inland Jetty",
-      "impact": "Changes at Kaziranga Floodplain Wetlands directly affect downstream conditions at Guwahati Inland Jetty."
+      "impact": "Changes at Brahmaputra Char Wetland Complex directly affect downstream conditions at Guwahati Inland Jetty."
     },
     {
       "river": "Brahmaputra",
       "upstream_node": "Guwahati Inland Jetty",
       "downstream_node": "Pandu Port",
       "impact": "Changes at Guwahati Inland Jetty directly affect downstream conditions at Pandu Port."
+    },
+    {
+      "river": "Brahmaputra",
+      "upstream_node": "Pandu Port",
+      "downstream_node": "Brahmaputra Navigation Lock (Pandu)",
+      "impact": "Changes at Pandu Port directly affect downstream conditions at Brahmaputra Navigation Lock (Pandu)."
     },
     {
       "river": "Godavari",
@@ -1653,6 +1870,18 @@
       "impact": "Changes at Sardar Sarovar Dam directly affect downstream conditions at Bharuch Bridge Corridor."
     },
     {
+      "river": "Tapi",
+      "upstream_node": "Ukai Reservoir",
+      "downstream_node": "Ukai Dam",
+      "impact": "Changes at Ukai Reservoir directly affect downstream conditions at Ukai Dam."
+    },
+    {
+      "river": "Tapi",
+      "upstream_node": "Ukai Dam",
+      "downstream_node": "Tapi Estuary Wetland (Surat)",
+      "impact": "Changes at Ukai Dam directly affect downstream conditions at Tapi Estuary Wetland (Surat)."
+    },
+    {
       "river": "Mahanadi",
       "upstream_node": "Hirakud Dam",
       "downstream_node": "Hirakud Reservoir",
@@ -1672,9 +1901,33 @@
     },
     {
       "river": "Kaveri",
+      "upstream_node": "Krishna Raja Sagara Reservoir",
+      "downstream_node": "Krishna Raja Sagara Dam",
+      "impact": "Changes at Krishna Raja Sagara Reservoir directly affect downstream conditions at Krishna Raja Sagara Dam."
+    },
+    {
+      "river": "Kaveri",
       "upstream_node": "Krishna Raja Sagara Dam",
       "downstream_node": "Mettur Dam",
       "impact": "Changes at Krishna Raja Sagara Dam directly affect downstream conditions at Mettur Dam."
+    },
+    {
+      "river": "Kaveri",
+      "upstream_node": "Mettur Dam",
+      "downstream_node": "Kaveri Delta Lock (Grand Anicut)",
+      "impact": "Changes at Mettur Dam directly affect downstream conditions at Kaveri Delta Lock (Grand Anicut)."
+    },
+    {
+      "river": "Kaveri",
+      "upstream_node": "Kaveri Delta Lock (Grand Anicut)",
+      "downstream_node": "Point Calimere Wetland (Kaveri delta)",
+      "impact": "Changes at Kaveri Delta Lock (Grand Anicut) directly affect downstream conditions at Point Calimere Wetland (Kaveri delta)."
+    },
+    {
+      "river": "Indus_Basin",
+      "upstream_node": "Leh Bridge Corridor",
+      "downstream_node": "Indus Reservoir (Zanskar confluence)",
+      "impact": "Changes at Leh Bridge Corridor directly affect downstream conditions at Indus Reservoir (Zanskar confluence)."
     }
   ],
   "flood_risk_overlay": [
@@ -1858,15 +2111,15 @@
     "expected_river_count": 10,
     "multi_river_coverage": true,
     "tributary_count": 5,
-    "infra_count": 30,
+    "infra_count": 41,
     "infra_type_diversity": 9,
     "waterway_segments": 8,
     "floodplain_count": 3,
     "watershed_count": 3,
     "admin_boundary_count": 3,
     "industrial_corridor_count": 2,
-    "topology_relationships": 20,
-    "rivers_with_topology": 8,
+    "topology_relationships": 31,
+    "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
     "convergence_adapters_live": 0

@@ -1,4 +1,4 @@
-﻿import geopandas as gpd
+import geopandas as gpd
 import pandas as pd
 from shapely.geometry import LineString, Point, Polygon
 import json
@@ -112,6 +112,17 @@ infra_records = [
     # NEW: Additional ports/jetties/terminals for coverage
     {"id": "INFRA_29", "name": "Haldia Dock Complex", "type": "Port", "river": "Ganga", "pt": (88.06, 22.03)},
     {"id": "INFRA_30", "name": "Vishakhapatnam Port", "type": "Port", "river": "Godavari", "pt": (83.3, 17.7)},
+    {"id": "INFRA_31", "name": "Yamuna Lock (Agra Barrage)", "type": "Lock", "river": "Yamuna", "pt": (78.0, 27.2)},
+    {"id": "INFRA_32", "name": "Yamuna Reservoir (Hathnikund)", "type": "Reservoir", "river": "Yamuna", "pt": (77.35, 30.35)},
+    {"id": "INFRA_33", "name": "Yamuna Floodplain Wetland (Delhi)", "type": "Wetland", "river": "Yamuna", "pt": (77.25, 28.65)},
+    {"id": "INFRA_34", "name": "Brahmaputra Navigation Lock (Pandu)", "type": "Lock", "river": "Brahmaputra", "pt": (91.65, 26.15)},
+    {"id": "INFRA_35", "name": "Brahmaputra Char Wetland Complex", "type": "Wetland", "river": "Brahmaputra", "pt": (93.0, 26.5)},
+    {"id": "INFRA_36", "name": "Ukai Reservoir", "type": "Reservoir", "river": "Tapi", "pt": (73.65, 21.25)},
+    {"id": "INFRA_37", "name": "Tapi Estuary Wetland (Surat)", "type": "Wetland", "river": "Tapi", "pt": (72.75, 21.15)},
+    {"id": "INFRA_38", "name": "Kaveri Delta Lock (Grand Anicut)", "type": "Lock", "river": "Kaveri", "pt": (78.9, 11.2)},
+    {"id": "INFRA_39", "name": "Krishna Raja Sagara Reservoir", "type": "Reservoir", "river": "Kaveri", "pt": (76.55, 12.35)},
+    {"id": "INFRA_40", "name": "Point Calimere Wetland (Kaveri delta)", "type": "Wetland", "river": "Kaveri", "pt": (79.85, 10.3)},
+    {"id": "INFRA_41", "name": "Indus Reservoir (Zanskar confluence)", "type": "Reservoir", "river": "Indus_Basin", "pt": (76.5, 33.5)},
 ]
 
 gdf_infra = gpd.GeoDataFrame({
