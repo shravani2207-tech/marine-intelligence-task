@@ -443,3 +443,34 @@ query performance was never load-tested).
 
 Updated Phase 6 estimate: ~80% (up from ~55%).
 Updated overall Task C estimate: ~50-55% (up from ~45-50%).
+
+---
+---
+
+# PHASE 6 UPDATE -- Proof Visuals Added
+## 22 July 2026
+
+5 proof visuals generated programmatically via generate_proof_screenshots.py
+and committed to screenshots/:
+
+1. 01_national_river_network_map.png -- all 10 rivers, waterways, and 30
+   infrastructure nodes plotted on a single map, color-coded by type
+2. 02_infrastructure_type_distribution.png -- bar chart of infrastructure
+   counts by category (Dam, Barrage, Port, Jetty, Bridge, Terminal, Lock,
+   Reservoir, Wetland)
+3. 03_flood_risk_overlay.png -- flood-risk classification per river,
+   color-coded HIGH/MEDIUM/LOW
+4. 04_validation_results_summary.png -- table image of all validation
+   checks and results, directly from the validation_results export block
+5. 05_convergence_status.png -- table image showing all 6 convergence
+   adapter statuses (currently all skipped/not_implemented, honestly
+   labeled)
+
+These close most of the Phase 6 gap (GIS screenshots, map screenshots,
+dataset validation screenshots, spatial coverage proofs are now all
+covered). Still missing: integration screenshots (would require live
+convergence, which is Phase 3 gap) and performance evidence (spatial
+query performance was never load-tested).
+
+Updated Phase 6 estimate: ~80% (up from ~55%).
+Updated overall Task C estimate: ~50-55% (up from ~45-50%).
