@@ -207,3 +207,61 @@ calculations need reprojection.
 - The CRS/distance caveat above is a real, actionable finding -- not a
   blocker, but should be fixed before any production distance-based query
   is relied upon.
+
+---
+---
+
+# v4 UPDATE -- All Rivers Now Have Complete Topology
+## 22 July 2026
+
+## What Changed
+Added locks, reservoirs, and wetlands for the 5 rivers that previously had
+sparse or no such coverage: Yamuna, Brahmaputra, Tapi, Kaveri, Indus Basin.
+11 new infrastructure nodes added (41 total, up from 30).
+
+**Critical improvement:** All 10 rivers now have at least 2 infrastructure
+nodes, meaning topology (upstream/downstream relationships) could be
+computed for every single river. Topology relationships grew from 20 to
+31, and rivers_with_topology went from 8/10 to **10/10**.
+
+## Updated Coverage Summary
+
+| Category | v3 | v4 | Change |
+|---|---|---|---|
+| Infrastructure nodes | 30 | 41 | +11 |
+| Rivers with topology | 8/10 | **10/10** | Tapi and Indus Basin now covered |
+| Topology relationships | 20 | 31 | +11 |
+| Locks | 2 (Ganga only) | 4 (Ganga, Kaveri) | +2 |
+| Reservoirs | 3 (Narmada, Krishna, Mahanadi) | 6 (+Yamuna, Tapi, Kaveri, Indus Basin) | +3 |
+| Wetlands | 3 | 6 (+Yamuna, Brahmaputra, Tapi, Kaveri) | +3 |
+
+## Still Not Covered
+- Godavari still has no dedicated lock/reservoir/wetland beyond its
+  existing Barrage/Dam/Port entries (though it has adequate topology via
+  those).
+- Mahanadi, Krishna, Narmada still only have their original categories
+  (Dam/Barrage/Port), no additional lock/wetland diversity added this pass.
+- National Waterways still only 8/111.
+- Live convergence (Phase 3) unchanged -- still 0/6 systems connected.
+
+## Revised Completion Estimate
+
+| Phase | v3 | v4 |
+|---|---|---|
+| Phase 1 (Dataset Expansion) | ~45% | ~50% |
+| Phase 2 (Spatial Intelligence) | ~55% | ~65% (topology now 10/10 rivers) |
+| Phase 3 (Convergence) | ~15% | ~15% (unchanged) |
+| Phase 4 (Validation) | ~55% | ~55% (unchanged) |
+| Phase 5 (Documentation) | 100% | 100% |
+| Phase 6 (Review Packet) | ~95% | ~95% (unchanged) |
+
+**Overall realistic completion: ~55-60%** (up from ~50-55%).
+
+## What This Means
+Every river basin in this layer can now answer the brief's core spatial
+intelligence question -- \"which upstream infrastructure affects this river
+segment\" -- for all 10 named rivers, not just 8. This closes one of the
+most visible gaps from the original brief's Phase 2 requirements. The
+remaining major gap is unchanged: Phase 3 live convergence, which depends
+entirely on external endpoint access from Chandragupta, Ankita, Nupur, and
+the BHIV team.
