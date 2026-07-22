@@ -1,0 +1,8 @@
+{
+  "load_and_parse_geodataframes": "9.49 ms",
+  "nearest_infra_query": "173.92 ms",
+  "attribute_filter_query": "1.72 ms",
+  "spatial_join_floodplain_query": "15.34 ms",
+  "topology_traversal_query": "0.01 ms",
+  "distance_query_avg_over_100_runs": "0.6173 ms"
+}
