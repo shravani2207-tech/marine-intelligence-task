@@ -347,3 +347,68 @@ NOT yet demonstrate live convergence with MasterDB, Knowledge Graph, or
 Runtime systems — both are clearly scoped as remaining work requiring
 external data-source access and cross-team integration effort beyond this
 sprint.
+
+---
+---
+
+# TASK C ADDENDUM v2 -- v3 Expansion Update
+## 22 July 2026
+
+## What Changed
+Following the initial Task C addendum (~35-40% complete), a significant v3
+expansion was performed on national_gis_layer.py, adding:
+- 5 tributaries (Ghaghara, Chambal, Subansiri, Indravati, Tungabhadra)
+- 10 new infrastructure nodes (30 total), introducing 3 new categories:
+  Locks, Reservoirs, Wetlands
+- 3 new National Waterway segments (8 total)
+- Floodplains as actual polygon geometry (3, previously only a qualitative
+  risk label existed)
+- Watersheds as polygon geometry (3, new)
+- Administrative boundaries as polygon geometry (3, new)
+- Industrial corridors (2, new)
+- Cargo corridors (2, distinct from navigation corridors, new)
+- Environmental overlay with spatial features (3, new -- distinct from
+  Task 3's catalogue-only environmental.json)
+- Protected-area overlay (3, new)
+- Seasonal navigability layer (4 rivers, new)
+- Convergence adapter stubs for all 6 named downstream systems (Marine
+  MasterDB, Knowledge Graph, GOUDHA Runtime, Bucket, InsightFlow, Replay) --
+  structurally complete, ready-but-not-live pattern (mirrors TantraOrchestrator
+  design from the Sanskar runtime task), honestly reporting
+  \"skipped\"/\"not_implemented\" until real endpoints are provided
+- Topology relationships doubled from 10 to 20 (same 8/10 rivers, more
+  granular detail per river)
+
+## Updated Self-Evaluation
+
+| Parameter | v2 Score | v3 Score | Notes |
+|---|---|---|---|
+| Multi-river coverage | 4/5 | 4/5 | Unchanged -- 10/10 rivers, topology still 8/10 |
+| Infrastructure category breadth | N/A (not scored before) | 3/5 | 9 categories now present vs 6 before, still missing full lock/reservoir/wetland coverage per river |
+| Data honesty / provenance transparency | 5/5 | 5/5 | Every new addition documented with same honest framing |
+| Schema/export validity | 5/5 | 5/5 | All new layers validated, geometry_validity check passing |
+| Documentation completeness | 5/5 | 5/5 | Coverage Matrix updated same session |
+| Convergence readiness (structural) | N/A (not scored before) | 3/5 | All 6 adapters now exist and are correctly structured, but zero live connections |
+| Production-readiness (survey-grade data, full convergence) | 2/5 | 3/5 | Improved breadth, still no live convergence, still approximate geometry |
+| **Total (weighted)** | **21/25** | **~24/30** (rescaled for new categories) | Meaningful progress, honest gaps remain the same in kind, smaller in scope |
+
+## Updated Overall Completion: ~45-50% of original brief (up from ~35-40%)
+
+## What Is Still Explicitly NOT Done
+1. No live convergence with any of the 6 downstream systems -- adapters
+   exist but have never successfully pushed data anywhere, because no
+   endpoint credentials/URLs have been provided by Chandragupta, Ankita,
+   Nupur, or the BHIV team for this layer specifically.
+2. National Waterways coverage remains a small fraction (8/111).
+3. Locks, reservoirs, and wetlands exist but are not comprehensively
+   mapped per river -- most rivers still have zero of these.
+4. No screenshots, map visuals, or performance evidence (Phase 6 gap
+   unchanged from the original addendum).
+5. Geometry remains representative/approximate throughout -- no
+   survey-grade data has been integrated from Survey of India, CWC, IWAI,
+   or NRSC Bhuvan.
+
+This v3 update meaningfully deepens Phase 1 and Phase 2 coverage and adds
+real structural readiness for Phase 3 convergence, but does not close the
+Phase 3 gap itself (no live data has moved to any downstream system) and
+does not touch the Phase 6 screenshot gap at all.
