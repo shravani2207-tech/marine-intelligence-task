@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-22T10:26:48Z",
+    "generated_at": "2026-07-22T11:15:51Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2093,12 +2093,31 @@
       "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"
     },
     "bucket": {
-      "status": "skipped",
-      "reason": "BUCKET_ENDPOINT not configured yet"
+      "status": "failed",
+      "error": "HTTP Error 400: Bad Request"
     },
     "insightflow": {
-      "status": "skipped",
-      "reason": "INSIGHTFLOW_ENDPOINT not configured yet"
+      "status": "success",
+      "response": {
+        "id": "0b9f57ad-ea3d-44f2-a988-18501a79c4fa",
+        "canonical_id": "BHIV-ART-SEMANTIC-GISLAYER-E87CDB54-AB6",
+        "artifact_type": "SEMANTIC",
+        "artifact_name": "national_geospatial_intelligence_layer",
+        "description": null,
+        "version": "1.0.0",
+        "status": "DRAFT",
+        "owner_name": "Shravani - National Geospatial Intelligence Layer",
+        "owner_team": null,
+        "source_system": "marine-intelligence-task",
+        "domain_primary": "geospatial",
+        "domain_tags": [],
+        "compatibility": null,
+        "lifecycle_notes": null,
+        "replay_reference": null,
+        "artifact_metadata": null,
+        "registered_at": "2026-07-22T11:15:50.580430Z",
+        "updated_at": "2026-07-22T11:15:50.580430Z"
+      }
     },
     "replay": {
       "status": "skipped",
@@ -2122,6 +2141,6 @@
     "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 0
+    "convergence_adapters_live": 1
   }
 }

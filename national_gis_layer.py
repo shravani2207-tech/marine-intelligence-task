@@ -319,17 +319,58 @@ class BucketAdapter(ConvergenceTarget):
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "BUCKET_ENDPOINT not configured yet"}
-        return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
+        import urllib.request
+        import uuid
+        try:
+            bucket_payload = {"artifact_id": str(uuid.uuid4()), "trace_id": str(uuid.uuid4()), "timestamp_utc": datetime.now(timezone.utc).isoformat(), "data": payload}
+            data = json.dumps(bucket_payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
 
 
 class InsightFlowAdapter(ConvergenceTarget):
     """Target: InsightFlow observability sink (shared with Sanskar runtime)."""
     def __init__(self):
         self._endpoint = os.getenv("INSIGHTFLOW_ENDPOINT", "")
+        self._api_key = os.getenv("INSIGHTFLOW_API_KEY", "")
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "INSIGHTFLOW_ENDPOINT not configured yet"}
-        return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
+        if not self._api_key:
+            return {"status": "skipped", "reason": "INSIGHTFLOW_API_KEY not configured yet"}
+        import urllib.request
+        try:
+            import uuid as _uuid
+            artifact_payload = {
+                "canonical_id": "BHIV-ART-SEMANTIC-GISLAYER-" + str(_uuid.uuid4())[:12],
+                "artifact_type": "SEMANTIC",
+                "artifact_name": "national_geospatial_intelligence_layer",
+                "owner_name": "Shravani - National Geospatial Intelligence Layer",
+                "domain_primary": "geospatial",
+                "source_system": "marine-intelligence-task",
+                "data": payload
+            }
+            data = json.dumps(artifact_payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json", "X-API-Key": self._api_key},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
 
 
 class ReplayAdapter(ConvergenceTarget):
@@ -384,7 +425,7 @@ validation_results = {
         and gdf_floodplains.geometry.is_valid.all() and gdf_watersheds.geometry.is_valid.all()
     ),
     "convergence_adapters_ready": len(convergence_adapters),
-    "convergence_adapters_live": sum(1 for s in convergence_status.values() if s.get("status") not in ("skipped", "not_implemented")),
+    "convergence_adapters_live": sum(1 for s in convergence_status.values() if s.get("status") == "success"),
 }
 
 for check, result in validation_results.items():
