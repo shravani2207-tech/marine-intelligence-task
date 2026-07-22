@@ -167,3 +167,183 @@
 - Resolve Kakinada Anchorage duplicate coordinates against source documents
 - Add `last_updated` timestamp per record for cache invalidation
 - Add GeoJSON export variant for direct mapping library consumption
+
+---
+---
+
+# TASK C ADDENDUM — National Geospatial Intelligence Layer
+## Namami Gange TANTRA Federation | Shravani Harde | 22 July 2026
+
+---
+
+## 1. Task Summary
+
+**Objective:** Build the canonical National Geospatial Intelligence Layer and
+Spatial Data Fabric for the Marine Intelligence Platform, transforming Namami
+Gange from a Ganga-centric demo into a multi-river operational intelligence
+platform, covering 10 named river basins plus National Waterways.
+
+**Status:** Partial — national-scale prototype complete, production-grade
+survey data integration not yet performed (requires external data source
+access — see Gap Analysis).
+
+**Ownership boundary respected:** This deliverable does not modify Marine
+MasterDB schema (Chandragupta), does not build Knowledge Graph ontology
+(Ankita), and does not implement runtime services (Nupur) — it only
+produces spatial data for those systems to consume.
+
+---
+
+## 2. Deliverables Checklist
+
+| Deliverable | Status | Location |
+|---|---|---|
+| National GIS layer pipeline | Done | national_gis_layer.py |
+| Canonical spatial export | Done | spatial_truth_export.json |
+| Coverage Matrix & Gap Analysis | Done | docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md |
+| Spatial Architecture & Integration Guide | Done | docs/SPATIAL_ARCHITECTURE_AND_INTEGRATION_GUIDE.md |
+| Spatial Data Registry & Provenance Guide | Done | docs/SPATIAL_DATA_REGISTRY_AND_PROVENANCE_GUIDE.md |
+| Future Data Acquisition Plan & Engineering Handover | Done | docs/FUTURE_DATA_ACQUISITION_AND_ENGINEERING_HANDOVER.md |
+| REVIEW_PACKET (this addendum) | Done | REVIEW_PACKET.md |
+| GIS/map screenshots | Pending | To be captured separately and added to /screenshots |
+
+---
+
+## 3. Phase Execution Log
+
+### Phase 1 — National Dataset Expansion
+- Expanded from 1 river (Ganga only, prior prototype) to all 10 named river
+  basins: Ganga, Yamuna, Brahmaputra, Godavari, Krishna, Narmada, Tapi,
+  Mahanadi, Kaveri, Indus Basin.
+- Added 5 representative National Waterway segments (NW-1, NW-2, NW-3,
+  NW-4, NW-16).
+- Expanded infrastructure matrix from 4 nodes to 20 nodes across dams,
+  barrages, ports, jetties, bridges, and inland terminals.
+
+### Phase 2 — Spatial Intelligence Layer
+- Built per-river upstream/downstream topology using shapely .project()
+  against each river's LineString — 10 relationships across 8 of 10 rivers
+  (Tapi and Indus Basin have only 1 infrastructure node each, so no
+  relationship could be derived — documented as a gap).
+- Added a flood-risk overlay (qualitative HIGH/MEDIUM/LOW per river, based
+  on documented historical flood patterns).
+- Added 3 representative navigation corridors based on known active cargo
+  routes.
+
+### Phase 3 & 4 — Convergence & Validation
+- Verified CRS consistency (EPSG:4326) across all layers programmatically.
+- Verified geometry validity (shapely .is_valid) across all features.
+- Verified multi-river coverage (10/10 rivers present).
+- Produced a alidation_results block embedded directly in the export,
+  making every run self-documenting.
+- GIS/TANTRA convergence (MasterDB, Knowledge Graph, GOUDHA Runtime,
+  Replay, InsightFlow, Bucket, GC governance, TMS) has NOT been performed —
+  export format is ready for ingestion but no live integration has been
+  demonstrated. Documented as a gap in the Coverage Matrix.
+
+### Phase 5 — Documentation
+- Produced all required documents: Coverage Matrix / Gap Analysis, Spatial
+  Architecture & Integration Guide, Spatial Data Registry & Provenance
+  Guide, Future Data Acquisition Plan & Engineering Handover.
+
+### Phase 6 — Review Packet
+- This addendum.
+
+---
+
+## 4. Record Counts
+
+| Layer | Count |
+|---|---|
+| River networks | 10 |
+| National Waterway segments | 5 (of ~111 total — representative subset) |
+| Infrastructure nodes | 20 |
+| Topology relationships | 10 (across 8 rivers) |
+| Flood-risk overlay entries | 10 (1 per river) |
+| Navigation corridors | 3 |
+
+---
+
+## 5. Entry Point
+
+national_gis_layer.py — run with python national_gis_layer.py.
+Requires: geopandas, pandas, shapely (standard PyPI packages).
+
+## 6. Critical Files (max 3)
+
+1. **national_gis_layer.py** — the entire pipeline (geometry, topology,
+   overlays, validation, export).
+2. **spatial_truth_export.json** — the canonical output for downstream
+   consumers.
+3. **docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md** — the honest coverage
+   assessment; essential reading before consuming this layer.
+
+---
+
+## 7. Known Limitations
+
+- Geometry is representative/approximate, not survey-grade — built from
+  general geographic knowledge of each river's course, not from Survey of
+  India, CWC, or NRSC Bhuvan source shapefiles.
+- Only 5 of ~111 National Waterways represented.
+- Several infrastructure categories from the original brief are not yet
+  covered: locks, reservoirs (as distinct from dams), wetlands, floodplains
+  (as geometry), watersheds, administrative boundaries, industrial
+  corridors.
+- No live integration with Marine MasterDB, Knowledge Graph, GOUDHA
+  Runtime, Replay, InsightFlow, Bucket, GC governance, or TMS — export
+  format is designed to be ingestion-ready, but ingestion itself has not
+  been demonstrated end-to-end with any of those systems.
+- Flood-risk classification is qualitative/documented-pattern-based, not
+  model-derived.
+- No versioning/replay mechanism — export file is overwritten per run
+  rather than appended/versioned.
+
+Full detail on every gap is in docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md.
+
+---
+
+## 8. Integration Map
+
+\\\
+[Shravani -- National Geospatial Intelligence Layer]
+        |
+        +--> Chandragupta (Marine MasterDB)
+        |     -- Consumes river_network, national_waterways,
+        |        infrastructure_matrix as GeoJSON (ingestion-ready,
+        |        not yet demonstrated live)
+        |
+        +--> Ankita (Knowledge Graph)
+        |     -- Consumes entities + provenance_topology as raw
+        |        relationships for KG mapping (ontology not yet built)
+        |
+        +--> Nupur (GOUDHA Runtime)
+              -- Would consume spatial_truth_export.json as reference
+                 data during execution (not yet integrated)
+\\\
+
+---
+
+## 9. Self-Evaluation
+
+| Parameter | Score | Notes |
+|---|---|---|
+| Multi-river coverage | 4/5 | All 10 rivers present with geometry, topology only on 8/10 |
+| Data honesty / provenance transparency | 5/5 | Every limitation documented, no overstated claims |
+| Schema/export validity | 5/5 | Valid GeoJSON, single CRS, programmatically validated |
+| Documentation completeness | 5/5 | All Phase 5 documents delivered |
+| Production-readiness (survey-grade data, full convergence) | 2/5 | Prototype-grade only, real GIS convergence not performed |
+| **Total** | **21/25** | Honest self-assessment: strong prototype and architecture, not yet a production national dataset |
+
+---
+
+## 10. Conclusion
+
+This addendum delivers a working, validated, multi-river spatial data
+prototype for the Namami Gange TANTRA Federation, expanding coverage from a
+single-river demo to all 10 named basins with topology and intelligence
+overlays. It is explicitly NOT a survey-grade production dataset and does
+NOT yet demonstrate live convergence with MasterDB, Knowledge Graph, or
+Runtime systems — both are clearly scoped as remaining work requiring
+external data-source access and cross-team integration effort beyond this
+sprint.
