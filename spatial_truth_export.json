@@ -1,8 +1,11 @@
 {
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
-    "version": "1.0.0",
-    "spatial_reproducibility": "True"
+    "version": "2.0.0",
+    "generated_at": "2026-07-22T05:14:33Z",
+    "spatial_reproducibility": true,
+    "crs": "EPSG:4326",
+    "coverage_note": "Representative multi-river prototype dataset. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md for production data-acquisition plan."
   },
   "river_network": {
     "type": "FeatureCollection",
@@ -22,12 +25,24 @@
               30.0
             ],
             [
+              79.5,
+              27.8
+            ],
+            [
               80.0,
               26.0
             ],
             [
+              82.0,
+              25.5
+            ],
+            [
               84.0,
               25.0
+            ],
+            [
+              86.5,
+              23.5
             ],
             [
               88.0,
@@ -55,6 +70,10 @@
               28.6
             ],
             [
+              79.0,
+              27.0
+            ],
+            [
               81.8,
               25.4
             ]
@@ -72,16 +91,24 @@
           "type": "LineString",
           "coordinates": [
             [
-              82.0,
-              30.0
+              95.5,
+              29.0
+            ],
+            [
+              94.0,
+              28.0
             ],
             [
               91.0,
               26.0
             ],
             [
-              92.0,
-              25.0
+              92.5,
+              25.5
+            ],
+            [
+              90.0,
+              25.2
             ]
           ]
         }
@@ -101,8 +128,16 @@
               19.9
             ],
             [
+              76.0,
+              19.3
+            ],
+            [
               79.0,
               18.5
+            ],
+            [
+              81.0,
+              17.5
             ],
             [
               81.7,
@@ -126,7 +161,15 @@
               17.9
             ],
             [
+              75.5,
+              16.8
+            ],
+            [
               77.0,
+              16.0
+            ],
+            [
+              79.0,
               16.0
             ],
             [
@@ -151,8 +194,16 @@
               22.7
             ],
             [
+              78.5,
+              22.5
+            ],
+            [
               76.0,
               22.2
+            ],
+            [
+              73.8,
+              21.8
             ],
             [
               72.8,
@@ -171,6 +222,10 @@
         "geometry": {
           "type": "LineString",
           "coordinates": [
+            [
+              78.0,
+              21.5
+            ],
             [
               76.2,
               21.8
@@ -197,12 +252,24 @@
           "type": "LineString",
           "coordinates": [
             [
+              82.0,
+              20.5
+            ],
+            [
               81.8,
               20.2
             ],
             [
+              83.5,
+              20.9
+            ],
+            [
               84.0,
               21.5
+            ],
+            [
+              85.5,
+              20.6
             ],
             [
               86.7,
@@ -222,12 +289,20 @@
           "type": "LineString",
           "coordinates": [
             [
-              75.7,
+              75.9,
               12.4
+            ],
+            [
+              76.9,
+              12.0
             ],
             [
               78.0,
               11.5
+            ],
+            [
+              79.0,
+              11.2
             ],
             [
               79.8,
@@ -247,6 +322,10 @@
           "type": "LineString",
           "coordinates": [
             [
+              78.0,
+              34.5
+            ],
+            [
               75.0,
               34.0
             ],
@@ -255,8 +334,127 @@
               32.5
             ],
             [
+              71.5,
+              31.5
+            ],
+            [
               71.0,
               31.0
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "national_waterways": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "0",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-1",
+          "nw_name": "Ganga (Haldia-Allahabad)",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              88.1,
+              22.0
+            ],
+            [
+              81.8,
+              25.4
+            ]
+          ]
+        }
+      },
+      {
+        "id": "1",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-2",
+          "nw_name": "Brahmaputra (Sadiya-Dhubri)",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              95.4,
+              27.8
+            ],
+            [
+              89.9,
+              26.0
+            ]
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-3",
+          "nw_name": "West Coast Canal (Kollam-Kottapuram)",
+          "associated_river": "Kerala Backwaters"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              76.6,
+              8.9
+            ],
+            [
+              76.2,
+              10.1
+            ]
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-4",
+          "nw_name": "Godavari-Krishna Canal System",
+          "associated_river": "Godavari-Krishna"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              81.7,
+              16.7
+            ],
+            [
+              80.5,
+              15.8
+            ]
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "type": "Feature",
+        "properties": {
+          "nw_id": "NW-16",
+          "nw_name": "Barak River",
+          "associated_river": "Barak"
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              93.0,
+              24.8
+            ],
+            [
+              92.5,
+              24.3
             ]
           ]
         }
@@ -271,15 +469,15 @@
         "type": "Feature",
         "properties": {
           "infra_id": "INFRA_01",
-          "name": "Farakka Barrage Segment",
+          "name": "Farakka Barrage",
           "type": "Barrage",
           "associated_river": "Ganga"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            80.0,
-            26.0
+            88.0,
+            24.8
           ]
         }
       },
@@ -305,15 +503,15 @@
         "type": "Feature",
         "properties": {
           "infra_id": "INFRA_03",
-          "name": "Guwahati Inland Jetty",
-          "type": "Jetty",
-          "associated_river": "Brahmaputra"
+          "name": "Varanasi Multi-Modal Terminal",
+          "type": "Inland Terminal",
+          "associated_river": "Ganga"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            91.0,
-            26.0
+            83.0,
+            25.3
           ]
         }
       },
@@ -322,6 +520,23 @@
         "type": "Feature",
         "properties": {
           "infra_id": "INFRA_04",
+          "name": "Bijnor Barrage",
+          "type": "Barrage",
+          "associated_river": "Ganga"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.1,
+            29.4
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_05",
           "name": "Wazirabad Barrage",
           "type": "Barrage",
           "associated_river": "Yamuna"
@@ -333,14 +548,413 @@
             28.6
           ]
         }
+      },
+      {
+        "id": "5",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_06",
+          "name": "Hathnikund Barrage",
+          "type": "Barrage",
+          "associated_river": "Yamuna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.3,
+            30.3
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_07",
+          "name": "Guwahati Inland Jetty",
+          "type": "Jetty",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            91.7,
+            26.2
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_08",
+          "name": "Pandu Port",
+          "type": "Port",
+          "associated_river": "Brahmaputra"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            91.7,
+            26.2
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_09",
+          "name": "Dowleswaram Barrage",
+          "type": "Barrage",
+          "associated_river": "Godavari"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.8,
+            16.9
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_10",
+          "name": "Polavaram Dam (under construction)",
+          "type": "Dam",
+          "associated_river": "Godavari"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.6,
+            17.2
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_11",
+          "name": "Prakasam Barrage",
+          "type": "Barrage",
+          "associated_river": "Krishna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.6,
+            16.5
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_12",
+          "name": "Nagarjuna Sagar Dam",
+          "type": "Dam",
+          "associated_river": "Krishna"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.3,
+            16.6
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_13",
+          "name": "Sardar Sarovar Dam",
+          "type": "Dam",
+          "associated_river": "Narmada"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            73.7,
+            21.8
+          ]
+        }
+      },
+      {
+        "id": "13",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_14",
+          "name": "Bharuch Bridge Corridor",
+          "type": "Bridge",
+          "associated_river": "Narmada"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            72.9,
+            21.7
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_15",
+          "name": "Ukai Dam",
+          "type": "Dam",
+          "associated_river": "Tapi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            73.6,
+            21.2
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_16",
+          "name": "Hirakud Dam",
+          "type": "Dam",
+          "associated_river": "Mahanadi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            83.9,
+            21.5
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_17",
+          "name": "Paradip Port",
+          "type": "Port",
+          "associated_river": "Mahanadi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            86.7,
+            20.3
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_18",
+          "name": "Krishna Raja Sagara Dam",
+          "type": "Dam",
+          "associated_river": "Kaveri"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            76.6,
+            12.4
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_19",
+          "name": "Mettur Dam",
+          "type": "Dam",
+          "associated_river": "Kaveri"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.8,
+            11.8
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "type": "Feature",
+        "properties": {
+          "infra_id": "INFRA_20",
+          "name": "Leh Bridge Corridor",
+          "type": "Bridge",
+          "associated_river": "Indus_Basin"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.6,
+            34.2
+          ]
+        }
       }
     ]
   },
   "provenance_topology": [
     {
-      "upstream_node": "Farakka Barrage Segment",
+      "river": "Ganga",
+      "upstream_node": "Bijnor Barrage",
+      "downstream_node": "Varanasi Multi-Modal Terminal",
+      "impact": "Changes at Bijnor Barrage directly affect downstream conditions at Varanasi Multi-Modal Terminal."
+    },
+    {
+      "river": "Ganga",
+      "upstream_node": "Varanasi Multi-Modal Terminal",
+      "downstream_node": "Farakka Barrage",
+      "impact": "Changes at Varanasi Multi-Modal Terminal directly affect downstream conditions at Farakka Barrage."
+    },
+    {
+      "river": "Ganga",
+      "upstream_node": "Farakka Barrage",
       "downstream_node": "Kolkata Port Terminal",
-      "impact": "Water release directly changes navigability at downstream port."
+      "impact": "Changes at Farakka Barrage directly affect downstream conditions at Kolkata Port Terminal."
+    },
+    {
+      "river": "Yamuna",
+      "upstream_node": "Hathnikund Barrage",
+      "downstream_node": "Wazirabad Barrage",
+      "impact": "Changes at Hathnikund Barrage directly affect downstream conditions at Wazirabad Barrage."
+    },
+    {
+      "river": "Brahmaputra",
+      "upstream_node": "Guwahati Inland Jetty",
+      "downstream_node": "Pandu Port",
+      "impact": "Changes at Guwahati Inland Jetty directly affect downstream conditions at Pandu Port."
+    },
+    {
+      "river": "Godavari",
+      "upstream_node": "Polavaram Dam (under construction)",
+      "downstream_node": "Dowleswaram Barrage",
+      "impact": "Changes at Polavaram Dam (under construction) directly affect downstream conditions at Dowleswaram Barrage."
+    },
+    {
+      "river": "Krishna",
+      "upstream_node": "Nagarjuna Sagar Dam",
+      "downstream_node": "Prakasam Barrage",
+      "impact": "Changes at Nagarjuna Sagar Dam directly affect downstream conditions at Prakasam Barrage."
+    },
+    {
+      "river": "Narmada",
+      "upstream_node": "Sardar Sarovar Dam",
+      "downstream_node": "Bharuch Bridge Corridor",
+      "impact": "Changes at Sardar Sarovar Dam directly affect downstream conditions at Bharuch Bridge Corridor."
+    },
+    {
+      "river": "Mahanadi",
+      "upstream_node": "Hirakud Dam",
+      "downstream_node": "Paradip Port",
+      "impact": "Changes at Hirakud Dam directly affect downstream conditions at Paradip Port."
+    },
+    {
+      "river": "Kaveri",
+      "upstream_node": "Krishna Raja Sagara Dam",
+      "downstream_node": "Mettur Dam",
+      "impact": "Changes at Krishna Raja Sagara Dam directly affect downstream conditions at Mettur Dam."
     }
-  ]
+  ],
+  "flood_risk_overlay": [
+    {
+      "river": "Ganga",
+      "flood_risk": "HIGH",
+      "basis": "Historic monsoon flooding, Bihar/Bengal floodplain"
+    },
+    {
+      "river": "Brahmaputra",
+      "flood_risk": "HIGH",
+      "basis": "Annual monsoon flooding, Assam floodplain"
+    },
+    {
+      "river": "Yamuna",
+      "flood_risk": "MEDIUM",
+      "basis": "Delhi-NCR urban floodplain encroachment"
+    },
+    {
+      "river": "Godavari",
+      "flood_risk": "MEDIUM",
+      "basis": "Seasonal delta flooding, Andhra Pradesh"
+    },
+    {
+      "river": "Krishna",
+      "flood_risk": "MEDIUM",
+      "basis": "Seasonal delta flooding"
+    },
+    {
+      "river": "Narmada",
+      "flood_risk": "LOW",
+      "basis": "Dam-regulated flow, Sardar Sarovar"
+    },
+    {
+      "river": "Tapi",
+      "flood_risk": "MEDIUM",
+      "basis": "Surat urban floodplain, historic 2006 flood"
+    },
+    {
+      "river": "Mahanadi",
+      "flood_risk": "HIGH",
+      "basis": "Odisha delta flooding, cyclone exposure"
+    },
+    {
+      "river": "Kaveri",
+      "flood_risk": "LOW",
+      "basis": "Dam-regulated flow, interstate water sharing"
+    },
+    {
+      "river": "Indus_Basin",
+      "flood_risk": "LOW",
+      "basis": "High-altitude, glacier-fed, limited monsoon exposure"
+    }
+  ],
+  "navigation_corridors": [
+    {
+      "corridor": "NW-1 Ganga Corridor",
+      "connects": [
+        "Kolkata Port Terminal",
+        "Varanasi Multi-Modal Terminal"
+      ],
+      "cargo_type": "Bulk, container"
+    },
+    {
+      "corridor": "NW-2 Brahmaputra Corridor",
+      "connects": [
+        "Pandu Port",
+        "Guwahati Inland Jetty"
+      ],
+      "cargo_type": "Bulk, passenger"
+    },
+    {
+      "corridor": "Mahanadi-Paradip Corridor",
+      "connects": [
+        "Hirakud Dam",
+        "Paradip Port"
+      ],
+      "cargo_type": "Coal, bulk minerals"
+    }
+  ],
+  "validation_results": {
+    "crs_consistency": true,
+    "river_count": 10,
+    "expected_river_count": 10,
+    "multi_river_coverage": true,
+    "infra_count": 20,
+    "topology_relationships": 10,
+    "rivers_with_topology": 8,
+    "waterway_segments": 5,
+    "geometry_validity": true
+  }
 }
