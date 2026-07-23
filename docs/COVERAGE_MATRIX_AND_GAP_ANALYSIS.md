@@ -400,3 +400,34 @@ layer's spatial data into that exact schema:
 Phase 3 (Convergence): ~20% -> ~30%
 
 Overall Task C completion: ~60% (up from ~55-60%)
+
+---
+---
+
+# PHASE 3 CLARIFICATION -- No Live Endpoint Available From Ankita's Repo
+## 23 July 2026
+
+## What Was Checked
+Reviewed Ankita's runtime/RUNTIME_API_SPECIFICATION.md (Section 16, Graph
+APIs) in the namami-gange-intelligence repo to look for a concrete
+endpoint URL and payload contract to wire the KnowledgeGraphAdapter
+against.
+
+## Finding
+The specification is conceptual/architectural -- it lists supported
+operations (Create Entity, Create Relationship, Traverse Graph, etc.) but
+does NOT provide an actual REST endpoint URL, HTTP method, or exact
+request/response JSON contract. This appears to be part of a much larger
+cognitive runtime architecture (NICAI) with components like Belief
+Revision Engine, Contradiction Resolution Engine, and Uncertainty Engine --
+well beyond this layer's scope of providing spatial data.
+
+## Conclusion
+knowledge_graph_export.json remains structurally ready and schema-compliant
+against GRAPH_SCHEMA.md, but there is currently no live endpoint to push it
+to. This is not a gap on this layer's side -- it's a missing piece
+(a concrete API endpoint + contract) that would need to come from whoever
+owns the Runtime API implementation on Ankita's/the broader team's side.
+
+Knowledge Graph convergence status remains: structurally mapped, live
+ingestion not yet possible (endpoint not published).
