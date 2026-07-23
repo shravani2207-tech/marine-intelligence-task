@@ -351,3 +351,52 @@ Phase 3 (Convergence): ~15% -> ~20%
 
 Overall Task C completion: ~55-60% (Phase 3 now has genuine, verifiable
 live evidence instead of only structural readiness).
+
+---
+---
+
+# PHASE 3 UPDATE -- Knowledge Graph Mapping Complete
+## 23 July 2026
+
+## What Changed
+Ankita shared the complete GOUDHA Knowledge Intelligence Layer specification
+(github.com/blackholeinfiverse116-ship-it/namami-gange-intelligence), including
+GRAPH_SCHEMA.md defining the canonical node/edge structure.
+
+A mapping script (map_to_knowledge_graph.py) was built to convert this
+layer's spatial data into that exact schema:
+- 61 nodes generated: rivers (River type), infrastructure (Dam/Barrage/
+  Port/Lock/Reservoir/Wetland/etc. types), and flood-risk nodes (Risk type)
+- 82 edges generated: located_in (infra-to-river), upstream_of (from
+  provenance_topology), and constrains (risk-to-river) relationships
+- Output saved to knowledge_graph_export.json, matching GRAPH_SCHEMA.md's
+  node structure (entity_id, entity_type, name, status, version, owner,
+  created_at, updated_at) and edge structure (relationship_id, source,
+  target, relationship, confidence, authority, evidence_id,
+  validation_status, version, created_at)
+
+## Honest Caveats
+- All confidence scores (0.6-0.75) and validation_status (\"Unvalidated\")
+  are placeholder values pending actual SVACS validation on Ankita's side --
+  not yet run through her validation layer.
+- This mapping has NOT yet been submitted/pushed to Ankita's repository or
+  confirmed as ingested by her Knowledge Graph -- it is structurally ready
+  and schema-compliant, but live ingestion into her actual graph database
+  has not been demonstrated.
+
+## Updated Convergence Status
+
+| Target | Status |
+|---|---|
+| Marine MasterDB | Skipped -- no endpoint from Chandragupta yet |
+| Knowledge Graph | Structurally mapped (schema-compliant export ready), live ingestion not yet confirmed |
+| GOUDHA Runtime | Skipped -- checking if Ankita's runtime/GOUDHA_RUNTIME_INTERFACE.md covers this |
+| Bucket | Failed -- schema incomplete, awaiting full schema from Siddhesh |
+| InsightFlow | SUCCESS -- genuinely live |
+| Replay | Skipped -- no endpoint configured |
+
+## Updated Completion Estimate
+
+Phase 3 (Convergence): ~20% -> ~30%
+
+Overall Task C completion: ~60% (up from ~55-60%)
