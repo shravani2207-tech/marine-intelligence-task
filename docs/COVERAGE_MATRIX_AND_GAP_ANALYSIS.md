@@ -265,3 +265,46 @@ most visible gaps from the original brief's Phase 2 requirements. The
 remaining major gap is unchanged: Phase 3 live convergence, which depends
 entirely on external endpoint access from Chandragupta, Ankita, Nupur, and
 the BHIV team.
+
+---
+---
+
+# PHASE 3 UPDATE -- First Live Convergence Achieved
+## 22 July 2026
+
+## What Changed
+BucketAdapter and InsightFlowAdapter were upgraded from stubs to real HTTP
+implementations, reusing the known BHIV endpoint contracts from the
+Sanskar runtime task.
+
+**InsightFlow: LIVE** -- successfully registered a real artifact via
+https://bhiv-mdu-api.onrender.com/api/v1/artifacts/. Required fixing
+artifact_type from an invalid "SPATIAL" value to the valid "SEMANTIC"
+enum, and making canonical_id unique per run (was causing 409 Conflict
+on repeat runs with a static ID).
+
+**Bucket: blocked, not live yet** -- /bucket/artifact requires a specific
+required-field schema discovered incrementally through live testing:
+artifact_id, trace_id, timestamp_utc, schema_version, source_module_id
+(and possibly more). A message was sent to Siddhesh (Bucket owner)
+requesting the full schema instead of continuing trial-and-error.
+
+## Updated Convergence Status
+
+| Target | Status |
+|---|---|
+| Marine MasterDB | Skipped -- no endpoint from Chandragupta yet |
+| Knowledge Graph | Skipped -- no endpoint/ontology from Ankita yet |
+| GOUDHA Runtime | Skipped -- no endpoint from Nupur yet |
+| Bucket | Failed -- schema incomplete, awaiting full schema from Siddhesh |
+| InsightFlow | SUCCESS -- genuinely live |
+| Replay | Skipped -- no endpoint configured |
+
+convergence_adapters_live: 1/6 (up from 0/6)
+
+## Updated Completion Estimate
+
+Phase 3 (Convergence): ~15% -> ~20%
+
+Overall Task C completion: ~55-60% (Phase 3 now has genuine, verifiable
+live evidence instead of only structural readiness).
