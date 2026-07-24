@@ -322,7 +322,16 @@ class BucketAdapter(ConvergenceTarget):
         import urllib.request
         import uuid
         try:
-            bucket_payload = {"artifact_id": str(uuid.uuid4()), "trace_id": str(uuid.uuid4()), "timestamp_utc": datetime.now(timezone.utc).isoformat(), "data": payload}
+            bucket_payload = {
+                "artifact_id": str(uuid.uuid4()),
+                "trace_id": str(uuid.uuid4()),
+                "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "schema_version": "1.0.0",
+                "source_module_id": "marine_intelligence_geospatial_layer",
+                "artifact_type": "spatial_export",
+                "parent_hash": None,
+                "payload": payload
+            }
             data = json.dumps(bucket_payload).encode("utf-8")
             req = urllib.request.Request(
                 self._endpoint,

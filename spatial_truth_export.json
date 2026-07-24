@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-22T11:15:51Z",
+    "generated_at": "2026-07-24T04:57:17Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2093,14 +2093,22 @@
       "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"
     },
     "bucket": {
-      "status": "failed",
-      "error": "HTTP Error 400: Bad Request"
+      "status": "success",
+      "response": {
+        "success": true,
+        "artifact_id": "0e99665e-e943-4461-acc2-933217f4055a",
+        "hash": "834e913d9ecc4b656059c7b70860846974d04667615a082f08e0ff7a42b6c14a",
+        "parent_hash": null,
+        "timestamp": "2026-07-24T04:56:51Z",
+        "storage_type": "append_only",
+        "message": "Artifact stored successfully in append-only log"
+      }
     },
     "insightflow": {
       "status": "success",
       "response": {
-        "id": "0b9f57ad-ea3d-44f2-a988-18501a79c4fa",
-        "canonical_id": "BHIV-ART-SEMANTIC-GISLAYER-E87CDB54-AB6",
+        "id": "d11d92f3-bf37-48e3-b10a-c6ea34064da6",
+        "canonical_id": "BHIV-ART-SEMANTIC-GISLAYER-54878639-BEA",
         "artifact_type": "SEMANTIC",
         "artifact_name": "national_geospatial_intelligence_layer",
         "description": null,
@@ -2115,8 +2123,8 @@
         "lifecycle_notes": null,
         "replay_reference": null,
         "artifact_metadata": null,
-        "registered_at": "2026-07-22T11:15:50.580430Z",
-        "updated_at": "2026-07-22T11:15:50.580430Z"
+        "registered_at": "2026-07-24T04:57:15.459633Z",
+        "updated_at": "2026-07-24T04:57:15.459633Z"
       }
     },
     "replay": {
@@ -2141,6 +2149,6 @@
     "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 1
+    "convergence_adapters_live": 2
   }
 }
