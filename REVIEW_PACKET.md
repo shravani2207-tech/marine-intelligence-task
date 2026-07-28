@@ -313,9 +313,9 @@ Full detail on every gap is in docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md.
         |        infrastructure_matrix as GeoJSON (ingestion-ready,
         |        not yet demonstrated live)
         |
-        +--> Ankita (Knowledge Graph)
-        |     -- Consumes entities + provenance_topology as raw
-        |        relationships for KG mapping (ontology not yet built)
+         +--> Ankita (Knowledge Graph)
+         |     -- Schema, ontology, entity/relationship registry already
+         |        built in her repo per GRAPH_SCHEMA.md; no live KG_INGEST_ENDPOINT
         |
         +--> Nupur (GOUDHA Runtime)
               -- Would consume spatial_truth_export.json as reference
