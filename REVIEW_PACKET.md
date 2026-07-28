@@ -296,8 +296,8 @@ Requires: geopandas, pandas, shapely (standard PyPI packages).
   been demonstrated end-to-end with any of those systems.
 - Flood-risk classification is qualitative/documented-pattern-based, not
   model-derived.
-- No versioning/replay mechanism — export file is overwritten per run
-  rather than appended/versioned.
+- RESOLVED: Export now uses atomic write (temp file + os.replace) plus
+  timestamped versioned copies saved to exports/, preserving every run for replay.
 
 Full detail on every gap is in docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md.
 
