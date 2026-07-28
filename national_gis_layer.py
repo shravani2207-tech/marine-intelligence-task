@@ -339,14 +339,37 @@ class KnowledgeGraphAdapter(ConvergenceTarget):
             return {"status": "skipped", "reason": "KG_INGEST_ENDPOINT not configured yet"}
         return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
 
-
 class RuntimeAdapter(ConvergenceTarget):
-    """Target: Nupur's GOUDHA Runtime. Expects read-only reference dataset."""
+    """Target: Nupur's GOUDHA Runtime. Expects normalized reference dataset.
+    Per Nupur: POST /runtime/reference-data on her local instance (127.0.0.1:8000)."""
     def __init__(self):
         self._endpoint = os.getenv("GOUDHA_RUNTIME_ENDPOINT", "")
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"}
+        import urllib.request
+        try:
+            runtime_payload = {
+                "dataset_metadata": {
+                    "source_module_id": "marine_intelligence_geospatial_layer",
+                    "dataset_name": "national_geospatial_intelligence_layer",
+                    "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                },
+                "reference_records": payload
+            }
+            data = json.dumps(runtime_payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
+
         return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
 
 
