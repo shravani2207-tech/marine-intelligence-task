@@ -371,10 +371,14 @@ expansion was performed on national_gis_layer.py, adding:
   Task 3's catalogue-only environmental.json)
 - Protected-area overlay (3, new)
 - Seasonal navigability layer (4 rivers, new)
-- Convergence adapter stubs for all 6 named downstream systems (Marine
-  MasterDB, Knowledge Graph, GOUDHA Runtime, Bucket, InsightFlow, Replay) --
-  structurally complete, ready-but-not-live pattern (mirrors TantraOrchestrator
-  design from the Sanskar runtime task), honestly reporting
+   MasterDB, Knowledge Graph, GOUDHA Runtime, Bucket, InsightFlow, Replay) --
+   structurally complete, ready-but-not-live pattern (mirrors TantraOrchestrator
+   design from the Sanskar runtime task), honestly reporting
+   "skipped"/"not_implemented" until real endpoints are provided. UPDATE:
+   MasterDBAdapter now wired to live REST push per Chandragupta's endpoint
+   spec (localhost:5000/marine-signals); tested and returns a connection-level
+   error since his backend is not reachable from this machine -- code path
+   is proven, live success pending his server being up.
   \"skipped\"/\"not_implemented\" until real endpoints are provided
 - Topology relationships doubled from 10 to 20 (same 8/10 rivers, more
   granular detail per river)
