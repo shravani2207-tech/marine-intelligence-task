@@ -399,7 +399,7 @@ class BucketAdapter(ConvergenceTarget):
                 "schema_version": "1.0.0",
                 "source_module_id": "marine_intelligence_geospatial_layer",
                 "artifact_type": "spatial_export",
-                "parent_hash": None,
+                "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
                 "payload": payload
             }
             data = json.dumps(bucket_payload).encode("utf-8")
@@ -451,14 +451,40 @@ class InsightFlowAdapter(ConvergenceTarget):
         except Exception as e:
             return {"status": "failed", "error": str(e)}
 
-
 class ReplayAdapter(ConvergenceTarget):
-    """Target: Replay/versioning service for spatial layer snapshots."""
+    """Target: Replay/versioning service. Confirmed by Akash sir: Replay goes
+    through Bucket -- same endpoint, artifact_type distinguishes it."""
     def __init__(self):
         self._endpoint = os.getenv("REPLAY_ENDPOINT", "")
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "REPLAY_ENDPOINT not configured yet"}
+        import urllib.request
+        import uuid
+        try:
+            replay_payload = {
+                "artifact_id": str(uuid.uuid4()),
+                "trace_id": str(uuid.uuid4()),
+                "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "schema_version": "1.0.0",
+                "source_module_id": "marine_intelligence_geospatial_layer",
+                "artifact_type": "spatial_replay_snapshot",
+                "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
+                "payload": payload
+            }
+            data = json.dumps(replay_payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
+
         return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
 
 

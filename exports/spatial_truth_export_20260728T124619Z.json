@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-28T12:50:25Z",
+    "generated_at": "2026-07-28T12:46:19Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2224,22 +2224,14 @@
       "status": "success",
       "response": {
         "status": "accepted",
-        "reference_id": "0fe23cd3-0c9e-4c97-8756-368778b640e5",
+        "reference_id": "038b7d70-f18c-478f-ab63-952e592d3890",
         "records_received": 41,
         "message": "Reference dataset successfully registered."
       }
     },
     "bucket": {
-      "status": "success",
-      "response": {
-        "success": true,
-        "artifact_id": "948a51aa-c845-413f-85d1-ff4cd4b37dc3",
-        "hash": "c280f2c7cf09b6fdad1b2bec7fd7322d26446324ee042700bce340b887ecfea6",
-        "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
-        "timestamp": "2026-07-28T12:50:24Z",
-        "storage_type": "append_only",
-        "message": "Artifact stored successfully in append-only log"
-      }
+      "status": "failed",
+      "error": "HTTP Error 400: Bad Request"
     },
     "insightflow": {
       "status": "skipped",
@@ -2267,7 +2259,7 @@
     "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 2
+    "convergence_adapters_live": 1
   },
-  "export_version": "20260728T125025Z"
+  "export_version": "20260728T124619Z"
 }

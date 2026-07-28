@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-28T12:50:25Z",
+    "generated_at": "2026-07-28T12:48:09Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2224,7 +2224,7 @@
       "status": "success",
       "response": {
         "status": "accepted",
-        "reference_id": "0fe23cd3-0c9e-4c97-8756-368778b640e5",
+        "reference_id": "766cfb9a-a7af-47c8-8657-e724b28b0363",
         "records_received": 41,
         "message": "Reference dataset successfully registered."
       }
@@ -2233,10 +2233,10 @@
       "status": "success",
       "response": {
         "success": true,
-        "artifact_id": "948a51aa-c845-413f-85d1-ff4cd4b37dc3",
-        "hash": "c280f2c7cf09b6fdad1b2bec7fd7322d26446324ee042700bce340b887ecfea6",
-        "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
-        "timestamp": "2026-07-28T12:50:24Z",
+        "artifact_id": "ee0599de-ce32-4881-b2cc-9b09f4473d57",
+        "hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
+        "parent_hash": "8c1fbbf3238770dde964fcb140d26d8ff145e8c76732b50b837a0abd6ba6c611",
+        "timestamp": "2026-07-28T12:48:06Z",
         "storage_type": "append_only",
         "message": "Artifact stored successfully in append-only log"
       }
@@ -2269,5 +2269,5 @@
     "convergence_adapters_ready": 6,
     "convergence_adapters_live": 2
   },
-  "export_version": "20260728T125025Z"
+  "export_version": "20260728T124809Z"
 }
