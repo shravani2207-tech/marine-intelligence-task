@@ -5,6 +5,8 @@ import json
 import os
 from datetime import datetime, timezone
 from abc import ABC, abstractmethod
+from dotenv import load_dotenv
+load_dotenv()
 
 print("===============================================================")
 print("SHRAVANI'S NATIONAL GEOSPATIAL INTELLIGENCE LAYER RUNNING (v3)")
