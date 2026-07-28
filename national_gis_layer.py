@@ -341,7 +341,7 @@ class KnowledgeGraphAdapter(ConvergenceTarget):
 
 class RuntimeAdapter(ConvergenceTarget):
     """Target: Nupur's GOUDHA Runtime. Expects normalized reference dataset.
-    Per Nupur: POST /runtime/reference-data on her local instance (127.0.0.1:8000)."""
+    Per Nupur: POST /runtime/reference-data (schema: ReferenceDatasetRequest)."""
     def __init__(self):
         self._endpoint = os.getenv("GOUDHA_RUNTIME_ENDPOINT", "")
     def push(self, payload: dict) -> dict:
@@ -349,13 +349,21 @@ class RuntimeAdapter(ConvergenceTarget):
             return {"status": "skipped", "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"}
         import urllib.request
         try:
+            records = [
+                {
+                    "entity_id": r["id"],
+                    "entity_type": r["type"],
+                    "geometry": {"type": "Point", "coordinates": list(r["pt"])},
+                    "attributes": {"name": r["name"], "river": r["river"]}
+                }
+                for r in infra_records
+            ]
             runtime_payload = {
-                "dataset_metadata": {
-                    "source_module_id": "marine_intelligence_geospatial_layer",
-                    "dataset_name": "national_geospatial_intelligence_layer",
-                    "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-                },
-                "reference_records": payload
+                "dataset_name": "national_geospatial_intelligence_layer",
+                "dataset_version": "1.0.0",
+                "source": "marine_intelligence_geospatial_layer",
+                "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "records": records
             }
             data = json.dumps(runtime_payload).encode("utf-8")
             req = urllib.request.Request(
@@ -369,6 +377,7 @@ class RuntimeAdapter(ConvergenceTarget):
                 return {"status": "success", "response": result}
         except Exception as e:
             return {"status": "failed", "error": str(e)}
+
 
         return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
 

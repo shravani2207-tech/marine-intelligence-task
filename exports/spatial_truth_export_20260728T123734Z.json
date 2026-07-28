@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-28T12:42:48Z",
+    "generated_at": "2026-07-28T12:37:33Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2221,25 +2221,12 @@
       "reason": "KG_INGEST_ENDPOINT not configured yet"
     },
     "goudha_runtime": {
-      "status": "success",
-      "response": {
-        "status": "accepted",
-        "reference_id": "9d143428-592b-4e6b-998c-90a522d3fabf",
-        "records_received": 41,
-        "message": "Reference dataset successfully registered."
-      }
+      "status": "failed",
+      "error": "HTTP Error 422: Unprocessable Entity"
     },
     "bucket": {
-      "status": "success",
-      "response": {
-        "success": true,
-        "artifact_id": "a36e8f56-31e1-44b6-b462-a47976809147",
-        "hash": "8c1fbbf3238770dde964fcb140d26d8ff145e8c76732b50b837a0abd6ba6c611",
-        "parent_hash": null,
-        "timestamp": "2026-07-28T12:42:41Z",
-        "storage_type": "append_only",
-        "message": "Artifact stored successfully in append-only log"
-      }
+      "status": "failed",
+      "error": "The read operation timed out"
     },
     "insightflow": {
       "status": "skipped",
@@ -2267,7 +2254,7 @@
     "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 2
+    "convergence_adapters_live": 0
   },
-  "export_version": "20260728T124248Z"
+  "export_version": "20260728T123734Z"
 }
