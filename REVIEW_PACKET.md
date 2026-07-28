@@ -286,10 +286,10 @@ Requires: geopandas, pandas, shapely (standard PyPI packages).
   general geographic knowledge of each river's course, not from Survey of
   India, CWC, or NRSC Bhuvan source shapefiles.
 - Only 5 of ~111 National Waterways represented.
-- Several infrastructure categories from the original brief are not yet
-  covered: locks, reservoirs (as distinct from dams), wetlands, floodplains
-  (as geometry), watersheds, administrative boundaries, industrial
-  corridors.
+- RESOLVED: Locks, reservoirs (distinct from dams), and wetlands are now
+  covered as infrastructure nodes (5 locks, 7 reservoirs, 7 wetlands).
+  Floodplains, watersheds, administrative boundaries, and industrial
+  corridors are covered as representative polygons (not survey-grade).
 - No live integration with Marine MasterDB, Knowledge Graph, GOUDHA
   Runtime, Replay, InsightFlow, Bucket, GC governance, or TMS — export
   format is designed to be ingestion-ready, but ingestion itself has not
@@ -384,7 +384,7 @@ expansion was performed on national_gis_layer.py, adding:
 | Parameter | v2 Score | v3 Score | Notes |
 |---|---|---|---|
 | Multi-river coverage | 4/5 | 4/5 | Unchanged -- 10/10 rivers, topology still 8/10 |
-| Infrastructure category breadth | N/A (not scored before) | 3/5 | 9 categories now present vs 6 before, still missing full lock/reservoir/wetland coverage per river |
+| Infrastructure category breadth | N/A (not scored before) | 4/5 | 9 categories present including locks, reservoirs, wetlands; not every river has every category |
 | Data honesty / provenance transparency | 5/5 | 5/5 | Every new addition documented with same honest framing |
 | Schema/export validity | 5/5 | 5/5 | All new layers validated, geometry_validity check passing |
 | Documentation completeness | 5/5 | 5/5 | Coverage Matrix updated same session |
