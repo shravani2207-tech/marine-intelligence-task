@@ -256,7 +256,7 @@ produces spatial data for those systems to consume.
 | Layer | Count |
 |---|---|
 | River networks | 10 |
-| National Waterway segments | 5 (of ~111 total — representative subset) |
+| National Waterway segments | 14 (of ~111 total -- representative subset) |
 | Infrastructure nodes | 20 |
 | Topology relationships | 10 (across 8 rivers) |
 | Flood-risk overlay entries | 10 (1 per river) |
@@ -284,8 +284,8 @@ Requires: geopandas, pandas, shapely (standard PyPI packages).
 
 - Geometry is representative/approximate, not survey-grade — built from
   general geographic knowledge of each river's course, not from Survey of
-  India, CWC, or NRSC Bhuvan source shapefiles.
-- Only 5 of ~111 National Waterways represented.
+- 14 of ~111 National Waterways represented (up from 8), spanning 10 rivers.
+- 14 of ~111 National Waterways represented (up from 8), now spanning 10 of
 - RESOLVED: Locks, reservoirs (distinct from dams), and wetlands are now
   covered as infrastructure nodes (5 locks, 7 reservoirs, 7 wetlands).
   Floodplains, watersheds, administrative boundaries, and industrial
