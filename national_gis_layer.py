@@ -283,14 +283,44 @@ class ConvergenceTarget(ABC):
     def push(self, payload: dict) -> dict:
         raise NotImplementedError
 
-
 class MasterDBAdapter(ConvergenceTarget):
-    """Target: Chandragupta's Marine MasterDB. Expects GeoJSON FeatureCollections."""
+    """Target: Chandragupta's Marine MasterDB. Expects GeoJSON FeatureCollections.
+    Per Chandragupta: REST API ingestion on NICAI backend (localhost:5000/marine-signals)."""
     def __init__(self):
         self._endpoint = os.getenv("MASTERDB_INGEST_ENDPOINT", "")
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "MASTERDB_INGEST_ENDPOINT not configured yet"}
+        import urllib.request
+        try:
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
+
+        import urllib.request
+        try:
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                self._endpoint,
+                data=data,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                return {"status": "success", "response": result}
+        except Exception as e:
+            return {"status": "failed", "error": str(e)}
+
         return {"status": "not_implemented", "reason": "live push not yet built -- endpoint present but untested"}
 
 
