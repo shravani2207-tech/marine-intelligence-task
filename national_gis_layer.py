@@ -69,6 +69,12 @@ waterway_list = [
     {"nw_id": "NW-16", "name": "Barak River", "river": "Barak", "coords": [(93.0, 24.8), (92.5, 24.3)]},
     {"nw_id": "NW-8", "name": "Alappuzha-Changanassery", "river": "Kerala Backwaters", "coords": [(76.3, 9.5), (76.5, 9.4)]},
     {"nw_id": "NW-10", "name": "Amba River", "river": "Amba", "coords": [(73.1, 18.4), (72.9, 18.6)]},
+    {"nw_id": "NW-5", "name": "Mahanadi-Brahmani Delta Canal System", "river": "Mahanadi", "coords": [(85.8, 20.2), (86.5, 20.7)]},
+    {"nw_id": "NW-9", "name": "Ghaghara River (Ganga tributary stretch)", "river": "Ganga", "coords": [(81.5, 26.7), (82.2, 26.0)]},
+    {"nw_id": "NW-27", "name": "Alappuzha-Kottayam-Athirampuzha", "river": "Kerala Backwaters", "coords": [(76.3, 9.5), (76.5, 9.6)]},
+    {"nw_id": "NW-68", "name": "Narmada (Bharuch stretch)", "river": "Narmada", "coords": [(72.9, 21.7), (73.3, 21.9)]},
+    {"nw_id": "NW-97", "name": "Tapi (Surat stretch)", "river": "Tapi", "coords": [(72.8, 21.2), (73.2, 21.3)]},
+    {"nw_id": "NW-100", "name": "Kaveri (Tiruchirapalli-Kaveri Delta)", "river": "Kaveri", "coords": [(78.7, 10.8), (79.8, 10.8)]},
     {"nw_id": "NW-73", "name": "Godavari (Bhadrachalam-Rajahmundry)", "river": "Godavari", "coords": [(80.9, 17.7), (81.8, 17.0)]},
 ]
 gdf_waterways = gpd.GeoDataFrame({
