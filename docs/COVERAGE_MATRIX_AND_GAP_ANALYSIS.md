@@ -142,10 +142,10 @@
 ## Still Not Covered (remaining gaps after v3)
 - Locks: only 2 (both on Ganga) -- other rivers still have none
 - Reservoirs: only 3 (Narmada, Krishna, Mahanadi) -- other 7 rivers have none
-- Wetlands: only 3 -- far short of India's actual wetland count
-- National Waterways: 8/111 -- still a large gap
+- Wetlands: 7 nodes (up from 3) -- still not exhaustive of India's actual wetland count
+- National Waterways: 14/111 (up from 8) -- gap remains but improved
 - Tapi and Indus Basin: still only 1 infra node each, no topology possible
-- Convergence adapters are STRUCTURALLY ready but NOT live -- zero live pushes have occurred to any of the 6 downstream systems (MasterDB, KG, Runtime, Bucket, InsightFlow, Replay). This requires actual endpoint URLs from Chandragupta, Ankita, Nupur, and the BHIV team respectively -- none have been provided to this layer yet.
+- Convergence adapters are STRUCTURALLY ready; MasterDBAdapter is now LIVE-WIRED with real REST push code per Chandragupta's spec (tested, connection-level error since his server isn't reachable yet). KG, GOUDHA Runtime, Replay adapters remain not_implemented pending endpoint details from Ankita (confirmed KG endpoint is out of her scope), Nupur, and the Replay owner respectively.
 - No screenshots or visual proofs yet (Phase 6 gap, unchanged)
 - Geometry remains representative/approximate, not survey-grade (unchanged)
 
@@ -241,7 +241,7 @@ computed for every single river. Topology relationships grew from 20 to
   those).
 - Mahanadi, Krishna, Narmada still only have their original categories
   (Dam/Barrage/Port), no additional lock/wetland diversity added this pass.
-- National Waterways still only 8/111.
+- National Waterways now 14/111 (up from 8).
 - Live convergence (Phase 3) unchanged -- still 0/6 systems connected.
 
 ## Revised Completion Estimate
