@@ -472,10 +472,26 @@ master_db_export = {
     "validation_results": validation_results
 }
 
-with open("spatial_truth_export.json", "w") as f:
-    json.dump(master_db_export, f, indent=2)
+import os
+from datetime import datetime, timezone
 
-print("\nData convergence successful. Export saved to 'spatial_truth_export.json'.")
+os.makedirs("exports", exist_ok=True)
+version_ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+versioned_path = f"exports/spatial_truth_export_{version_ts}.json"
+tmp_path = "spatial_truth_export.json.tmp"
+
+master_db_export["export_version"] = version_ts
+
+with open(tmp_path, "w") as f:
+    json.dump(master_db_export, f, indent=2)
+os.replace(tmp_path, "spatial_truth_export.json")
+
+with open(tmp_path, "w") as f:
+    json.dump(master_db_export, f, indent=2)
+os.replace(tmp_path, versioned_path)
+
+print(f"\nData convergence successful. Export saved to 'spatial_truth_export.json' (version {version_ts}).")
+print(f"Versioned copy: {versioned_path}")
 print(f"PLATFORM METRICS: {len(gdf_rivers)} rivers, {len(gdf_tributaries)} tributaries, {len(gdf_infra)} infra nodes, "
       f"{len(gdf_waterways)} waterway segments, {len(gdf_floodplains)} floodplains, {len(gdf_watersheds)} watersheds, "
       f"{len(gdf_admin)} admin boundaries, {len(gdf_industrial)} industrial corridors, {len(topology_map)} topology relationships.")
