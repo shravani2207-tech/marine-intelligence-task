@@ -487,4 +487,28 @@ convergence_adapters_live: 2/6 in current snapshot (3/6 proven live across today
 Phase 3 (Convergence): ~35% -> ~45%
 Overall Task C completion: ~78-80%
 
+## FINAL Update (29 July, afternoon) -- Nupur's Fresh Tunnel
+
+Nupur re-exposed her GOUDHA Runtime with a new tunnel URL. Retested all
+adapters:
+
+| Target | Status |
+|---|---|
+| MasterDB (Chandragupta) | Failed -- endpoint code-wired, his server still not reachable |
+| Knowledge Graph (Ankita) | Skipped -- confirmed permanently out of her scope |
+| GOUDHA Runtime (Nupur) | **SUCCESS -- genuinely live**, records ingested |
+| Bucket | **SUCCESS -- genuinely live** |
+| InsightFlow (Vijay) | **SUCCESS -- genuinely live** (service recovered from earlier timeout) |
+| Replay | **SUCCESS -- genuinely live** via Bucket endpoint |
+
+**convergence_adapters_live: 4/6** (up from 2/6)
+
+Only MasterDB (external server not yet live) and Knowledge Graph
+(permanently out of Ankita's scope) remain unconverged. Both are external
+dependencies, not gaps on this layer's side.
+
+## FINAL Completion Estimate
+
+Phase 3 (Convergence): ~45% -> ~65%
+Overall Task C completion: ~85-87%
 Overall Task C completion: ~60-65%
