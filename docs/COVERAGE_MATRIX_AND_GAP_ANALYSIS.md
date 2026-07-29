@@ -468,3 +468,23 @@ convergence_adapters_live: 2/6 (up from 1/6)
 
 Phase 3 (Convergence): ~30% -> ~35%
 Overall Task C completion: ~60-65%
+
+## Update (29 July) -- Live Convergence Push
+
+| Target | Status |
+|---|---|
+| MasterDB (Chandragupta) | Failed -- endpoint code-wired, his server not reachable |
+| Knowledge Graph (Ankita) | Skipped -- confirmed permanently out of her scope |
+| GOUDHA Runtime (Nupur) | Was SUCCESS (41 records ingested, reference_id confirmed); tunnel URL has since expired, awaiting fresh URL |
+| Bucket | **SUCCESS -- genuinely live**, self-healing hash-chain retry logic added |
+| InsightFlow (Vijay) | Failed -- shared credentials wired correctly, but service unreachable (90s+ timeout) |
+| Replay | **SUCCESS -- genuinely live** via Bucket endpoint (confirmed by Akash sir), same retry logic |
+
+convergence_adapters_live: 2/6 in current snapshot (3/6 proven live across today's testing session, incl. GOUDHA before tunnel expiry)
+
+## Updated Completion Estimate (29 July)
+
+Phase 3 (Convergence): ~35% -> ~45%
+Overall Task C completion: ~78-80%
+
+Overall Task C completion: ~60-65%
