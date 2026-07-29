@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-29T06:26:50Z",
+    "generated_at": "2026-07-29T06:16:33Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2228,10 +2228,10 @@
       "status": "success",
       "response": {
         "success": true,
-        "artifact_id": "2a7eb7c8-07b2-416e-aeb6-3b3e1622aa98",
-        "hash": "868563b73c995037ae768b2f4bbc7d1d63a477177340d78aa5a07299995d7650",
-        "parent_hash": "4c71b4d31b3613c5abfc6dde88a8dded7ac034a3e69c9dad1e2a4cd818df3cdd",
-        "timestamp": "2026-07-29T06:25:48Z",
+        "artifact_id": "45860d0d-c5b8-4bf7-97ef-7456334664da",
+        "hash": "5d84a8ef7e9706a48f62b6446084d86f5101cd72ace364c038f7294d9fa8b911",
+        "parent_hash": "d2a6dae689c0a67e545d0e62ec3c4cedddd7e12b3c594c370e9ed6690216a64d",
+        "timestamp": "2026-07-29T06:15:59Z",
         "storage_type": "append_only",
         "message": "Artifact stored successfully in append-only log"
       },
@@ -2245,10 +2245,10 @@
       "status": "success",
       "response": {
         "success": true,
-        "artifact_id": "b1aa75e4-1875-4220-83c1-8964d0a2551b",
-        "hash": "04e6b9062274005ffddad5dc183141423beda40748fa5d3a4d32e3faee0fcdeb",
-        "parent_hash": "868563b73c995037ae768b2f4bbc7d1d63a477177340d78aa5a07299995d7650",
-        "timestamp": "2026-07-29T06:26:50Z",
+        "artifact_id": "47a10e8a-1af6-45db-971f-e745880a6559",
+        "hash": "4c71b4d31b3613c5abfc6dde88a8dded7ac034a3e69c9dad1e2a4cd818df3cdd",
+        "parent_hash": "5d84a8ef7e9706a48f62b6446084d86f5101cd72ace364c038f7294d9fa8b911",
+        "timestamp": "2026-07-29T06:16:32Z",
         "storage_type": "append_only",
         "message": "Artifact stored successfully in append-only log"
       },
@@ -2274,5 +2274,5 @@
     "convergence_adapters_ready": 6,
     "convergence_adapters_live": 2
   },
-  "export_version": "20260729T062650Z"
+  "export_version": "20260729T061633Z"
 }
