@@ -342,11 +342,14 @@ Full detail on every gap is in docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md.
 This addendum delivers a working, validated, multi-river spatial data
 prototype for the Namami Gange TANTRA Federation, expanding coverage from a
 single-river demo to all 10 named basins with topology and intelligence
-overlays. It is explicitly NOT a survey-grade production dataset and does
-NOT yet demonstrate live convergence with MasterDB, Knowledge Graph, or
-Runtime systems — both are clearly scoped as remaining work requiring
-external data-source access and cross-team integration effort beyond this
-sprint.
+overlays. It is explicitly NOT a survey-grade production dataset. LIVE
+CONVERGENCE UPDATE: Bucket and Replay adapters are now confirmed LIVE
+(tested with real pushes, self-healing hash-chain retry logic). GOUDHA
+Runtime was also confirmed live (41 records ingested) but its tunnel URL
+has since expired -- pending a fresh URL from Nupur. MasterDB (Chandragupta),
+Knowledge Graph (Ankita, out of her scope), and InsightFlow (service
+unreachable, 90s+ timeout) remain pending.
+
 
 ---
 ---
