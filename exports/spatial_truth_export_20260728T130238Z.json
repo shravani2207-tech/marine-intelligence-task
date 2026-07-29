@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-07-29T05:48:30Z",
+    "generated_at": "2026-07-28T13:02:38Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2221,20 +2221,26 @@
       "reason": "KG_INGEST_ENDPOINT not configured yet"
     },
     "goudha_runtime": {
-      "status": "failed",
-      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+      "status": "success",
+      "response": {
+        "status": "accepted",
+        "reference_id": "ba492ab9-82db-42eb-ba53-0e4d9dd05c57",
+        "records_received": 41,
+        "message": "Reference dataset successfully registered."
+      }
     },
     "bucket": {
       "status": "success",
       "response": {
         "success": true,
-        "artifact_id": "90b6bb6b-79cb-4932-823e-25430220892f",
-        "hash": "4434e0ac7a33321619140c3d4599fca225b567ed7ba03b51cbaff0d919c9096d",
-        "parent_hash": null,
-        "timestamp": "2026-07-29T05:48:27Z",
+        "artifact_id": "008b4baf-9b09-4c20-9fba-c0f9632a07ec",
+        "hash": "dc96c578737e118b9d8c9dc04470da66e12eedca3d21fb1a43a24ff294b7696b",
+        "parent_hash": "a4ce3e69fff106d3b7b23d2b699bcc768defbdb414e10ee578ac986975a5a68d",
+        "timestamp": "2026-07-28T13:02:35Z",
         "storage_type": "append_only",
         "message": "Artifact stored successfully in append-only log"
-      }
+      },
+      "note": "retried with corrected parent_hash"
     },
     "insightflow": {
       "status": "skipped",
@@ -2244,10 +2250,10 @@
       "status": "success",
       "response": {
         "success": true,
-        "artifact_id": "38212a37-f818-4f99-9fa3-936306467f05",
-        "hash": "cd6afad2aaa797d9b05fd0e5073a363ccb3f3fec58b282a69f7b2541af883774",
-        "parent_hash": "4434e0ac7a33321619140c3d4599fca225b567ed7ba03b51cbaff0d919c9096d",
-        "timestamp": "2026-07-29T05:48:29Z",
+        "artifact_id": "ab44db92-8bed-4e7e-bc8b-4ec1cadd8274",
+        "hash": "7990222d25c47f2d46b3b65fbf52971b3add48c533113e38b0c55d2a8b6b2434",
+        "parent_hash": "dc96c578737e118b9d8c9dc04470da66e12eedca3d21fb1a43a24ff294b7696b",
+        "timestamp": "2026-07-28T13:02:37Z",
         "storage_type": "append_only",
         "message": "Artifact stored successfully in append-only log"
       },
@@ -2271,7 +2277,7 @@
     "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 2
+    "convergence_adapters_live": 3
   },
-  "export_version": "20260729T054830Z"
+  "export_version": "20260728T130238Z"
 }

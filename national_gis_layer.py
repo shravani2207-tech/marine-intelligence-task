@@ -383,37 +383,58 @@ class RuntimeAdapter(ConvergenceTarget):
 
 
 class BucketAdapter(ConvergenceTarget):
-    """Target: BHIV Bucket persistence layer (shared with Sanskar runtime)."""
+    """Target: BHIV Bucket persistence layer (shared with Sanskar runtime).
+    Bucket uses a sequential hash chain; on parent_hash mismatch this adapter
+    parses the expected hash from the error and retries once."""
     def __init__(self):
         self._endpoint = os.getenv("BUCKET_ENDPOINT", "")
+        self._last_known_hash = None
+    def _attempt(self, payload: dict, parent_hash) -> dict:
+        import urllib.request
+        import uuid
+        bucket_payload = {
+            "artifact_id": str(uuid.uuid4()),
+            "trace_id": str(uuid.uuid4()),
+            "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "schema_version": "1.0.0",
+            "source_module_id": "marine_intelligence_geospatial_layer",
+            "artifact_type": "spatial_export",
+            "parent_hash": parent_hash,
+            "payload": payload
+        }
+        data = json.dumps(bucket_payload).encode("utf-8")
+        req = urllib.request.Request(
+            self._endpoint,
+            data=data,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        return urllib.request.urlopen(req, timeout=30)
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "BUCKET_ENDPOINT not configured yet"}
-        import urllib.request
-        import uuid
+        import urllib.error
+        import re
+        import json as _json
         try:
-            bucket_payload = {
-                "artifact_id": str(uuid.uuid4()),
-                "trace_id": str(uuid.uuid4()),
-                "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "schema_version": "1.0.0",
-                "source_module_id": "marine_intelligence_geospatial_layer",
-                "artifact_type": "spatial_export",
-                "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
-                "payload": payload
-            }
-            data = json.dumps(bucket_payload).encode("utf-8")
-            req = urllib.request.Request(
-                self._endpoint,
-                data=data,
-                headers={"Content-Type": "application/json"},
-                method="POST"
-            )
-            with urllib.request.urlopen(req, timeout=30) as response:
-                result = json.loads(response.read().decode("utf-8"))
-                return {"status": "success", "response": result}
+            response = self._attempt(payload, self._last_known_hash)
+            result = _json.loads(response.read().decode("utf-8"))
+            return {"status": "success", "response": result}
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8")
+            match = re.search(r"Expected: ([a-f0-9]+)", body)
+            if match:
+                corrected_hash = match.group(1)
+                try:
+                    response = self._attempt(payload, corrected_hash)
+                    result = _json.loads(response.read().decode("utf-8"))
+                    return {"status": "success", "response": result, "note": "retried with corrected parent_hash"}
+                except Exception as e2:
+                    return {"status": "failed", "error": str(e2)}
+            return {"status": "failed", "error": body}
         except Exception as e:
             return {"status": "failed", "error": str(e)}
+
 
 
 class InsightFlowAdapter(ConvergenceTarget):
@@ -453,35 +474,55 @@ class InsightFlowAdapter(ConvergenceTarget):
 
 class ReplayAdapter(ConvergenceTarget):
     """Target: Replay/versioning service. Confirmed by Akash sir: Replay goes
-    through Bucket -- same endpoint, artifact_type distinguishes it."""
+    through Bucket -- same endpoint, artifact_type distinguishes it.
+    Bucket uses a sequential hash chain; on parent_hash mismatch this adapter
+    parses the expected hash from the error and retries once."""
     def __init__(self):
         self._endpoint = os.getenv("REPLAY_ENDPOINT", "")
+        self._last_known_hash = None
+    def _attempt(self, payload: dict, parent_hash) -> dict:
+        import urllib.request
+        import uuid
+        replay_payload = {
+            "artifact_id": str(uuid.uuid4()),
+            "trace_id": str(uuid.uuid4()),
+            "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "schema_version": "1.0.0",
+            "source_module_id": "marine_intelligence_geospatial_layer",
+            "artifact_type": "spatial_replay_snapshot",
+            "parent_hash": parent_hash,
+            "payload": payload
+        }
+        data = json.dumps(replay_payload).encode("utf-8")
+        req = urllib.request.Request(
+            self._endpoint,
+            data=data,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        return urllib.request.urlopen(req, timeout=30)
     def push(self, payload: dict) -> dict:
         if not self._endpoint:
             return {"status": "skipped", "reason": "REPLAY_ENDPOINT not configured yet"}
-        import urllib.request
-        import uuid
+        import urllib.error
+        import re
+        import json as _json
         try:
-            replay_payload = {
-                "artifact_id": str(uuid.uuid4()),
-                "trace_id": str(uuid.uuid4()),
-                "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "schema_version": "1.0.0",
-                "source_module_id": "marine_intelligence_geospatial_layer",
-                "artifact_type": "spatial_replay_snapshot",
-                "parent_hash": "f4c10f8c3e55758583e6dabfa6395c91e18c2eb13c2a5f430969bb9117f18d3c",
-                "payload": payload
-            }
-            data = json.dumps(replay_payload).encode("utf-8")
-            req = urllib.request.Request(
-                self._endpoint,
-                data=data,
-                headers={"Content-Type": "application/json"},
-                method="POST"
-            )
-            with urllib.request.urlopen(req, timeout=30) as response:
-                result = json.loads(response.read().decode("utf-8"))
-                return {"status": "success", "response": result}
+            response = self._attempt(payload, self._last_known_hash)
+            result = _json.loads(response.read().decode("utf-8"))
+            return {"status": "success", "response": result}
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8")
+            match = re.search(r"Expected: ([a-f0-9]+)", body)
+            if match:
+                corrected_hash = match.group(1)
+                try:
+                    response = self._attempt(payload, corrected_hash)
+                    result = _json.loads(response.read().decode("utf-8"))
+                    return {"status": "success", "response": result, "note": "retried with corrected parent_hash"}
+                except Exception as e2:
+                    return {"status": "failed", "error": str(e2)}
+            return {"status": "failed", "error": body}
         except Exception as e:
             return {"status": "failed", "error": str(e)}
 
