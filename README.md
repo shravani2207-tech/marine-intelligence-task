@@ -1,4 +1,4 @@
-# Maritime Intelligence – Unified Data Layer
+﻿# Maritime Intelligence â€“ Unified Data Layer
 ### Task 3 Deliverable | Shravani | Marine Intelligence Project
 
 ---
@@ -8,7 +8,7 @@
 This repository contains the **production-grade, normalized data layer** for the Marine Intelligence system. Raw geospatial datasets collected in Task 2 have been transformed into clean, schema-consistent, API-ready JSON files.
 
 All datasets use **WGS84 (SRID 4326)** coordinate reference system.  
-All files are **UTF-8 encoded, JSON arrays or objects** — directly ingestible by APIs, analytics engines, and validation layers.
+All files are **UTF-8 encoded, JSON arrays or objects** â€” directly ingestible by APIs, analytics engines, and validation layers.
 
 ---
 
@@ -16,17 +16,17 @@ All files are **UTF-8 encoded, JSON arrays or objects** — directly ingestible 
 
 ```
 maritime_data_layer/
-├── data/
-│   ├── ports.json               # 40 Indian ports (major + non-major)
-│   ├── coastal_zones.json       # 10 Sagarmala coastal economic zones
-│   ├── waterways.json           # 20 IWT terminals + 25 river monitoring stations
-│   ├── environmental.json       # 15 environmental / ecological reference datasets
-│   └── logistics.json           # 10 multimodal logistics parks (PM GatiShakti)
-├── schemas/
-│   └── schema_definitions.json  # Full schema spec for all datasets
-├── review_packets/
-│   └── REVIEW_PACKET.md         # Evaluation and engineering review packet
-└── README.md                    # This file
+â”œâ”€â”€ data/
+â”‚   â”œâ”€â”€ ports.json               # 40 Indian ports (major + non-major)
+â”‚   â”œâ”€â”€ coastal_zones.json       # 10 Sagarmala coastal economic zones
+â”‚   â”œâ”€â”€ waterways.json           # 20 IWT terminals + 25 river monitoring stations
+â”‚   â”œâ”€â”€ environmental.json       # 15 environmental / ecological reference datasets
+â”‚   â””â”€â”€ logistics.json           # 10 multimodal logistics parks (PM GatiShakti)
+â”œâ”€â”€ schemas/
+â”‚   â””â”€â”€ schema_definitions.json  # Full schema spec for all datasets
+â”œâ”€â”€ review_packets/
+â”‚   â””â”€â”€ REVIEW_PACKET.md         # Evaluation and engineering review packet
+â””â”€â”€ README.md                    # This file
 ```
 
 ---
@@ -47,7 +47,7 @@ maritime_data_layer/
 
 All schemas are documented in `/schemas/schema_definitions.json`.
 
-### ports.json — record shape
+### ports.json â€” record shape
 ```json
 {
   "port_id":   1,
@@ -61,7 +61,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### coastal_zones.json — record shape
+### coastal_zones.json â€” record shape
 ```json
 {
   "zone_id":   1,
@@ -74,7 +74,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### waterways.json — record shape (two sub-arrays)
+### waterways.json â€” record shape (two sub-arrays)
 ```json
 {
   "iwt_terminals": [
@@ -104,7 +104,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### environmental.json — record shape
+### environmental.json â€” record shape
 ```json
 {
   "dataset_id":    1,
@@ -116,7 +116,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### logistics.json — record shape
+### logistics.json â€” record shape
 ```json
 {
   "park_id":   1,
@@ -180,17 +180,17 @@ for record in records:
 
 | System | Owner | Consumes |
 |---|---|---|
-| Validation Layer | Ankita | All JSON files in `/data/` — validates against schema definitions |
-| Analytics Engine | Sanskar | All JSON files — runs spatial and domain analytics |
-| Backend API | Soham | All JSON files — exposes via REST endpoints |
+| Validation Layer | Ankita | All JSON files in `/data/` â€” validates against schema definitions |
+| Analytics Engine | Sanskar | All JSON files â€” runs spatial and domain analytics |
+| Backend API | Soham | All JSON files â€” exposes via REST endpoints |
 
 ---
 
 ## Data Quality Notes
 
 - **ports.json row 29** (`Kakinada Anchorage Port`): duplicate coordinates with row 28 (`Kakinada Seaport`). Flagged in `notes` field. Verify against source before production use.
-- **environmental.json**: These are **reference/catalogue records** only — no lat/long fields because the datasets themselves are raster/vector layers obtained from external portals, not point features.
-- `state` field in `ports.json` is left as empty string (`""`) — the source CSV did not include state per port. Can be enriched via reverse geocoding in a follow-up pass.
+- **environmental.json**: These are **reference/catalogue records** only â€” no lat/long fields because the datasets themselves are raster/vector layers obtained from external portals, not point features.
+- `state` field in `ports.json` is left as empty string (`""`) â€” the source CSV did not include state per port. Can be enriched via reverse geocoding in a follow-up pass.
 
 ---
 
@@ -205,3 +205,19 @@ for record in records:
 - PM GatiShakti Logistics: https://logistics.gov.in/
 - Protected Planet (WDPA): https://www.protectedplanet.net
 - UNEP: https://www.unep.org
+
+## MMR (Mumbai Metropolitan Region) Extension
+
+Extended for BHIV Bharat Mala / Marine Spatial Planning to cover the MMR corridor (Mumbai-Navi Mumbai-Thane-Bhiwandi-Kalyan), NW-53 (Kalyan-Thane-Mumbai Waterway).
+
+- `waterways.json`: 2 IWT terminals added on NW-53 (Kolshet Jetty, Gaimukh Jetty)
+- `environmental.json`: Thane Creek Ramsar Wetland Site added (Ramsar Site No. 2490)
+- `logistics.json`: Bhiwandi Logistics Cluster added (explicitly NOT an official MMLP - private warehousing cluster, flagged as data quality gap pending verification)
+- `ports.json` / `coastal_zones.json`: already covered MMR (Mumbai Port, JNPT, Rewas Port, North Konkan CEZ) - no changes needed
+- `national_gis_layer.py`: Ulhas_NW53 wired into `river_coordinates` and infra node list; engine now reports 11 rivers, 43 infra nodes, all integrity checks passing
+- `mmr_feasibility.py`: new skeleton module for MMR waterway feasibility / decongestion analysis - data-loading and environmental-flagging implemented, real scoring methodology still pending
+
+**Known gaps:**
+- Only 2 of ~9 known NW-53 jetties currently added (remaining: Kalher, Dombivli, Nagla, Parsik, Vasai, Anjur-Dive)
+- No confirmed official PM GatiShakti MMLP exists for Bhiwandi
+- Feasibility/decongestion scoring not yet implemented (placeholder only)
