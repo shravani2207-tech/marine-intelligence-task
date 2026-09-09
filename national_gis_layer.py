@@ -1,4 +1,4 @@
-import geopandas as gpd
+﻿import geopandas as gpd
 import pandas as pd
 from shapely.geometry import LineString, Point, Polygon
 import json
@@ -29,7 +29,8 @@ river_coordinates = {
     "Tapi": [(78.0, 21.5), (76.2, 21.8), (74.0, 21.3), (72.7, 21.1)],
     "Mahanadi": [(82.0, 20.5), (81.8, 20.2), (83.5, 20.9), (84.0, 21.5), (85.5, 20.6), (86.7, 20.3)],
     "Kaveri": [(75.9, 12.4), (76.9, 12.0), (78.0, 11.5), (79.0, 11.2), (79.8, 11.1)],
-    "Indus_Basin": [(78.0, 34.5), (75.0, 34.0), (73.0, 32.5), (71.5, 31.5), (71.0, 31.0)]
+    "Indus_Basin": [(78.0, 34.5), (75.0, 34.0), (73.0, 32.5), (71.5, 31.5), (71.0, 31.0)],
+    "Ulhas_NW53": [(73.1305, 19.2403), (72.9944, 19.2515), (72.9899, 19.2411), (72.9713, 19.1943), (72.95, 19.05), (72.84, 18.9474)]
 }
 
 # Representative tributaries (one major tributary per river where well-known)
@@ -131,6 +132,9 @@ infra_records = [
     {"id": "INFRA_39", "name": "Krishna Raja Sagara Reservoir", "type": "Reservoir", "river": "Kaveri", "pt": (76.55, 12.35)},
     {"id": "INFRA_40", "name": "Point Calimere Wetland (Kaveri delta)", "type": "Wetland", "river": "Kaveri", "pt": (79.85, 10.3)},
     {"id": "INFRA_41", "name": "Indus Reservoir (Zanskar confluence)", "type": "Reservoir", "river": "Indus_Basin", "pt": (76.5, 33.5)},
+    # NEW: MMR / Ulhas_NW53 jetties
+    {"id": "INFRA_42", "name": "Kolshet Jetty", "type": "Jetty", "river": "Ulhas_NW53", "pt": (72.9899, 19.2411)},
+    {"id": "INFRA_43", "name": "Gaimukh Jetty", "type": "Jetty", "river": "Ulhas_NW53", "pt": (72.9944, 19.2515)},
 ]
 
 gdf_infra = gpd.GeoDataFrame({
@@ -554,8 +558,8 @@ validation_results = {
         and gdf_watersheds.crs == GEO_CRS and gdf_admin.crs == GEO_CRS and gdf_industrial.crs == GEO_CRS
     ),
     "river_count": len(gdf_rivers),
-    "expected_river_count": 10,
-    "multi_river_coverage": len(gdf_rivers) == 10,
+    "expected_river_count": 11,
+    "multi_river_coverage": len(gdf_rivers) == 11,
     "tributary_count": len(gdf_tributaries),
     "infra_count": len(gdf_infra),
     "infra_type_diversity": gdf_infra['type'].nunique(),

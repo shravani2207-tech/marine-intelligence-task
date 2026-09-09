@@ -2,7 +2,7 @@
   "graph_metadata": {
     "source_system": "marine-intelligence-task (National Geospatial Intelligence Layer)",
     "target_system": "namami-gange-intelligence (GOUDHA Knowledge Intelligence Layer)",
-    "generated_at": "2026-07-23T05:12:28Z",
+    "generated_at": "2026-09-09T09:34:48Z",
     "schema_reference": "GRAPH_SCHEMA.md v1.0",
     "note": "All confidence and validation_status values are placeholders pending SVACS validation on Ankita's side. Geometry underlying these nodes is representative, not survey-grade -- see COVERAGE_MATRIX_AND_GAP_ANALYSIS.md."
   },
@@ -14,8 +14,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_GAN_001"
     },
     {
@@ -25,8 +25,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_YAM_001"
     },
     {
@@ -36,8 +36,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_BRA_001"
     },
     {
@@ -47,8 +47,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_GOD_001"
     },
     {
@@ -58,8 +58,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_KRI_001"
     },
     {
@@ -69,8 +69,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_NAR_001"
     },
     {
@@ -80,8 +80,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_TAP_001"
     },
     {
@@ -91,8 +91,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_MAH_001"
     },
     {
@@ -102,8 +102,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_KAV_001"
     },
     {
@@ -113,9 +113,20 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RIV_IND_001"
+    },
+    {
+      "entity_id": "RIV_ULH_001",
+      "entity_type": "River",
+      "name": "Ulhas_NW53",
+      "status": "Operational",
+      "version": "1.0",
+      "owner": "Shravani - National Geospatial Intelligence Layer",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
+      "trace_id": "NGIL_RIV_ULH_001"
     },
     {
       "entity_id": "INFRA_01",
@@ -124,8 +135,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_01"
     },
     {
@@ -135,8 +146,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_02"
     },
     {
@@ -146,8 +157,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_03"
     },
     {
@@ -157,8 +168,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_04"
     },
     {
@@ -168,8 +179,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_05"
     },
     {
@@ -179,8 +190,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_06"
     },
     {
@@ -190,8 +201,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_07"
     },
     {
@@ -201,8 +212,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_08"
     },
     {
@@ -212,8 +223,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_09"
     },
     {
@@ -223,8 +234,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_10"
     },
     {
@@ -234,8 +245,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_11"
     },
     {
@@ -245,8 +256,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_12"
     },
     {
@@ -256,8 +267,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_13"
     },
     {
@@ -267,8 +278,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_14"
     },
     {
@@ -278,8 +289,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_15"
     },
     {
@@ -289,8 +300,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_16"
     },
     {
@@ -300,8 +311,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_17"
     },
     {
@@ -311,8 +322,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_18"
     },
     {
@@ -322,8 +333,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_19"
     },
     {
@@ -333,8 +344,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_20"
     },
     {
@@ -344,8 +355,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_21"
     },
     {
@@ -355,8 +366,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_22"
     },
     {
@@ -366,8 +377,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_23"
     },
     {
@@ -377,8 +388,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_24"
     },
     {
@@ -388,8 +399,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_25"
     },
     {
@@ -399,8 +410,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_26"
     },
     {
@@ -410,8 +421,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_27"
     },
     {
@@ -421,8 +432,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_28"
     },
     {
@@ -432,8 +443,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_29"
     },
     {
@@ -443,8 +454,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_30"
     },
     {
@@ -454,8 +465,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_31"
     },
     {
@@ -465,8 +476,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_32"
     },
     {
@@ -476,8 +487,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_33"
     },
     {
@@ -487,8 +498,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_34"
     },
     {
@@ -498,8 +509,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_35"
     },
     {
@@ -509,8 +520,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_36"
     },
     {
@@ -520,8 +531,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_37"
     },
     {
@@ -531,8 +542,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_38"
     },
     {
@@ -542,8 +553,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_39"
     },
     {
@@ -553,8 +564,8 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_40"
     },
     {
@@ -564,9 +575,31 @@
       "status": "Operational",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_INFRA_41"
+    },
+    {
+      "entity_id": "INFRA_42",
+      "entity_type": "Jetty",
+      "name": "Kolshet Jetty",
+      "status": "Operational",
+      "version": "1.0",
+      "owner": "Shravani - National Geospatial Intelligence Layer",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
+      "trace_id": "NGIL_INFRA_42"
+    },
+    {
+      "entity_id": "INFRA_43",
+      "entity_type": "Jetty",
+      "name": "Gaimukh Jetty",
+      "status": "Operational",
+      "version": "1.0",
+      "owner": "Shravani - National Geospatial Intelligence Layer",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
+      "trace_id": "NGIL_INFRA_43"
     },
     {
       "entity_id": "RISK_RIV_GAN_001",
@@ -575,8 +608,8 @@
       "status": "HIGH",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_GAN_001"
     },
     {
@@ -586,8 +619,8 @@
       "status": "HIGH",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_BRA_001"
     },
     {
@@ -597,8 +630,8 @@
       "status": "MEDIUM",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_YAM_001"
     },
     {
@@ -608,8 +641,8 @@
       "status": "MEDIUM",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_GOD_001"
     },
     {
@@ -619,8 +652,8 @@
       "status": "MEDIUM",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_KRI_001"
     },
     {
@@ -630,8 +663,8 @@
       "status": "LOW",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_NAR_001"
     },
     {
@@ -641,8 +674,8 @@
       "status": "MEDIUM",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_TAP_001"
     },
     {
@@ -652,8 +685,8 @@
       "status": "HIGH",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_MAH_001"
     },
     {
@@ -663,8 +696,8 @@
       "status": "LOW",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_KAV_001"
     },
     {
@@ -674,8 +707,8 @@
       "status": "LOW",
       "version": "1.0",
       "owner": "Shravani - National Geospatial Intelligence Layer",
-      "created_at": "2026-07-23",
-      "updated_at": "2026-07-23",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-09",
       "trace_id": "NGIL_RISK_RIV_IND_001"
     }
   ],
@@ -690,7 +723,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_02",
@@ -702,7 +735,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_03",
@@ -714,7 +747,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_04",
@@ -726,7 +759,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_05",
@@ -738,7 +771,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_06",
@@ -750,7 +783,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_07",
@@ -762,7 +795,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_08",
@@ -774,7 +807,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_09",
@@ -786,7 +819,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_10",
@@ -798,7 +831,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_11",
@@ -810,7 +843,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_12",
@@ -822,7 +855,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_13",
@@ -834,7 +867,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_14",
@@ -846,7 +879,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_15",
@@ -858,7 +891,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_16",
@@ -870,7 +903,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_17",
@@ -882,7 +915,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_18",
@@ -894,7 +927,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_19",
@@ -906,7 +939,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_20",
@@ -918,7 +951,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_21",
@@ -930,7 +963,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_22",
@@ -942,7 +975,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_23",
@@ -954,7 +987,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_24",
@@ -966,7 +999,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_25",
@@ -978,7 +1011,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_26",
@@ -990,7 +1023,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_27",
@@ -1002,7 +1035,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_28",
@@ -1014,7 +1047,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_29",
@@ -1026,7 +1059,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_30",
@@ -1038,7 +1071,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_31",
@@ -1050,7 +1083,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_32",
@@ -1062,7 +1095,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_33",
@@ -1074,7 +1107,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_34",
@@ -1086,7 +1119,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_35",
@@ -1098,7 +1131,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_36",
@@ -1110,7 +1143,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_37",
@@ -1122,7 +1155,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_38",
@@ -1134,7 +1167,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_39",
@@ -1146,7 +1179,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_40",
@@ -1158,7 +1191,7 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_LOC_INFRA_41",
@@ -1170,7 +1203,31 @@
       "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
+    },
+    {
+      "relationship_id": "REL_LOC_INFRA_42",
+      "source": "INFRA_42",
+      "target": "RIV_ULH_001",
+      "relationship": "located_in",
+      "confidence": 0.75,
+      "authority": "NGIL",
+      "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
+      "validation_status": "Unvalidated",
+      "version": "1.0",
+      "created_at": "2026-09-09"
+    },
+    {
+      "relationship_id": "REL_LOC_INFRA_43",
+      "source": "INFRA_43",
+      "target": "RIV_ULH_001",
+      "relationship": "located_in",
+      "confidence": 0.75,
+      "authority": "NGIL",
+      "evidence_id": "EV_NGIL_REPRESENTATIVE_GEOMETRY",
+      "validation_status": "Unvalidated",
+      "version": "1.0",
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_001",
@@ -1182,7 +1239,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_002",
@@ -1194,7 +1251,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_003",
@@ -1206,7 +1263,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_004",
@@ -1218,7 +1275,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_005",
@@ -1230,7 +1287,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_006",
@@ -1242,7 +1299,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_007",
@@ -1254,7 +1311,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_008",
@@ -1266,7 +1323,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_009",
@@ -1278,7 +1335,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_010",
@@ -1290,7 +1347,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_011",
@@ -1302,7 +1359,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_012",
@@ -1314,7 +1371,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_013",
@@ -1326,7 +1383,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_014",
@@ -1338,7 +1395,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_015",
@@ -1350,7 +1407,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_016",
@@ -1362,7 +1419,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_017",
@@ -1374,7 +1431,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_018",
@@ -1386,7 +1443,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_019",
@@ -1398,7 +1455,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_020",
@@ -1410,7 +1467,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_021",
@@ -1422,7 +1479,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_022",
@@ -1434,7 +1491,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_023",
@@ -1446,7 +1503,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_024",
@@ -1458,7 +1515,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_025",
@@ -1470,7 +1527,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_026",
@@ -1482,7 +1539,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_027",
@@ -1494,7 +1551,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_028",
@@ -1506,7 +1563,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_029",
@@ -1518,7 +1575,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_030",
@@ -1530,7 +1587,7 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_TOPO_031",
@@ -1542,7 +1599,19 @@
       "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
+    },
+    {
+      "relationship_id": "REL_TOPO_032",
+      "source": "INFRA_43",
+      "target": "INFRA_42",
+      "relationship": "upstream_of",
+      "confidence": 0.7,
+      "authority": "NGIL",
+      "evidence_id": "EV_NGIL_TOPOLOGY_DERIVATION",
+      "validation_status": "Unvalidated",
+      "version": "1.0",
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_001",
@@ -1554,7 +1623,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_002",
@@ -1566,7 +1635,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_003",
@@ -1578,7 +1647,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_004",
@@ -1590,7 +1659,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_005",
@@ -1602,7 +1671,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_006",
@@ -1614,7 +1683,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_007",
@@ -1626,7 +1695,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_008",
@@ -1638,7 +1707,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_009",
@@ -1650,7 +1719,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     },
     {
       "relationship_id": "REL_RISK_010",
@@ -1662,7 +1731,7 @@
       "evidence_id": "EV_NGIL_HISTORICAL_FLOOD_PATTERN",
       "validation_status": "Unvalidated",
       "version": "1.0",
-      "created_at": "2026-07-23"
+      "created_at": "2026-09-09"
     }
   ]
 }

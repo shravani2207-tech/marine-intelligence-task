@@ -1,0 +1,41 @@
+{
+  "study": "NW53 Kalyan-Thane-Mumbai Waterway Feasibility",
+  "generated_at": "2026-09-09T09:38:28Z",
+  "waterway_feasibility": {
+    "jetty_count": 2,
+    "jetties": [
+      "Kolshet Jetty",
+      "Gaimukh Jetty"
+    ],
+    "connected_ports": [
+      "Mumbai Port",
+      "Jawaharlal Nehru Port",
+      "Rewas Port"
+    ],
+    "status": "DATA_PRESENT_NO_SCORING_YET",
+    "note": "Real feasibility score not yet computed -- needs methodology (navigability, depth, seasonal data)."
+  },
+  "decongestion_assessment": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced.",
+    "methodology": "TBD"
+  },
+  "environmental_flags": [
+    {
+      "jetty": "Kolshet Jetty",
+      "constraint": "Thane Creek Ramsar Wetland Site",
+      "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+    },
+    {
+      "jetty": "Gaimukh Jetty",
+      "constraint": "Thane Creek Ramsar Wetland Site",
+      "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+    }
+  ],
+  "known_gaps": [
+    "Only 2 of ~9 known NW-53 jetties currently in data layer (Kaushlendra adding rest).",
+    "No real feasibility scoring model yet -- placeholder only.",
+    "No real congestion/traffic baseline sourced yet.",
+    "logistics.json has no confirmed Bhiwandi MMLP -- financial/intermodal assessment incomplete."
+  ]
+}

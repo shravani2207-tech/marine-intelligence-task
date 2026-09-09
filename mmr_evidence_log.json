@@ -1,0 +1,45 @@
+﻿{
+    "task":  "BHIV Bharat Mala - MMR Data Layer \u0026 Engine Extension",
+    "date_utc":  "2026-09-09T09:21:08Z",
+    "changes":  [
+                    {
+                        "file":  "waterways.json",
+                        "change":  "Added 2 IWT terminals on NW-53 (Kalyan-Thane-Mumbai Waterway)",
+                        "details":  "terminal_id 21 (Kolshet Jetty), terminal_id 22 (Gaimukh Jetty)"
+                    },
+                    {
+                        "file":  "environmental.json",
+                        "change":  "Added Thane Creek Ramsar Wetland Site",
+                        "details":  "dataset_id 16, Ramsar Site No. 2490, designated 13 April 2022"
+                    },
+                    {
+                        "file":  "ports.json",
+                        "change":  "No changes needed",
+                        "details":  "Mumbai Port (id 2), JNPT (id 3), Rewas Port (id 34) already present"
+                    },
+                    {
+                        "file":  "coastal_zones.json",
+                        "change":  "No changes needed",
+                        "details":  "North Konkan Coastal Economic Zone (zone_id 4) already covers MMR"
+                    },
+                    {
+                        "file":  "national_gis_layer.py",
+                        "change":  "Wired Ulhas_NW53 into the engine",
+                        "details":  "Added river_coordinates[\u0027Ulhas_NW53\u0027], added INFRA_42 (Kolshet Jetty) + INFRA_43 (Gaimukh Jetty), fixed hardcoded expected_river_count (10-\u003e11) and multi_river_coverage check (==10 -\u003e ==11)"
+                    }
+                ],
+    "test_results":  {
+                         "command":  "python national_gis_layer.py",
+                         "river_count":  11,
+                         "expected_river_count":  11,
+                         "multi_river_coverage":  "True [PASSED]",
+                         "infra_count":  43,
+                         "rivers_with_topology":  11,
+                         "topology_relationships":  32,
+                         "geometry_validity":  "True [PASSED]",
+                         "overall_result":  "Data convergence successful, no crashes, all integrity checks PASSED except convergence_adapters_live (pre-existing, unrelated gap - live endpoints not yet configured for downstream systems)"
+                     },
+    "known_gaps":  [
+                       "logistics.json: no confirmed official PM GatiShakti MMLP found for Bhiwandi - assigned to Kaushlendra to resolve"
+                   ]
+}

@@ -2,7 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-09-09T09:03:52Z",
+    "generated_at": "2026-09-09T08:56:34Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -1525,40 +1525,6 @@
             33.5
           ]
         }
-      },
-      {
-        "id": "41",
-        "type": "Feature",
-        "properties": {
-          "infra_id": "INFRA_42",
-          "name": "Kolshet Jetty",
-          "type": "Jetty",
-          "associated_river": "Ulhas_NW53"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            72.9899,
-            19.2411
-          ]
-        }
-      },
-      {
-        "id": "42",
-        "type": "Feature",
-        "properties": {
-          "infra_id": "INFRA_43",
-          "name": "Gaimukh Jetty",
-          "type": "Jetty",
-          "associated_river": "Ulhas_NW53"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            72.9944,
-            19.2515
-          ]
-        }
       }
     ]
   },
@@ -2131,12 +2097,6 @@
       "upstream_node": "Leh Bridge Corridor",
       "downstream_node": "Indus Reservoir (Zanskar confluence)",
       "impact": "Changes at Leh Bridge Corridor directly affect downstream conditions at Indus Reservoir (Zanskar confluence)."
-    },
-    {
-      "river": "Ulhas_NW53",
-      "upstream_node": "Gaimukh Jetty",
-      "downstream_node": "Kolshet Jetty",
-      "impact": "Changes at Gaimukh Jetty directly affect downstream conditions at Kolshet Jetty."
     }
   ],
   "flood_risk_overlay": [
@@ -2318,20 +2278,20 @@
     "crs_consistency": true,
     "river_count": 11,
     "expected_river_count": 11,
-    "multi_river_coverage": true,
+    "multi_river_coverage": false,
     "tributary_count": 5,
-    "infra_count": 43,
+    "infra_count": 41,
     "infra_type_diversity": 9,
     "waterway_segments": 14,
     "floodplain_count": 3,
     "watershed_count": 3,
     "admin_boundary_count": 3,
     "industrial_corridor_count": 2,
-    "topology_relationships": 32,
-    "rivers_with_topology": 11,
+    "topology_relationships": 31,
+    "rivers_with_topology": 10,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
     "convergence_adapters_live": 0
   },
-  "export_version": "20260909T090352Z"
+  "export_version": "20260909T085634Z"
 }
