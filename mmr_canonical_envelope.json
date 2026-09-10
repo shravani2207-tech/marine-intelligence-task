@@ -1,0 +1,253 @@
+{
+  "contract_version": "1.0.0",
+  "generated_at": "2026-09-10T11:21:04Z",
+  "entity_count": 8,
+  "entities": [
+    {
+      "entity_id": "WATERWAY_NW53",
+      "entity_type": "Waterway",
+      "name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            73.1305,
+            19.2403
+          ],
+          [
+            72.9944,
+            19.2515
+          ],
+          [
+            72.9899,
+            19.2411
+          ],
+          [
+            72.9713,
+            19.1943
+          ],
+          [
+            72.95,
+            19.05
+          ],
+          [
+            72.84,
+            18.9474
+          ]
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "https://iwai.nic.in",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "MEDIUM",
+      "known_unknowns": [
+        "Route coordinates are representative/approximate, not surveyed centerline."
+      ],
+      "properties": {
+        "designation": "National Waterway 53"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_21",
+      "entity_type": "IWT Terminal",
+      "name": "Kolshet Jetty",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9899,
+          19.2411
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "https://iwai.nic.in",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_22",
+      "entity_type": "IWT Terminal",
+      "name": "Gaimukh Jetty",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9944,
+          19.2515
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "https://iwai.nic.in",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)"
+      }
+    },
+    {
+      "entity_id": "PORT_2",
+      "entity_type": "Major Port",
+      "name": "Mumbai Port",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.84,
+          18.9474
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "http://shipmin.gov.in/",
+      "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "state": ""
+      }
+    },
+    {
+      "entity_id": "PORT_3",
+      "entity_type": "Major Port",
+      "name": "Jawaharlal Nehru Port",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0158,
+          18.9606
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "http://shipmin.gov.in/",
+      "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "state": ""
+      }
+    },
+    {
+      "entity_id": "PORT_34",
+      "entity_type": "Non-Major Port",
+      "name": "Rewas Port",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.95,
+          18.979
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "http://mmb.gov.in/",
+      "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "state": ""
+      }
+    },
+    {
+      "entity_id": "ENV_16",
+      "entity_type": "Environmental Constraint",
+      "name": "Thane Creek Ramsar Wetland Site",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.97,
+          19.1
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "https://www.ramsar.org",
+      "authority": "Ramsar Convention Secretariat",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "LOW",
+      "known_unknowns": [
+        "Geometry is a representative centroid point only -- actual Ramsar site boundary polygon not yet sourced/digitized."
+      ],
+      "properties": {
+        "coverage_area": "Thane Creek, Mumbai Metropolitan Region (MMR)"
+      }
+    },
+    {
+      "entity_id": "LOGISTICS_11",
+      "entity_type": "Logistics Cluster (Private, Non-MMLP)",
+      "name": "Bhiwandi Logistics Cluster",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.0631,
+          19.2967
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "https://in.esr.com/bhiwandi, https://www.mapletreelogisticstrust.com, https://www.indospace.in/maharashtra/bhiwandi/",
+      "authority": "UNCONFIRMED - no official government authority found",
+      "timestamp": "2026-09-10T11:21:04Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "LOW",
+      "known_unknowns": [
+        "No confirmed official PM GatiShakti MMLP designation exists for Bhiwandi.",
+        "Coordinates are town-level, not park-specific.",
+        "Represents a cluster of private developer parks (ESR, Mapletree, IndoSpace), not a single facility."
+      ],
+      "properties": {
+        "state": "Maharashtra"
+      }
+    }
+  ]
+}
