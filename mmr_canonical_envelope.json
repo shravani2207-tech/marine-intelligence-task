@@ -1,11 +1,11 @@
 {
   "contract_version": "1.0.0",
-  "generated_at": "2026-09-10T11:21:04Z",
+  "generated_at": "2026-09-11T05:56:30Z",
   "entity_count": 8,
   "entities": [
     {
       "entity_id": "WATERWAY_NW53",
-      "entity_type": "Waterway",
+      "entity_type": "waterway",
       "name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
       "geometry": {
         "type": "LineString",
@@ -39,7 +39,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -51,12 +51,13 @@
         "Route coordinates are representative/approximate, not surveyed centerline."
       ],
       "properties": {
-        "designation": "National Waterway 53"
+        "designation": "National Waterway 53",
+        "classification": "National Waterway"
       }
     },
     {
       "entity_id": "TERMINAL_21",
-      "entity_type": "IWT Terminal",
+      "entity_type": "iwt_terminal",
       "name": "Kolshet Jetty",
       "geometry": {
         "type": "Point",
@@ -68,7 +69,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -78,12 +79,13 @@
       "confidence": "HIGH",
       "known_unknowns": [],
       "properties": {
-        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)"
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
       }
     },
     {
       "entity_id": "TERMINAL_22",
-      "entity_type": "IWT Terminal",
+      "entity_type": "iwt_terminal",
       "name": "Gaimukh Jetty",
       "geometry": {
         "type": "Point",
@@ -95,7 +97,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -105,12 +107,13 @@
       "confidence": "HIGH",
       "known_unknowns": [],
       "properties": {
-        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)"
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
       }
     },
     {
       "entity_id": "PORT_2",
-      "entity_type": "Major Port",
+      "entity_type": "port",
       "name": "Mumbai Port",
       "geometry": {
         "type": "Point",
@@ -122,7 +125,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -132,12 +135,13 @@
       "confidence": "HIGH",
       "known_unknowns": [],
       "properties": {
-        "state": ""
+        "state": "",
+        "classification": "Major Port"
       }
     },
     {
       "entity_id": "PORT_3",
-      "entity_type": "Major Port",
+      "entity_type": "port",
       "name": "Jawaharlal Nehru Port",
       "geometry": {
         "type": "Point",
@@ -149,7 +153,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -159,12 +163,13 @@
       "confidence": "HIGH",
       "known_unknowns": [],
       "properties": {
-        "state": ""
+        "state": "",
+        "classification": "Major Port"
       }
     },
     {
       "entity_id": "PORT_34",
-      "entity_type": "Non-Major Port",
+      "entity_type": "port",
       "name": "Rewas Port",
       "geometry": {
         "type": "Point",
@@ -176,7 +181,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://mmb.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -186,12 +191,13 @@
       "confidence": "HIGH",
       "known_unknowns": [],
       "properties": {
-        "state": ""
+        "state": "",
+        "classification": "Non-Major Port"
       }
     },
     {
       "entity_id": "ENV_16",
-      "entity_type": "Environmental Constraint",
+      "entity_type": "environmental_constraint",
       "name": "Thane Creek Ramsar Wetland Site",
       "geometry": {
         "type": "Point",
@@ -203,7 +209,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://www.ramsar.org",
       "authority": "Ramsar Convention Secretariat",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -212,7 +218,7 @@
       },
       "confidence": "LOW",
       "known_unknowns": [
-        "Geometry is a representative centroid point only -- actual Ramsar site boundary polygon not yet sourced/digitized."
+        "Geometry is a representative centroid point only -- actual Ramsar site boundary polygon not yet sourced/digitized. Runtime should not treat this as the true boundary."
       ],
       "properties": {
         "coverage_area": "Thane Creek, Mumbai Metropolitan Region (MMR)"
@@ -220,7 +226,7 @@
     },
     {
       "entity_id": "LOGISTICS_11",
-      "entity_type": "Logistics Cluster (Private, Non-MMLP)",
+      "entity_type": "logistics_cluster",
       "name": "Bhiwandi Logistics Cluster",
       "geometry": {
         "type": "Point",
@@ -232,7 +238,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://in.esr.com/bhiwandi, https://www.mapletreelogisticstrust.com, https://www.indospace.in/maharashtra/bhiwandi/",
       "authority": "UNCONFIRMED - no official government authority found",
-      "timestamp": "2026-09-10T11:21:04Z",
+      "timestamp": "2026-09-11T05:56:30Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -246,7 +252,8 @@
         "Represents a cluster of private developer parks (ESR, Mapletree, IndoSpace), not a single facility."
       ],
       "properties": {
-        "state": "Maharashtra"
+        "state": "Maharashtra",
+        "classification": "Private, Non-MMLP"
       }
     }
   ]

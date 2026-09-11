@@ -47,17 +47,17 @@ def build_entities():
 
     entities = []
 
-    # --- NW-53 waterway itself (new spatial entity, was missing before) ---
+    # --- NW-53 waterway itself ---
     nw53_coords = [(73.1305, 19.2403), (72.9944, 19.2515), (72.9899, 19.2411),
                    (72.9713, 19.1943), (72.95, 19.05), (72.84, 18.9474)]
     entities.append(envelope(
         entity_id="WATERWAY_NW53",
-        entity_type="Waterway",
+        entity_type="waterway",
         name="NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
         geometry=linestring_geom(nw53_coords),
         source="https://iwai.nic.in",
         authority="Inland Waterways Authority of India (IWAI)",
-        properties={"designation": "National Waterway 53"},
+        properties={"designation": "National Waterway 53", "classification": "National Waterway"},
         confidence="MEDIUM",
         known_unknowns=["Route coordinates are representative/approximate, not surveyed centerline."]
     ))
@@ -68,12 +68,12 @@ def build_entities():
         if "NW-53" in t.get("waterway_name", ""):
             entities.append(envelope(
                 entity_id=f"TERMINAL_{t['terminal_id']}",
-                entity_type=t.get("terminal_type", "IWT Terminal"),
+                entity_type="iwt_terminal",
                 name=t["terminal_name"],
                 geometry=point_geom(t["longitude"], t["latitude"]),
                 source=t.get("source"),
                 authority="Inland Waterways Authority of India (IWAI)",
-                properties={"waterway_name": t.get("waterway_name")},
+                properties={"waterway_name": t.get("waterway_name"), "classification": t.get("terminal_type", "IWT Terminal")},
                 confidence="HIGH",
                 known_unknowns=[]
             ))
@@ -83,12 +83,12 @@ def build_entities():
         if p["port_name"] in {"Mumbai Port", "Jawaharlal Nehru Port", "Rewas Port"}:
             entities.append(envelope(
                 entity_id=f"PORT_{p['port_id']}",
-                entity_type=p.get("port_type", "Port"),
+                entity_type="port",
                 name=p["port_name"],
                 geometry=point_geom(p["longitude"], p["latitude"]),
                 source=p.get("source"),
                 authority="Ministry of Shipping / Maharashtra Maritime Board",
-                properties={"state": p.get("state", "")},
+                properties={"state": p.get("state", ""), "classification": p.get("port_type", "Port")},
                 confidence="HIGH",
                 known_unknowns=[]
             ))
@@ -98,7 +98,7 @@ def build_entities():
         if "Thane Creek" in e.get("dataset_name", ""):
             entities.append(envelope(
                 entity_id=f"ENV_{e['dataset_id']}",
-                entity_type="Environmental Constraint",
+                entity_type="environmental_constraint",
                 name=e["dataset_name"],
                 geometry=point_geom(72.97, 19.10),
                 source=e.get("source"),
@@ -106,7 +106,7 @@ def build_entities():
                 properties={"coverage_area": e.get("coverage_area")},
                 confidence="LOW",
                 known_unknowns=[
-                    "Geometry is a representative centroid point only -- actual Ramsar site boundary polygon not yet sourced/digitized."
+                    "Geometry is a representative centroid point only -- actual Ramsar site boundary polygon not yet sourced/digitized. Runtime should not treat this as the true boundary."
                 ]
             ))
 
@@ -115,12 +115,12 @@ def build_entities():
         if "Bhiwandi" in l.get("park_name", ""):
             entities.append(envelope(
                 entity_id=f"LOGISTICS_{l['park_id']}",
-                entity_type="Logistics Cluster (Private, Non-MMLP)",
+                entity_type="logistics_cluster",
                 name=l["park_name"],
                 geometry=point_geom(l["longitude"], l["latitude"]),
                 source=l.get("source"),
                 authority="UNCONFIRMED - no official government authority found",
-                properties={"state": l.get("state", "")},
+                properties={"state": l.get("state", ""), "classification": "Private, Non-MMLP"},
                 confidence="LOW",
                 known_unknowns=[
                     "No confirmed official PM GatiShakti MMLP designation exists for Bhiwandi.",
