@@ -1,4 +1,5 @@
 ﻿import json
+import math
 from datetime import datetime, timezone
 
 # =====================================================================
@@ -10,45 +11,65 @@ from datetime import datetime, timezone
 
 def load_json(path):
     with open(path, encoding="utf-8-sig") as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, dict) and "value" in data and "Count" in data:
+        return data["value"]
+    return data
+
+def haversine_km(lat1, lon1, lat2, lon2):
+    """Great-circle distance in km between two lat/lon points."""
+    R = 6371.0
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+    return R * 2 * math.asin(math.sqrt(a))
 
 def get_mmr_jetties(waterways_data):
-    """Filter iwt_terminals for the NW-53 (Kalyan-Thane-Mumbai) corridor."""
-    terminals = waterways_data["iwt_terminals"] if isinstance(waterways_data, dict) and "iwt_terminals" in waterways_data else waterways_data
+    terminals = waterways_data["iwt_terminals"] if isinstance(waterways_data, dict) else waterways_data
     return [t for t in terminals if "NW-53" in t.get("waterway_name", "")]
 
 def get_mmr_ports(ports_data):
-    """Filter ports relevant to MMR intermodal connectivity."""
     target_names = {"Mumbai Port", "Jawaharlal Nehru Port", "Rewas Port"}
     ports = ports_data["value"] if isinstance(ports_data, dict) and "value" in ports_data else ports_data
     return [p for p in ports if p["port_name"] in target_names]
 
 def get_environmental_constraints(env_data):
-    """Filter environmental datasets relevant to MMR/Thane Creek."""
     entries = env_data["value"] if isinstance(env_data, dict) and "value" in env_data else env_data
     return [e for e in entries if "MMR" in e.get("coverage_area", "") or "Thane" in e.get("coverage_area", "")]
 
 def waterway_feasibility(jetties, ports):
     """
-    PLACEHOLDER scoring -- not a validated model yet.
-    Currently just confirms data presence and proximity notes.
-    TODO (Aman): replace with real feasibility scoring methodology
-    (navigability depth, seasonal variation, dredging need, etc.)
+    Computes real great-circle distances from each NW-53 jetty to each MMR port.
+    This is straight-line distance, NOT actual navigable waterway distance --
+    that distinction is called out explicitly in the output so it is never
+    mistaken for a surveyed route length.
     """
+    jetty_connectivity = []
+    for j in jetties:
+        distances = []
+        for p in ports:
+            d = haversine_km(j["latitude"], j["longitude"], p["latitude"], p["longitude"])
+            distances.append({"port_name": p["port_name"], "straight_line_km": round(d, 2)})
+        distances.sort(key=lambda x: x["straight_line_km"])
+        jetty_connectivity.append({
+            "jetty": j["terminal_name"],
+            "nearest_port": distances[0]["port_name"],
+            "nearest_port_distance_km": distances[0]["straight_line_km"],
+            "all_port_distances": distances
+        })
+
     return {
         "jetty_count": len(jetties),
         "jetties": [j["terminal_name"] for j in jetties],
         "connected_ports": [p["port_name"] for p in ports],
-        "status": "DATA_PRESENT_NO_SCORING_YET",
-        "note": "Real feasibility score not yet computed -- needs methodology (navigability, depth, seasonal data)."
+        "jetty_to_port_connectivity": jetty_connectivity,
+        "distance_methodology": "Haversine great-circle distance (straight-line), NOT actual navigable waterway route length. Real feasibility scoring still requires navigability depth, seasonal variation, and dredging data.",
+        "status": "DISTANCE_COMPUTED_NO_FEASIBILITY_SCORE_YET",
+        "note": "Real feasibility score not yet computed -- needs methodology beyond distance (navigability, depth, seasonal data)."
     }
 
 def decongestion_assessment():
-    """
-    PLACEHOLDER -- no real traffic/congestion data sourced yet.
-    Per playbook: must expose methodology, baseline, and uncertainty
-    -- never fabricate a number.
-    """
     return {
         "status": "NOT_YET_ASSESSED",
         "note": "Requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced.",
@@ -56,7 +77,6 @@ def decongestion_assessment():
     }
 
 def environmental_overlay(constraints, jetties):
-    """Flag jetties that fall inside/near a known environmental constraint."""
     flags = []
     for c in constraints:
         if "Ramsar" in c.get("dataset_name", ""):
@@ -85,9 +105,10 @@ def build_report():
         "environmental_flags": environmental_overlay(constraints, jetties),
         "known_gaps": [
             "Only 2 of ~9 known NW-53 jetties currently in data layer (Kaushlendra adding rest).",
-            "No real feasibility scoring model yet -- placeholder only.",
+            "Distances are straight-line (haversine), not actual navigable waterway route length.",
+            "No real feasibility scoring model yet -- distance is one input, not a complete score.",
             "No real congestion/traffic baseline sourced yet.",
-            "logistics.json has no confirmed Bhiwandi MMLP -- financial/intermodal assessment incomplete."
+            "logistics.json Bhiwandi entry is a non-MMLP private cluster -- financial/intermodal assessment still needs official data."
         ]
     }
     return report
@@ -98,7 +119,3 @@ if __name__ == "__main__":
         json.dump(report, f, indent=2)
     print("MMR feasibility skeleton report generated: mmr_feasibility_report.json")
     print(json.dumps(report, indent=2))
-
-
-
-

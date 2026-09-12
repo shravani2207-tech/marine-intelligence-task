@@ -1,6 +1,6 @@
 {
   "study": "NW53 Kalyan-Thane-Mumbai Waterway Feasibility",
-  "generated_at": "2026-09-09T09:38:28Z",
+  "generated_at": "2026-09-12T06:50:41Z",
   "waterway_feasibility": {
     "jetty_count": 2,
     "jetties": [
@@ -12,8 +12,49 @@
       "Jawaharlal Nehru Port",
       "Rewas Port"
     ],
-    "status": "DATA_PRESENT_NO_SCORING_YET",
-    "note": "Real feasibility score not yet computed -- needs methodology (navigability, depth, seasonal data)."
+    "jetty_to_port_connectivity": [
+      {
+        "jetty": "Kolshet Jetty",
+        "nearest_port": "Rewas Port",
+        "nearest_port_distance_km": 29.44,
+        "all_port_distances": [
+          {
+            "port_name": "Rewas Port",
+            "straight_line_km": 29.44
+          },
+          {
+            "port_name": "Jawaharlal Nehru Port",
+            "straight_line_km": 31.31
+          },
+          {
+            "port_name": "Mumbai Port",
+            "straight_line_km": 36.26
+          }
+        ]
+      },
+      {
+        "jetty": "Gaimukh Jetty",
+        "nearest_port": "Rewas Port",
+        "nearest_port_distance_km": 30.66,
+        "all_port_distances": [
+          {
+            "port_name": "Rewas Port",
+            "straight_line_km": 30.66
+          },
+          {
+            "port_name": "Jawaharlal Nehru Port",
+            "straight_line_km": 32.42
+          },
+          {
+            "port_name": "Mumbai Port",
+            "straight_line_km": 37.5
+          }
+        ]
+      }
+    ],
+    "distance_methodology": "Haversine great-circle distance (straight-line), NOT actual navigable waterway route length. Real feasibility scoring still requires navigability depth, seasonal variation, and dredging data.",
+    "status": "DISTANCE_COMPUTED_NO_FEASIBILITY_SCORE_YET",
+    "note": "Real feasibility score not yet computed -- needs methodology beyond distance (navigability, depth, seasonal data)."
   },
   "decongestion_assessment": {
     "status": "NOT_YET_ASSESSED",
@@ -34,8 +75,9 @@
   ],
   "known_gaps": [
     "Only 2 of ~9 known NW-53 jetties currently in data layer (Kaushlendra adding rest).",
-    "No real feasibility scoring model yet -- placeholder only.",
+    "Distances are straight-line (haversine), not actual navigable waterway route length.",
+    "No real feasibility scoring model yet -- distance is one input, not a complete score.",
     "No real congestion/traffic baseline sourced yet.",
-    "logistics.json has no confirmed Bhiwandi MMLP -- financial/intermodal assessment incomplete."
+    "logistics.json Bhiwandi entry is a non-MMLP private cluster -- financial/intermodal assessment still needs official data."
   ]
 }
