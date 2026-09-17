@@ -212,10 +212,13 @@ Extended for BHIV Bharat Mala / Marine Spatial Planning to cover the MMR corrido
 - `mmr_canonical_envelope.py`: normalizes all MMR source entities (waterway, IWT terminals, ports, environmental constraint, logistics cluster) into a shared canonical schema (`entity_id`, `geometry`, `provenance`, `confidence`, `known_unknowns`) — see `mmr_canonical_envelope.json`
 - `mmr_feasibility.py`: computes real haversine-based waterway feasibility (jetty-to-port distances, explicitly labeled straight-line, not navigable route length), structural `corridor_score` and `intermodal_score`, and flags Thane Creek Ramsar as an environmental constraint. Output is wrapped as a canonical `feasibility_assessment` entity (via the same schema as `mmr_canonical_envelope.py`) in `mmr_feasibility_assessment.json`, alongside a detailed `mmr_feasibility_report.json`
 - `test_spatial_performance.py`: re-run after MMR wiring — no regressions (see `docs/PERFORMANCE_EVIDENCE.json`)
+- `mmr_financial_assessment.py`: structural skeleton for the Financial assessment (ROI / budget mapping) requested for Objective 3 — covers land development cost, water channel development cost, port/infra setup cost, logistics cost, and an ROI assessment. All fields are deliberately `NOT_YET_ASSESSED` placeholders since no real cost benchmarks exist in this data layer yet. Output is wrapped as a canonical `financial_assessment` entity (same schema as `mmr_canonical_envelope.py`) in `mmr_financial_assessment.json`, alongside `mmr_financial_report.json`
 
 **Known gaps:**
 - Only 2 of ~9 known NW-53 jetties currently added (remaining: Kalher, Dombivli, Nagla, Parsik, Vasai, Anjur-Dive) — pipeline is not hardcoded to the current 2, so new records will ingest cleanly once added
 - `corridor_score` / `intermodal_score` thresholds (target jetty count, gap-distance flag, port-distance falloff) are directional placeholders, not sourced from an official IWAI/transport methodology
 - Decongestion assessment remains `NOT_YET_ASSESSED` — requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced
-- Financial assessment and Scenario Simulation linkage not yet implemented
+- Financial assessment: structural skeleton built (see above), pending real cost benchmarks from Akash Sir / IWAI-MMRDA sources for actual ROI numbers. Scenario Simulation: not yet implemented — blocked on confirming access to Map My India traffic/location API, NISAR satellite data, and tide/salinity/water-level data feeds
 - `test_spatial_performance.py` raises two pre-existing `UserWarning`s (geometry in geographic CRS, so raw `.distance()` values aren't true metric distances) — not a regression, but noted for anyone reading distance outputs
+
+

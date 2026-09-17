@@ -1,0 +1,43 @@
+{
+  "study": "NW-53 Kalyan-Thane-Mumbai Financial Assessment (ROI / Budget Mapping)",
+  "generated_at": "2026-09-17T12:03:13Z",
+  "jetty_count_covered": 2,
+  "land_development_cost": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real per-hectare land acquisition and development rates for the MMR corridor (Thane/Bhiwandi/Kalyan land records or MMRDA benchmarks).",
+    "methodology": "TBD"
+  },
+  "water_channel_development_cost": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real dredging and channel-construction cost benchmarks for NW-53 (IWAI cost norms or comparable inland waterway projects).",
+    "methodology": "TBD"
+  },
+  "port_infra_setup_cost": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real port/jetty infrastructure capex benchmarks (berth construction, terminal equipment, land-side connectivity).",
+    "methodology": "TBD"
+  },
+  "logistics_cost": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real logistics and transport cost data (per-tonne-km road vs. waterway cost comparison for the MMR corridor).",
+    "methodology": "TBD"
+  },
+  "roi_assessment": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "ROI cannot be derived until land, water-channel, port, and logistics cost estimates above are populated with real figures, along with projected traffic/cargo volume from the Scenario Simulation module.",
+    "methodology": "TBD",
+    "depends_on": [
+      "land_development_cost_estimate",
+      "water_channel_development_cost_estimate",
+      "port_infra_setup_cost_estimate",
+      "logistics_cost_estimate",
+      "scenario_simulation traffic/cargo volume projections"
+    ]
+  },
+  "known_gaps": [
+    "No real cost data sourced yet for land, water channel, port infra, or logistics -- all fields are structural placeholders.",
+    "ROI cannot be computed without both cost data and cargo/traffic volume projections (the latter depends on Scenario Simulation).",
+    "Only 2 of ~9 known NW-53 jetties currently in the data layer, so any future budget scheme will be partial until Kaushlendra's remaining jetties are added.",
+    "No official IWAI/MMRDA/state government cost benchmarks referenced yet -- pending confirmation from Akash Sir on data source access."
+  ]
+}
