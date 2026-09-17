@@ -18,7 +18,7 @@
   "spatial_reference": "EPSG:4326",
   "source": "mmr_financial_assessment.py (generated, not an external source)",
   "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
-  "timestamp": "2026-09-17T12:03:13Z",
+  "timestamp": "2026-09-17T12:13:22Z",
   "schema_version": "1.0.0",
   "provenance": {
     "origin": "marine-intelligence-task data layer",
@@ -27,8 +27,8 @@
   },
   "confidence": "LOW",
   "known_unknowns": [
-    "No real cost data sourced yet for land, water channel, port infra, or logistics -- all fields are structural placeholders.",
-    "ROI cannot be computed without both cost data and cargo/traffic volume projections (the latter depends on Scenario Simulation).",
+    "RATE_CONFIG values are all None -- formula engine is ready but no real cost data has been sourced yet.",
+    "ROI cannot be computed without both cost data and cargo/traffic volume + revenue/savings projections (the latter depends on Scenario Simulation).",
     "Only 2 of ~9 known NW-53 jetties currently in the data layer, so any future budget scheme will be partial until Kaushlendra's remaining jetties are added.",
     "No official IWAI/MMRDA/state government cost benchmarks referenced yet -- pending confirmation from Akash Sir on data source access."
   ],
@@ -36,33 +36,33 @@
     "land_development_cost": {
       "status": "NOT_YET_ASSESSED",
       "note": "Requires real per-hectare land acquisition and development rates for the MMR corridor (Thane/Bhiwandi/Kalyan land records or MMRDA benchmarks).",
-      "methodology": "TBD"
+      "methodology": "cost = land_dev_cost_per_hectare_inr * land_area_required_hectares"
     },
     "water_channel_development_cost": {
       "status": "NOT_YET_ASSESSED",
       "note": "Requires real dredging and channel-construction cost benchmarks for NW-53 (IWAI cost norms or comparable inland waterway projects).",
-      "methodology": "TBD"
+      "methodology": "cost = water_channel_dev_cost_per_km_inr * water_channel_length_km"
     },
     "port_infra_setup_cost": {
       "status": "NOT_YET_ASSESSED",
       "note": "Requires real port/jetty infrastructure capex benchmarks (berth construction, terminal equipment, land-side connectivity).",
-      "methodology": "TBD"
+      "methodology": "cost = port_infra_setup_cost_per_berth_inr * berth_count_planned"
     },
     "logistics_cost": {
       "status": "NOT_YET_ASSESSED",
-      "note": "Requires real logistics and transport cost data (per-tonne-km road vs. waterway cost comparison for the MMR corridor).",
-      "methodology": "TBD"
+      "note": "Requires real logistics and transport cost data (per-tonne-km road vs. waterway cost comparison for the MMR corridor) and cargo volume from Scenario Simulation.",
+      "methodology": "cost = logistics_cost_per_tonne_km_inr * projected_annual_cargo_tonnes (per year; distance factor TBD once route length is fixed)"
     },
     "roi_assessment": {
       "status": "NOT_YET_ASSESSED",
-      "note": "ROI cannot be derived until land, water-channel, port, and logistics cost estimates above are populated with real figures, along with projected traffic/cargo volume from the Scenario Simulation module.",
-      "methodology": "TBD",
+      "note": "ROI cannot be derived until all four cost components above are COMPUTED with real figures, along with projected revenue/savings from the Scenario Simulation module.",
+      "methodology": "ROI = (projected_annual_revenue_or_savings_inr - total_annual_operating_cost) / total_capex",
       "depends_on": [
         "land_development_cost_estimate",
         "water_channel_development_cost_estimate",
         "port_infra_setup_cost_estimate",
         "logistics_cost_estimate",
-        "scenario_simulation traffic/cargo volume projections"
+        "scenario_simulation traffic/cargo volume and revenue/savings projections"
       ]
     }
   }

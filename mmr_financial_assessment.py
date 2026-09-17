@@ -5,70 +5,122 @@ from mmr_canonical_envelope import envelope, point_geom
 from mmr_feasibility import load_json, get_mmr_jetties
 
 # -----------------------------------------------------------------------
-# NOTE: No real cost data exists anywhere in this data layer yet
-# (waterways.json / ports.json / logistics.json / environmental.json all
-# checked -- no cost, budget, price, or expenditure fields present).
-# Every function below is a STRUCTURAL PLACEHOLDER: it defines the shape
-# of the financial assessment so it can be populated once real cost
-# benchmarks are sourced. No number is fabricated. This mirrors how
-# decongestion_assessment() is handled in mmr_feasibility.py.
+# RATE_CONFIG: single place to plug in real cost benchmarks once sourced
+# from Akash Sir / IWAI / MMRDA / land records. Every value is None until
+# a real, cited figure is provided -- nothing here is guessed or invented.
+# Units are documented next to each key so whoever fills these in knows
+# exactly what to provide.
 # -----------------------------------------------------------------------
+RATE_CONFIG = {
+    "land_dev_cost_per_hectare_inr": None,       # e.g. Maharashtra Ready Reckoner rate for the corridor
+    "land_area_required_hectares": None,          # estimated land footprint for jetty/terminal sites
+    "water_channel_dev_cost_per_km_inr": None,    # dredging/channel construction cost per km, NW-53
+    "water_channel_length_km": None,              # length of NW-53 channel requiring development
+    "port_infra_setup_cost_per_berth_inr": None,  # capex per berth (construction + equipment)
+    "berth_count_planned": None,                  # number of berths planned across MMR jetties
+    "logistics_cost_per_tonne_km_inr": None,      # road vs waterway per-tonne-km cost benchmark
+    "projected_annual_cargo_tonnes": None,        # from Scenario Simulation cargo/traffic projections
+    "projected_annual_revenue_or_savings_inr": None,  # from Scenario Simulation -- needed for ROI numerator
+}
+
+def _cost_or_placeholder(value, note, methodology):
+    if value is None:
+        return {"status": "NOT_YET_ASSESSED", "note": note, "methodology": methodology}
+    return {"status": "COMPUTED", "value_inr": round(value, 2), "methodology": methodology}
 
 def land_development_cost_estimate():
-    return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "Requires real per-hectare land acquisition and development rates for the MMR corridor (Thane/Bhiwandi/Kalyan land records or MMRDA benchmarks).",
-        "methodology": "TBD"
-    }
+    rate = RATE_CONFIG["land_dev_cost_per_hectare_inr"]
+    area = RATE_CONFIG["land_area_required_hectares"]
+    methodology = "cost = land_dev_cost_per_hectare_inr * land_area_required_hectares"
+    note = "Requires real per-hectare land acquisition and development rates for the MMR corridor (Thane/Bhiwandi/Kalyan land records or MMRDA benchmarks)."
+    if rate is None or area is None:
+        return _cost_or_placeholder(None, note, methodology)
+    return _cost_or_placeholder(rate * area, note, methodology)
 
 def water_channel_development_cost_estimate():
-    return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "Requires real dredging and channel-construction cost benchmarks for NW-53 (IWAI cost norms or comparable inland waterway projects).",
-        "methodology": "TBD"
-    }
+    rate = RATE_CONFIG["water_channel_dev_cost_per_km_inr"]
+    length = RATE_CONFIG["water_channel_length_km"]
+    methodology = "cost = water_channel_dev_cost_per_km_inr * water_channel_length_km"
+    note = "Requires real dredging and channel-construction cost benchmarks for NW-53 (IWAI cost norms or comparable inland waterway projects)."
+    if rate is None or length is None:
+        return _cost_or_placeholder(None, note, methodology)
+    return _cost_or_placeholder(rate * length, note, methodology)
 
 def port_infra_setup_cost_estimate():
-    return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "Requires real port/jetty infrastructure capex benchmarks (berth construction, terminal equipment, land-side connectivity).",
-        "methodology": "TBD"
-    }
+    rate = RATE_CONFIG["port_infra_setup_cost_per_berth_inr"]
+    berths = RATE_CONFIG["berth_count_planned"]
+    methodology = "cost = port_infra_setup_cost_per_berth_inr * berth_count_planned"
+    note = "Requires real port/jetty infrastructure capex benchmarks (berth construction, terminal equipment, land-side connectivity)."
+    if rate is None or berths is None:
+        return _cost_or_placeholder(None, note, methodology)
+    return _cost_or_placeholder(rate * berths, note, methodology)
 
 def logistics_cost_estimate():
-    return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "Requires real logistics and transport cost data (per-tonne-km road vs. waterway cost comparison for the MMR corridor).",
-        "methodology": "TBD"
-    }
+    rate = RATE_CONFIG["logistics_cost_per_tonne_km_inr"]
+    cargo = RATE_CONFIG["projected_annual_cargo_tonnes"]
+    methodology = "cost = logistics_cost_per_tonne_km_inr * projected_annual_cargo_tonnes (per year; distance factor TBD once route length is fixed)"
+    note = "Requires real logistics and transport cost data (per-tonne-km road vs. waterway cost comparison for the MMR corridor) and cargo volume from Scenario Simulation."
+    if rate is None or cargo is None:
+        return _cost_or_placeholder(None, note, methodology)
+    return _cost_or_placeholder(rate * cargo, note, methodology)
 
-def roi_assessment():
+def roi_assessment(land, water, port, logistics):
+    methodology = "ROI = (projected_annual_revenue_or_savings_inr - total_annual_operating_cost) / total_capex"
+    depends_on = [
+        "land_development_cost_estimate",
+        "water_channel_development_cost_estimate",
+        "port_infra_setup_cost_estimate",
+        "logistics_cost_estimate",
+        "scenario_simulation traffic/cargo volume and revenue/savings projections",
+    ]
+    cost_parts = [land, water, port, logistics]
+    if any(c["status"] != "COMPUTED" for c in cost_parts):
+        return {
+            "status": "NOT_YET_ASSESSED",
+            "note": "ROI cannot be derived until all four cost components above are COMPUTED with real figures, along with projected revenue/savings from the Scenario Simulation module.",
+            "methodology": methodology,
+            "depends_on": depends_on,
+        }
+    total_capex = land["value_inr"] + water["value_inr"] + port["value_inr"]
+    annual_operating_cost = logistics["value_inr"]
+    revenue = RATE_CONFIG["projected_annual_revenue_or_savings_inr"]
+    if revenue is None:
+        return {
+            "status": "PARTIAL",
+            "note": "All cost components computed, but ROI still requires projected_annual_revenue_or_savings_inr from the Scenario Simulation module.",
+            "total_capex_inr": round(total_capex, 2),
+            "annual_operating_cost_inr": round(annual_operating_cost, 2),
+            "methodology": methodology,
+            "depends_on": ["scenario_simulation traffic/cargo volume and revenue/savings projections"],
+        }
+    roi = (revenue - annual_operating_cost) / total_capex
     return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "ROI cannot be derived until land, water-channel, port, and logistics cost estimates above are populated with real figures, along with projected traffic/cargo volume from the Scenario Simulation module.",
-        "methodology": "TBD",
-        "depends_on": [
-            "land_development_cost_estimate",
-            "water_channel_development_cost_estimate",
-            "port_infra_setup_cost_estimate",
-            "logistics_cost_estimate",
-            "scenario_simulation traffic/cargo volume projections"
-        ]
+        "status": "COMPUTED",
+        "total_capex_inr": round(total_capex, 2),
+        "annual_operating_cost_inr": round(annual_operating_cost, 2),
+        "annual_revenue_or_savings_inr": round(revenue, 2),
+        "roi": round(roi, 4),
+        "methodology": methodology,
     }
 
 def build_financial_report(jetties):
+    land = land_development_cost_estimate()
+    water = water_channel_development_cost_estimate()
+    port = port_infra_setup_cost_estimate()
+    logistics = logistics_cost_estimate()
+    roi = roi_assessment(land, water, port, logistics)
     return {
         "study": "NW-53 Kalyan-Thane-Mumbai Financial Assessment (ROI / Budget Mapping)",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "jetty_count_covered": len(jetties),
-        "land_development_cost": land_development_cost_estimate(),
-        "water_channel_development_cost": water_channel_development_cost_estimate(),
-        "port_infra_setup_cost": port_infra_setup_cost_estimate(),
-        "logistics_cost": logistics_cost_estimate(),
-        "roi_assessment": roi_assessment(),
+        "land_development_cost": land,
+        "water_channel_development_cost": water,
+        "port_infra_setup_cost": port,
+        "logistics_cost": logistics,
+        "roi_assessment": roi,
         "known_gaps": [
-            "No real cost data sourced yet for land, water channel, port infra, or logistics -- all fields are structural placeholders.",
-            "ROI cannot be computed without both cost data and cargo/traffic volume projections (the latter depends on Scenario Simulation).",
+            "RATE_CONFIG values are all None -- formula engine is ready but no real cost data has been sourced yet.",
+            "ROI cannot be computed without both cost data and cargo/traffic volume + revenue/savings projections (the latter depends on Scenario Simulation).",
             "Only 2 of ~9 known NW-53 jetties currently in the data layer, so any future budget scheme will be partial until Kaushlendra's remaining jetties are added.",
             "No official IWAI/MMRDA/state government cost benchmarks referenced yet -- pending confirmation from Akash Sir on data source access."
         ]
