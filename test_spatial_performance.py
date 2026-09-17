@@ -1,4 +1,4 @@
-import json
+﻿import json
 import time
 import geopandas as gpd
 from shapely.geometry import Point
@@ -20,11 +20,20 @@ elapsed = time.perf_counter() - start
 results["load_and_parse_geodataframes"] = f"{elapsed*1000:.2f} ms"
 print(f"Load + parse GeoDataFrames (rivers + infra): {elapsed*1000:.2f} ms")
 
+# Reproject once to a projected CRS (meters) for accurate distance calculations.
+# EPSG:3857 (Web Mercator) is used because the dataset spans multiple UTM zones
+# (Ganga basin ~83E and MMR corridor ~73E) -- a single UTM zone would distort
+# distances for points far from its central meridian. This silences the
+# geographic-CRS UserWarning and gives meaningful meter-based distances for
+# this query pattern (not a production-grade equal-distance projection).
+gdf_infra_proj = gdf_infra.to_crs(epsg=3857)
+
 # Test 2: Point-in-proximity query -- find nearest infra node to a given point
 start = time.perf_counter()
 query_point = Point(83.0, 25.3)  # near Varanasi
-gdf_infra["distance"] = gdf_infra.geometry.distance(query_point)
-nearest = gdf_infra.loc[gdf_infra["distance"].idxmin()]
+query_point_proj = gpd.GeoSeries([query_point], crs="EPSG:4326").to_crs(epsg=3857).iloc[0]
+gdf_infra["distance_m"] = gdf_infra_proj.geometry.distance(query_point_proj)
+nearest = gdf_infra.loc[gdf_infra["distance_m"].idxmin()]
 elapsed = time.perf_counter() - start
 results["nearest_infra_query"] = f"{elapsed*1000:.2f} ms"
 print(f"Nearest-infrastructure query (30 nodes): {elapsed*1000:.2f} ms -- found: {nearest['name']}")
@@ -54,7 +63,7 @@ print(f"Topology traversal (Ganga chain): {elapsed*1000:.2f} ms -- {len(ganga_to
 # Test 6: Repeat all queries 100x to get a stable average (small dataset, so single-run timing is noisy)
 start = time.perf_counter()
 for _ in range(100):
-    _ = gdf_infra.geometry.distance(query_point)
+    _ = gdf_infra_proj.geometry.distance(query_point_proj)
 elapsed = time.perf_counter() - start
 avg_ms = (elapsed / 100) * 1000
 results["distance_query_avg_over_100_runs"] = f"{avg_ms:.4f} ms"
