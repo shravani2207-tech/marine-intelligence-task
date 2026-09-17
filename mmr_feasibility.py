@@ -2,12 +2,7 @@
 import math
 from datetime import datetime, timezone
 
-# =====================================================================
-# MMR FEASIBILITY & CONGESTION ANALYSIS -- SKELETON (Objective 3)
-# Consumes existing data layer (waterways.json, ports.json, environmental.json)
-# Does NOT duplicate Scenario Simulation -- this is a feasibility scoring
-# module meant to feed INTO that existing capability, not replace it.
-# =====================================================================
+from mmr_canonical_envelope import envelope, point_geom, SCHEMA_VERSION
 
 def load_json(path):
     with open(path, encoding="utf-8-sig") as f:
@@ -17,7 +12,6 @@ def load_json(path):
     return data
 
 def haversine_km(lat1, lon1, lat2, lon2):
-    """Great-circle distance in km between two lat/lon points."""
     R = 6371.0
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     dphi = math.radians(lat2 - lat1)
@@ -39,12 +33,6 @@ def get_environmental_constraints(env_data):
     return [e for e in entries if "MMR" in e.get("coverage_area", "") or "Thane" in e.get("coverage_area", "")]
 
 def waterway_feasibility(jetties, ports):
-    """
-    Computes real great-circle distances from each NW-53 jetty to each MMR port.
-    This is straight-line distance, NOT actual navigable waterway distance --
-    that distinction is called out explicitly in the output so it is never
-    mistaken for a surveyed route length.
-    """
     jetty_connectivity = []
     for j in jetties:
         distances = []
@@ -58,13 +46,12 @@ def waterway_feasibility(jetties, ports):
             "nearest_port_distance_km": distances[0]["straight_line_km"],
             "all_port_distances": distances
         })
-
     return {
         "jetty_count": len(jetties),
         "jetties": [j["terminal_name"] for j in jetties],
         "connected_ports": [p["port_name"] for p in ports],
         "jetty_to_port_connectivity": jetty_connectivity,
-        "distance_methodology": "Haversine great-circle distance (straight-line), NOT actual navigable waterway route length. Real feasibility scoring still requires navigability depth, seasonal variation, and dredging data.",
+        "distance_methodology": "Haversine great-circle distance (straight-line), NOT actual navigable waterway route length.",
         "status": "DISTANCE_COMPUTED_NO_FEASIBILITY_SCORE_YET",
         "note": "Real feasibility score not yet computed -- needs methodology beyond distance (navigability, depth, seasonal data)."
     }
@@ -72,7 +59,7 @@ def waterway_feasibility(jetties, ports):
 def decongestion_assessment():
     return {
         "status": "NOT_YET_ASSESSED",
-        "note": "Requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced.",
+        "note": "Requires real road-traffic baseline data before any estimate can be produced.",
         "methodology": "TBD"
     }
 
@@ -88,34 +75,107 @@ def environmental_overlay(constraints, jetties):
                 })
     return flags
 
+def corridor_score(jetties):
+    n = len(jetties)
+    if n < 2:
+        return 0.0, [f"Only {n} NW-53 jetty(ies) with coordinates -- need >= 2 to score a corridor."]
+    sorted_j = sorted(jetties, key=lambda j: j["latitude"])
+    gaps_km = [
+        haversine_km(a["latitude"], a["longitude"], b["latitude"], b["longitude"])
+        for a, b in zip(sorted_j, sorted_j[1:])
+    ]
+    target_jetty_count = 9
+    coverage_score = min(n / target_jetty_count, 1.0) * 60
+    gap_flag_threshold_km = 15
+    flags = []
+    spacing_penalty = 0
+    for g in gaps_km:
+        if g > gap_flag_threshold_km:
+            spacing_penalty += 5
+            flags.append(f"Large gap ({g:.1f} km) between consecutive NW-53 jetties -- possible missing terminal in the sequence.")
+    spacing_score = max(40 - spacing_penalty, 0)
+    return round(coverage_score + spacing_score, 1), flags
+
+def intermodal_score(waterway_feasibility_result):
+    connectivity = waterway_feasibility_result["jetty_to_port_connectivity"]
+    if not connectivity:
+        return 0.0, ["No jetty-to-port connectivity data available."]
+    nearest = [c["nearest_port_distance_km"] for c in connectivity]
+    avg_nearest = sum(nearest) / len(nearest)
+    falloff_km = 50
+    score = max(0.0, 100 - (avg_nearest / falloff_km) * 100)
+    flags = []
+    if avg_nearest > 40:
+        flags.append(f"Average jetty-to-nearest-major-port distance is high ({avg_nearest:.1f} km, straight-line).")
+    return round(score, 1), flags
+
 def build_report():
     waterways = load_json("waterways.json")
     ports = load_json("ports.json")
     environmental = load_json("environmental.json")
-
     jetties = get_mmr_jetties(waterways)
     mmr_ports = get_mmr_ports(ports)
     constraints = get_environmental_constraints(environmental)
-
+    wf = waterway_feasibility(jetties, mmr_ports)
+    c_score, c_flags = corridor_score(jetties)
+    i_score, i_flags = intermodal_score(wf)
     report = {
         "study": "NW53 Kalyan-Thane-Mumbai Waterway Feasibility",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "waterway_feasibility": waterway_feasibility(jetties, mmr_ports),
+        "waterway_feasibility": wf,
+        "structural_scores": {
+            "corridor_score": c_score,
+            "intermodal_score": i_score,
+            "flags": c_flags + i_flags,
+            "note": "Structural scores only. Not a substitute for navigability, depth, seasonal, or congestion data."
+        },
         "decongestion_assessment": decongestion_assessment(),
         "environmental_flags": environmental_overlay(constraints, jetties),
         "known_gaps": [
-            "Only 2 of ~9 known NW-53 jetties currently in data layer (Kaushlendra adding rest).",
+            "Only 2 of ~9 known NW-53 jetties currently in data layer.",
             "Distances are straight-line (haversine), not actual navigable waterway route length.",
-            "No real feasibility scoring model yet -- distance is one input, not a complete score.",
+            "Structural scores are directional only.",
             "No real congestion/traffic baseline sourced yet.",
-            "logistics.json Bhiwandi entry is a non-MMLP private cluster -- financial/intermodal assessment still needs official data."
+            "logistics.json Bhiwandi entry is a non-MMLP private cluster.",
+            "corridor_score/intermodal_score thresholds are placeholders, not sourced."
         ]
     }
     return report
 
+def build_feasibility_assessment_entity(report, jetties):
+    sorted_j = sorted(jetties, key=lambda j: j["latitude"])
+    corridor_coords = [(j["longitude"], j["latitude"]) for j in sorted_j]
+    if len(corridor_coords) >= 2:
+        geom = {"type": "LineString", "coordinates": [[c[0], c[1]] for c in corridor_coords]}
+    elif corridor_coords:
+        geom = point_geom(corridor_coords[0][0], corridor_coords[0][1])
+    else:
+        geom = None
+    return envelope(
+        entity_id="FEASIBILITY_NW53_MMR",
+        entity_type="feasibility_assessment",
+        name="NW-53 Kalyan-Thane-Mumbai Waterway Feasibility Assessment",
+        geometry=geom,
+        source="mmr_feasibility.py (generated, not an external source)",
+        authority="marine-intelligence-task internal analysis -- not an official government assessment",
+        properties={
+            "structural_scores": report["structural_scores"],
+            "decongestion_assessment": report["decongestion_assessment"],
+            "environmental_flags": report["environmental_flags"],
+        },
+        confidence="LOW",
+        known_unknowns=report["known_gaps"]
+    )
+
 if __name__ == "__main__":
+    waterways = load_json("waterways.json")
+    jetties = get_mmr_jetties(waterways)
     report = build_report()
     with open("mmr_feasibility_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
-    print("MMR feasibility skeleton report generated: mmr_feasibility_report.json")
+    print("MMR feasibility report generated: mmr_feasibility_report.json")
+    assessment_entity = build_feasibility_assessment_entity(report, jetties)
+    with open("mmr_feasibility_assessment.json", "w", encoding="utf-8") as f:
+        json.dump(assessment_entity, f, indent=2)
+    print("Canonical feasibility_assessment entity generated: mmr_feasibility_assessment.json")
     print(json.dumps(report, indent=2))

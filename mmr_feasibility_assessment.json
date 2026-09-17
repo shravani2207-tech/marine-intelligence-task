@@ -1,0 +1,62 @@
+{
+  "entity_id": "FEASIBILITY_NW53_MMR",
+  "entity_type": "feasibility_assessment",
+  "name": "NW-53 Kalyan-Thane-Mumbai Waterway Feasibility Assessment",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        72.9899,
+        19.2411
+      ],
+      [
+        72.9944,
+        19.2515
+      ]
+    ]
+  },
+  "spatial_reference": "EPSG:4326",
+  "source": "mmr_feasibility.py (generated, not an external source)",
+  "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
+  "timestamp": "2026-09-17T06:37:48Z",
+  "schema_version": "1.0.0",
+  "provenance": {
+    "origin": "marine-intelligence-task data layer",
+    "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+    "method": "manual entry from cited public source"
+  },
+  "confidence": "LOW",
+  "known_unknowns": [
+    "Only 2 of ~9 known NW-53 jetties currently in data layer.",
+    "Distances are straight-line (haversine), not actual navigable waterway route length.",
+    "Structural scores are directional only.",
+    "No real congestion/traffic baseline sourced yet.",
+    "logistics.json Bhiwandi entry is a non-MMLP private cluster.",
+    "corridor_score/intermodal_score thresholds are placeholders, not sourced."
+  ],
+  "properties": {
+    "structural_scores": {
+      "corridor_score": 53.3,
+      "intermodal_score": 39.9,
+      "flags": [],
+      "note": "Structural scores only. Not a substitute for navigability, depth, seasonal, or congestion data."
+    },
+    "decongestion_assessment": {
+      "status": "NOT_YET_ASSESSED",
+      "note": "Requires real road-traffic baseline data before any estimate can be produced.",
+      "methodology": "TBD"
+    },
+    "environmental_flags": [
+      {
+        "jetty": "Kolshet Jetty",
+        "constraint": "Thane Creek Ramsar Wetland Site",
+        "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+      },
+      {
+        "jetty": "Gaimukh Jetty",
+        "constraint": "Thane Creek Ramsar Wetland Site",
+        "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+      }
+    ]
+  }
+}

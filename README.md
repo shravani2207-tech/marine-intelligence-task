@@ -1,4 +1,4 @@
-﻿# Maritime Intelligence â€“ Unified Data Layer
+﻿# Maritime Intelligence – Unified Data Layer
 ### Task 3 Deliverable | Shravani | Marine Intelligence Project
 
 ---
@@ -7,28 +7,23 @@
 
 This repository contains the **production-grade, normalized data layer** for the Marine Intelligence system. Raw geospatial datasets collected in Task 2 have been transformed into clean, schema-consistent, API-ready JSON files.
 
-All datasets use **WGS84 (SRID 4326)** coordinate reference system.  
-All files are **UTF-8 encoded, JSON arrays or objects** â€” directly ingestible by APIs, analytics engines, and validation layers.
+All datasets use **WGS84 (SRID 4326)** coordinate reference system.
+All files are **UTF-8 encoded, JSON arrays or objects** — directly ingestible by APIs, analytics engines, and validation layers.
 
 ---
 
-## Folder Structure
-
-```
-maritime_data_layer/
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ ports.json               # 40 Indian ports (major + non-major)
-â”‚   â”œâ”€â”€ coastal_zones.json       # 10 Sagarmala coastal economic zones
-â”‚   â”œâ”€â”€ waterways.json           # 20 IWT terminals + 25 river monitoring stations
-â”‚   â”œâ”€â”€ environmental.json       # 15 environmental / ecological reference datasets
-â”‚   â””â”€â”€ logistics.json           # 10 multimodal logistics parks (PM GatiShakti)
-â”œâ”€â”€ schemas/
-â”‚   â””â”€â”€ schema_definitions.json  # Full schema spec for all datasets
-â”œâ”€â”€ review_packets/
-â”‚   â””â”€â”€ REVIEW_PACKET.md         # Evaluation and engineering review packet
-â””â”€â”€ README.md                    # This file
-```
-
+## Folder Structure maritime_data_layer/
+├── data/
+│ ├── ports.json # 40 Indian ports (major + non-major)
+│ ├── coastal_zones.json # 10 Sagarmala coastal economic zones
+│ ├── waterways.json # 20 IWT terminals + 25 river monitoring stations
+│ ├── environmental.json # 15 environmental / ecological reference datasets
+│ └── logistics.json # 10 multimodal logistics parks (PM GatiShakti)
+├── schemas/
+│ └── schema_definitions.json # Full schema spec for all datasets
+├── review_packets/
+│ └── REVIEW_PACKET.md # Evaluation and engineering review packet
+└── README.md # This file
 ---
 
 ## Dataset Summary
@@ -47,7 +42,7 @@ maritime_data_layer/
 
 All schemas are documented in `/schemas/schema_definitions.json`.
 
-### ports.json â€” record shape
+### ports.json — record shape
 ```json
 {
   "port_id":   1,
@@ -61,7 +56,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### coastal_zones.json â€” record shape
+### coastal_zones.json — record shape
 ```json
 {
   "zone_id":   1,
@@ -74,7 +69,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### waterways.json â€” record shape (two sub-arrays)
+### waterways.json — record shape (two sub-arrays)
 ```json
 {
   "iwt_terminals": [
@@ -104,7 +99,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### environmental.json â€” record shape
+### environmental.json — record shape
 ```json
 {
   "dataset_id":    1,
@@ -116,7 +111,7 @@ All schemas are documented in `/schemas/schema_definitions.json`.
 }
 ```
 
-### logistics.json â€” record shape
+### logistics.json — record shape
 ```json
 {
   "park_id":   1,
@@ -140,7 +135,6 @@ import json
 with open("data/ports.json") as f:
     ports = json.load(f)
 
-# Filter major ports
 major_ports = [p for p in ports if p["port_type"] == "Major Port"]
 ```
 
@@ -171,7 +165,7 @@ with open("data/ports.json") as f:
     records = json.load(f)
 
 for record in records:
-    jsonschema.validate(record, schema)  # raises if invalid
+    jsonschema.validate(record, schema)
 ```
 
 ---
@@ -180,17 +174,17 @@ for record in records:
 
 | System | Owner | Consumes |
 |---|---|---|
-| Validation Layer | Ankita | All JSON files in `/data/` â€” validates against schema definitions |
-| Analytics Engine | Sanskar | All JSON files â€” runs spatial and domain analytics |
-| Backend API | Soham | All JSON files â€” exposes via REST endpoints |
+| Validation Layer | Ankita | All JSON files in `/data/` — validates against schema definitions |
+| Analytics Engine | Sanskar | All JSON files — runs spatial and domain analytics |
+| Backend API | Soham | All JSON files — exposes via REST endpoints |
 
 ---
 
 ## Data Quality Notes
 
 - **ports.json row 29** (`Kakinada Anchorage Port`): duplicate coordinates with row 28 (`Kakinada Seaport`). Flagged in `notes` field. Verify against source before production use.
-- **environmental.json**: These are **reference/catalogue records** only â€” no lat/long fields because the datasets themselves are raster/vector layers obtained from external portals, not point features.
-- `state` field in `ports.json` is left as empty string (`""`) â€” the source CSV did not include state per port. Can be enriched via reverse geocoding in a follow-up pass.
+- **environmental.json**: These are **reference/catalogue records** only — no lat/long fields because the datasets themselves are raster/vector layers obtained from external portals, not point features.
+- `state` field in `ports.json` is left as empty string (`""`) — the source CSV did not include state per port. Can be enriched via reverse geocoding in a follow-up pass.
 
 ---
 
@@ -212,12 +206,16 @@ Extended for BHIV Bharat Mala / Marine Spatial Planning to cover the MMR corrido
 
 - `waterways.json`: 2 IWT terminals added on NW-53 (Kolshet Jetty, Gaimukh Jetty)
 - `environmental.json`: Thane Creek Ramsar Wetland Site added (Ramsar Site No. 2490)
-- `logistics.json`: Bhiwandi Logistics Cluster added (explicitly NOT an official MMLP - private warehousing cluster, flagged as data quality gap pending verification)
-- `ports.json` / `coastal_zones.json`: already covered MMR (Mumbai Port, JNPT, Rewas Port, North Konkan CEZ) - no changes needed
-- `national_gis_layer.py`: Ulhas_NW53 wired into `river_coordinates` and infra node list; engine now reports 11 rivers, 43 infra nodes, all integrity checks passing
-- `mmr_feasibility.py`: new skeleton module for MMR waterway feasibility / decongestion analysis - data-loading and environmental-flagging implemented, real scoring methodology still pending
+- `logistics.json`: Bhiwandi Logistics Cluster added, explicitly labeled **non-MMLP** (private warehousing cluster — no official PM GatiShakti MMLP designation exists for Bhiwandi; this was a deliberate data-integrity decision, not a gap to fix)
+- `ports.json` / `coastal_zones.json`: already covered MMR (Mumbai Port, JNPT / Jawaharlal Nehru Port, Rewas Port, North Konkan CEZ) - no changes needed
+- `national_gis_layer.py`: Ulhas_NW53 wired into `river_coordinates` and infra node list; engine reports 11 rivers, 43 infra nodes, all integrity checks passing
+- `mmr_canonical_envelope.py`: normalizes all MMR source entities (waterway, IWT terminals, ports, environmental constraint, logistics cluster) into a shared canonical schema (`entity_id`, `geometry`, `provenance`, `confidence`, `known_unknowns`) — see `mmr_canonical_envelope.json`
+- `mmr_feasibility.py`: computes real haversine-based waterway feasibility (jetty-to-port distances, explicitly labeled straight-line, not navigable route length), structural `corridor_score` and `intermodal_score`, and flags Thane Creek Ramsar as an environmental constraint. Output is wrapped as a canonical `feasibility_assessment` entity (via the same schema as `mmr_canonical_envelope.py`) in `mmr_feasibility_assessment.json`, alongside a detailed `mmr_feasibility_report.json`
+- `test_spatial_performance.py`: re-run after MMR wiring — no regressions (see `docs/PERFORMANCE_EVIDENCE.json`)
 
 **Known gaps:**
-- Only 2 of ~9 known NW-53 jetties currently added (remaining: Kalher, Dombivli, Nagla, Parsik, Vasai, Anjur-Dive)
-- No confirmed official PM GatiShakti MMLP exists for Bhiwandi
-- Feasibility/decongestion scoring not yet implemented (placeholder only)
+- Only 2 of ~9 known NW-53 jetties currently added (remaining: Kalher, Dombivli, Nagla, Parsik, Vasai, Anjur-Dive) — pipeline is not hardcoded to the current 2, so new records will ingest cleanly once added
+- `corridor_score` / `intermodal_score` thresholds (target jetty count, gap-distance flag, port-distance falloff) are directional placeholders, not sourced from an official IWAI/transport methodology
+- Decongestion assessment remains `NOT_YET_ASSESSED` — requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced
+- Financial assessment and Scenario Simulation linkage not yet implemented
+- `test_spatial_performance.py` raises two pre-existing `UserWarning`s (geometry in geographic CRS, so raw `.distance()` values aren't true metric distances) — not a regression, but noted for anyone reading distance outputs
