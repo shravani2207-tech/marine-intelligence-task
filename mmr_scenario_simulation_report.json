@@ -1,0 +1,52 @@
+{
+  "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Schema Design)",
+  "generated_at": "2026-09-18T09:58:16Z",
+  "jetty_count_covered": 2,
+  "schema_reference": "Modeled on Rhine/Danube River Information Services (RIS) data domains, per Akash Sir's spec",
+  "fairway_information": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real fairway data for NW-53: channel depth, width, navigability restrictions. Modeled on RIS 'fairway information' domain (waterway-only data).",
+    "data_source_needed": "Sea routes / river data (per Akash Sir's spec), NISAR satellite bathymetry"
+  },
+  "traffic_information": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real-time vessel/traffic tracking data for NW-53 jetties and connecting ports. Modeled on RIS 'traffic information' (tactical + strategic vessel positions, akin to Inland AIS).",
+    "data_source_needed": "Map My India real-time traffic/location API and other GIS markers"
+  },
+  "water_level_and_tide_data": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires real tide, salinity, and water-level data for the MMR corridor. Modeled on RIS gauge-station ('Pegelstellen') data.",
+    "data_source_needed": "Tide data, salinity and water level data, weather data"
+  },
+  "locks_and_berths_index": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires a reference index of locks, berths, and waterway objects along NW-53, analogous to the RIS Index used on the Rhine/Danube (unique codes + restricting conditions per object).",
+    "data_source_needed": "Land routes data, port/jetty infrastructure records"
+  },
+  "notices_to_skippers": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires a live safety/navigability alert feed for NW-53 (hazards, closures, seasonal restrictions). Modeled on RIS 'Notices to Skippers'.",
+    "data_source_needed": "Not yet identified -- no Indian inland-waterway equivalent confirmed"
+  },
+  "cargo_fleet_management": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires vessel/fleet and cargo-volume data moving through NW-53 jetties. Modeled on RIS 'cargo and fleet management' information.",
+    "data_source_needed": "Land traffic data, logistics cost/volume data"
+  },
+  "traffic_growth_projection": {
+    "status": "NOT_YET_ASSESSED",
+    "note": "Requires a real annual growth-rate assumption and a base-year cargo/traffic figure before any 50-100 year projection can be produced.",
+    "methodology": "future_value = base_year_cargo_tonnes * (1 + growth_rate_annual_pct/100) ** years, for years in projection_horizon_years",
+    "projection_horizon_years": [
+      50,
+      100
+    ]
+  },
+  "known_gaps": [
+    "This is a schema/structure design only -- no live data source is connected for any category.",
+    "Blocked on Akash Sir confirming access to Map My India API, NISAR satellite data, and tide/salinity/water-level feeds.",
+    "traffic_growth_projection() formula is ready but requires a real growth-rate assumption and base-year cargo figure.",
+    "Notices to Skippers has no confirmed Indian inland-waterway data source equivalent yet -- needs research.",
+    "Financial assessment's roi_assessment() depends on this module's cargo/revenue projections once computed."
+  ]
+}
