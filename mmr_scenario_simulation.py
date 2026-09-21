@@ -128,7 +128,7 @@ def build_scenario_simulation_entity(report, jetties):
     return envelope(
         entity_id="SCENARIO_SIMULATION_NW53_MMR",
         entity_type="scenario_simulation",
-        name="NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Schema Design)",
+        name="NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Partial: DPR-Verified Traffic + Schema for Remaining Domains)",
         geometry=geom,
         source="mmr_scenario_simulation.py (generated, not an external source)",
         authority="marine-intelligence-task internal analysis -- not an official government assessment",
@@ -157,4 +157,5 @@ if __name__ == "__main__":
         json.dump(entity, f, indent=2)
     print("Canonical scenario_simulation entity generated: mmr_scenario_simulation_assessment.json")
     print(json.dumps(report, indent=2))
+
 
