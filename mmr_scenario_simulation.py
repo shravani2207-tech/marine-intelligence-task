@@ -96,7 +96,7 @@ def traffic_growth_projection():
 
 def build_scenario_simulation_report(jetties):
     return {
-        "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Schema Design)",
+        "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Partial: DPR-Verified Traffic + Schema for Remaining Domains)",
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "jetty_count_covered": len(jetties),
         "schema_reference": "Modeled on Rhine/Danube River Information Services (RIS) data domains, per Akash Sir's spec",
@@ -157,3 +157,4 @@ if __name__ == "__main__":
         json.dump(entity, f, indent=2)
     print("Canonical scenario_simulation entity generated: mmr_scenario_simulation_assessment.json")
     print(json.dumps(report, indent=2))
+
