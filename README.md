@@ -219,6 +219,7 @@ Extended for BHIV Bharat Mala / Marine Spatial Planning to cover the MMR corrido
 - `corridor_score` / `intermodal_score` thresholds (target jetty count, gap-distance flag, port-distance falloff) are directional placeholders, not sourced from an official IWAI/transport methodology
 - Decongestion assessment remains `NOT_YET_ASSESSED` — requires real road-traffic baseline data (e.g. Maharashtra traffic dept, Google/TomTom congestion index) before any estimate can be produced
 - Financial assessment: structural skeleton built (see above), pending real cost benchmarks from Akash Sir / IWAI-MMRDA sources for actual ROI numbers. Scenario Simulation: not yet implemented — blocked on confirming access to Map My India traffic/location API, NISAR satellite data, and tide/salinity/water-level data feeds
-- `test_spatial_performance.py` raises two pre-existing `UserWarning`s (geometry in geographic CRS, so raw `.distance()` values aren't true metric distances) — not a regression, but noted for anyone reading distance outputs
+- ~~`test_spatial_performance.py` raised two UserWarnings about geometry being in a geographic CRS~~ — **Resolved**: `.distance()` calls now reproject via `.to_crs(epsg=3857)` before computing distance; confirmed no warnings on re-run.
+
 
 
