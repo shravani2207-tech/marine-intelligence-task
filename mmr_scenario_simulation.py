@@ -1,4 +1,4 @@
-﻿import json
+import json
 from datetime import datetime, timezone
 
 from mmr_canonical_envelope import envelope, point_geom
@@ -63,9 +63,9 @@ def traffic_information():
             "Kolshet": "verified",
             "Gaimukh": "verified",
             "Vasai": "verified",
-            "Dombivli": "verified",
+            "Dombivli": "UNVERIFIED",
             "Nagla Bunder": "verified",
-            "Parsik Bunder": "verified",
+            "Parsik Bunder": "UNVERIFIED",
             "Kalher": "pending verification",
             "Anjur Dive": "pending verification"
         }

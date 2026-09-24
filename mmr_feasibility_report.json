@@ -1,11 +1,13 @@
 {
   "study": "NW53 Kalyan-Thane-Mumbai Waterway Feasibility",
-  "generated_at": "2026-09-17T06:37:48Z",
+  "generated_at": "2026-09-24T10:22:40Z",
   "waterway_feasibility": {
-    "jetty_count": 2,
+    "jetty_count": 4,
     "jetties": [
       "Kolshet Jetty",
-      "Gaimukh Jetty"
+      "Gaimukh Jetty",
+      "Vasai Terminal",
+      "Nagla Bunder Terminal"
     ],
     "connected_ports": [
       "Mumbai Port",
@@ -50,6 +52,44 @@
             "straight_line_km": 37.5
           }
         ]
+      },
+      {
+        "jetty": "Vasai Terminal",
+        "nearest_port": "Rewas Port",
+        "nearest_port_distance_km": 41.14,
+        "all_port_distances": [
+          {
+            "port_name": "Rewas Port",
+            "straight_line_km": 41.14
+          },
+          {
+            "port_name": "Mumbai Port",
+            "straight_line_km": 42.4
+          },
+          {
+            "port_name": "Jawaharlal Nehru Port",
+            "straight_line_km": 45.73
+          }
+        ]
+      },
+      {
+        "jetty": "Nagla Bunder Terminal",
+        "nearest_port": "Rewas Port",
+        "nearest_port_distance_km": 35.06,
+        "all_port_distances": [
+          {
+            "port_name": "Rewas Port",
+            "straight_line_km": 35.06
+          },
+          {
+            "port_name": "Jawaharlal Nehru Port",
+            "straight_line_km": 37.79
+          },
+          {
+            "port_name": "Mumbai Port",
+            "straight_line_km": 40.18
+          }
+        ]
       }
     ],
     "distance_methodology": "Haversine great-circle distance (straight-line), NOT actual navigable waterway route length.",
@@ -57,8 +97,8 @@
     "note": "Real feasibility score not yet computed -- needs methodology beyond distance (navigability, depth, seasonal data)."
   },
   "structural_scores": {
-    "corridor_score": 53.3,
-    "intermodal_score": 39.9,
+    "corridor_score": 66.7,
+    "intermodal_score": 31.8,
     "flags": [],
     "note": "Structural scores only. Not a substitute for navigability, depth, seasonal, or congestion data."
   },
@@ -75,6 +115,16 @@
     },
     {
       "jetty": "Gaimukh Jetty",
+      "constraint": "Thane Creek Ramsar Wetland Site",
+      "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+    },
+    {
+      "jetty": "Vasai Terminal",
+      "constraint": "Thane Creek Ramsar Wetland Site",
+      "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+    },
+    {
+      "jetty": "Nagla Bunder Terminal",
       "constraint": "Thane Creek Ramsar Wetland Site",
       "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
     }

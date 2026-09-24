@@ -1,4 +1,4 @@
-﻿{
+{
     "iwt_terminals":  [
                           {
                               "terminal_id":  1,
@@ -128,7 +128,8 @@
                               "latitude":  9.4981,
                               "longitude":  76.3388,
                               "source":  "https://iwai.nic.in",
-                              "notes":  "Strategic IWT terminal on NW-3 supporting Keralaâ€™s canal-based transport."
+                              "coordinate_verification": "UNVERIFIED",
+                              "notes":  "Strategic IWT terminal on NW-3 supporting Keralaâ€™s canal-based transport. Coordinates UNVERIFIED: identical to Alappuzha, IWAI lists them as separate NW-3 terminals, and no terminal-specific source was found."
                           },
                           {
                               "terminal_id":  14,
@@ -138,7 +139,8 @@
                               "latitude":  9.4981,
                               "longitude":  76.3388,
                               "source":  "https://iwai.nic.in",
-                              "notes":  "Canal-based terminal on NW-3 enhancing regional cargo distribution."
+                              "coordinate_verification": "UNVERIFIED",
+                              "notes":  "Canal-based terminal on NW-3 enhancing regional cargo distribution. Coordinates UNVERIFIED: identical to Kottapuram, IWAI lists them as separate NW-3 terminals, and no terminal-specific source was found."
                           },
                           {
                               "terminal_id":  15,
@@ -238,7 +240,8 @@
                               "latitude":  19.227811,
                               "longitude":  72.067514,
                               "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
-                              "notes":  "DPR borehole coordinates for Dombivli terminal: 19°13'40.12\"N, 72°4'3.05\"E."
+                              "coordinate_verification": "UNVERIFIED",
+                              "notes":  "Coordinates UNVERIFIED: these are DPR borehole coordinates (19°13'40.12\"N, 72°4'3.05\"E), not confirmed jetty points."
                           },
                           {
                               "terminal_id":  25,
@@ -258,7 +261,8 @@
                               "latitude":  19.213756,
                               "longitude":  72.014294,
                               "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
-                              "notes":  "DPR borehole coordinates for Parsik Bunder: 19°12'49.52\"N, 72°0'51.46\"E."
+                              "coordinate_verification": "UNVERIFIED",
+                              "notes":  "Coordinates UNVERIFIED: these are DPR borehole coordinates (19°12'49.52\"N, 72°0'51.46\"E), not confirmed jetty points."
                           }
                       ],
     "river_monitoring_stations":  [

@@ -1,4 +1,4 @@
-﻿import json
+import json
 import math
 from datetime import datetime, timezone
 
@@ -21,7 +21,7 @@ def haversine_km(lat1, lon1, lat2, lon2):
 
 def get_mmr_jetties(waterways_data):
     terminals = waterways_data["iwt_terminals"] if isinstance(waterways_data, dict) else waterways_data
-    return [t for t in terminals if "NW-53" in t.get("waterway_name", "")]
+    return [t for t in terminals if "NW-53" in t.get("waterway_name", "") and t.get("coordinate_verification") != "UNVERIFIED"]
 
 def get_mmr_ports(ports_data):
     target_names = {"Mumbai Port", "Jawaharlal Nehru Port", "Rewas Port"}

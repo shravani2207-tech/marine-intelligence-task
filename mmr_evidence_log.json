@@ -1,7 +1,22 @@
-﻿{
+{
     "task":  "BHIV Bharat Mala - MMR Data Layer \u0026 Engine Extension",
     "date_utc":  "2026-09-09T09:21:08Z",
     "changes":  [
+                    {
+                        "file":  "waterways.json",
+                        "change":  "Marked Dombivli, Parsik Bunder, Kottapuram, and Alappuzha terminals as UNVERIFIED",
+                        "details":  "Added coordinate_verification flag and updated notes indicating lack of confirmed jetty coordinates."
+                    },
+                    {
+                        "file":  "mmr_feasibility.py",
+                        "change":  "Excluded UNVERIFIED terminals from NW-53 feasibility scoring",
+                        "details":  "Updated get_mmr_jetties filter."
+                    },
+                    {
+                        "file":  "mmr_scenario_simulation.py",
+                        "change":  "Fixed scenario metadata for Dombivli and Parsik Bunder",
+                        "details":  "Changed status from verified to UNVERIFIED for these terminals."
+                    },
                     {
                         "file":  "waterways.json",
                         "change":  "Added 2 IWT terminals on NW-53 (Kalyan-Thane-Mumbai Waterway)",
