@@ -1,7 +1,7 @@
 {
   "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Schema Design)",
-  "generated_at": "2026-09-18T09:58:16Z",
-  "jetty_count_covered": 2,
+  "generated_at": "2026-09-21T10:30:08Z",
+  "jetty_count_covered": 6,
   "schema_reference": "Modeled on Rhine/Danube River Information Services (RIS) data domains, per Akash Sir's spec",
   "fairway_information": {
     "status": "NOT_YET_ASSESSED",
@@ -9,9 +9,94 @@
     "data_source_needed": "Sea routes / river data (per Akash Sir's spec), NISAR satellite bathymetry"
   },
   "traffic_information": {
-    "status": "NOT_YET_ASSESSED",
-    "note": "Requires real-time vessel/traffic tracking data for NW-53 jetties and connecting ports. Modeled on RIS 'traffic information' (tactical + strategic vessel positions, akin to Inland AIS).",
-    "data_source_needed": "Map My India real-time traffic/location API and other GIS markers"
+    "status": "DPR_2024_VERIFIED",
+    "note": "Peak Hour Traffic and 15-Hour Operational Traffic per Day were taken from the official IWAI DPR tables for NW-53 (2024). The 15-hour daily value already accounts for seasonal variation.",
+    "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+    "traffic_by_route": [
+      {
+        "route": "Kolshet \u2194 Kalher",
+        "direction": "Kolshet \u2192 Kalher",
+        "peak_hour_traffic": 235,
+        "daily_15h_traffic": 2818
+      },
+      {
+        "route": "Kolshet \u2194 Kalher",
+        "direction": "Kalher \u2192 Kolshet",
+        "peak_hour_traffic": 224,
+        "daily_15h_traffic": 3027
+      },
+      {
+        "route": "Kolshet \u2194 Anjur Dive",
+        "direction": "Kolshet \u2192 Anjur Dive",
+        "peak_hour_traffic": 234,
+        "daily_15h_traffic": 2461
+      },
+      {
+        "route": "Kolshet \u2194 Anjur Dive",
+        "direction": "Anjur Dive \u2192 Kolshet",
+        "peak_hour_traffic": 224,
+        "daily_15h_traffic": 2018
+      },
+      {
+        "route": "Dombivli \u2194 Vasai",
+        "direction": "Dombivli \u2192 Vasai",
+        "peak_hour_traffic": 151,
+        "daily_15h_traffic": 175
+      },
+      {
+        "route": "Dombivli \u2194 Vasai",
+        "direction": "Vasai \u2192 Dombivli",
+        "peak_hour_traffic": 172,
+        "daily_15h_traffic": 210
+      },
+      {
+        "route": "Dombivli \u2194 Nagla Bunder",
+        "direction": "Dombivli \u2192 Nagla Bunder",
+        "peak_hour_traffic": 151,
+        "daily_15h_traffic": 197
+      },
+      {
+        "route": "Dombivli \u2194 Nagla Bunder",
+        "direction": "Nagla Bunder \u2192 Dombivli",
+        "peak_hour_traffic": 151,
+        "daily_15h_traffic": 197
+      },
+      {
+        "route": "Dombivli \u2194 Parsik Bunder",
+        "direction": "Parsik Bunder \u2192 Dombivli",
+        "peak_hour_traffic": 293,
+        "daily_15h_traffic": 309
+      },
+      {
+        "route": "Dombivli \u2194 Parsik Bunder",
+        "direction": "Dombivli \u2192 Parsik Bunder",
+        "peak_hour_traffic": 768,
+        "daily_15h_traffic": 802
+      },
+      {
+        "route": "Kalyan \u2194 Dombivli",
+        "direction": "Dombivli \u2192 Kalyan",
+        "peak_hour_traffic": 304,
+        "daily_15h_traffic": 406
+      },
+      {
+        "route": "Kalyan \u2194 Dombivli",
+        "direction": "Kalyan \u2192 Dombivli",
+        "peak_hour_traffic": 881,
+        "daily_15h_traffic": 1194
+      }
+    ],
+    "routes_covered": 12,
+    "terminal_coordinate_status": {
+      "Kolshet": "verified",
+      "Gaimukh": "verified",
+      "Vasai": "verified",
+      "Dombivli": "verified",
+      "Nagla Bunder": "verified",
+      "Parsik Bunder": "verified",
+      "Kalher": "pending verification",
+      "Anjur Dive": "pending verification"
+    }
   },
   "water_level_and_tide_data": {
     "status": "NOT_YET_ASSESSED",

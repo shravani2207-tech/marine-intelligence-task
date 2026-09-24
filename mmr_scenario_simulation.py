@@ -28,6 +28,22 @@ GROWTH_CONFIG = {
     "projection_horizon_years": [50, 100],  # per Akash Sir's spec
 }
 
+DPR_2024_TRAFFIC = [
+    {"route": "Kolshet ↔ Kalher", "direction": "Kolshet → Kalher", "peak_hour_traffic": 235, "daily_15h_traffic": 2818},
+    {"route": "Kolshet ↔ Kalher", "direction": "Kalher → Kolshet", "peak_hour_traffic": 224, "daily_15h_traffic": 3027},
+    {"route": "Kolshet ↔ Anjur Dive", "direction": "Kolshet → Anjur Dive", "peak_hour_traffic": 234, "daily_15h_traffic": 2461},
+    {"route": "Kolshet ↔ Anjur Dive", "direction": "Anjur Dive → Kolshet", "peak_hour_traffic": 224, "daily_15h_traffic": 2018},
+    {"route": "Dombivli ↔ Vasai", "direction": "Dombivli → Vasai", "peak_hour_traffic": 151, "daily_15h_traffic": 175},
+    {"route": "Dombivli ↔ Vasai", "direction": "Vasai → Dombivli", "peak_hour_traffic": 172, "daily_15h_traffic": 210},
+    {"route": "Dombivli ↔ Nagla Bunder", "direction": "Dombivli → Nagla Bunder", "peak_hour_traffic": 151, "daily_15h_traffic": 197},
+    {"route": "Dombivli ↔ Nagla Bunder", "direction": "Nagla Bunder → Dombivli", "peak_hour_traffic": 151, "daily_15h_traffic": 197},
+    {"route": "Dombivli ↔ Parsik Bunder", "direction": "Parsik Bunder → Dombivli", "peak_hour_traffic": 293, "daily_15h_traffic": 309},
+    {"route": "Dombivli ↔ Parsik Bunder", "direction": "Dombivli → Parsik Bunder", "peak_hour_traffic": 768, "daily_15h_traffic": 802},
+    {"route": "Kalyan ↔ Dombivli", "direction": "Dombivli → Kalyan", "peak_hour_traffic": 304, "daily_15h_traffic": 406},
+    {"route": "Kalyan ↔ Dombivli", "direction": "Kalyan → Dombivli", "peak_hour_traffic": 881, "daily_15h_traffic": 1194},
+]
+
+
 def fairway_information():
     return {
         "status": "NOT_YET_ASSESSED",
@@ -35,11 +51,24 @@ def fairway_information():
         "data_source_needed": "Sea routes / river data (per Akash Sir's spec), NISAR satellite bathymetry"
     }
 
+
 def traffic_information():
     return {
-        "status": "NOT_YET_ASSESSED",
-        "note": "Requires real-time vessel/traffic tracking data for NW-53 jetties and connecting ports. Modeled on RIS 'traffic information' (tactical + strategic vessel positions, akin to Inland AIS).",
-        "data_source_needed": "Map My India real-time traffic/location API and other GIS markers"
+        "status": "DPR_2024_VERIFIED",
+        "note": "Peak Hour Traffic and 15-Hour Operational Traffic per Day were taken from the official IWAI DPR tables for NW-53 (2024). The 15-hour daily value already accounts for seasonal variation.",
+        "source": "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+        "traffic_by_route": DPR_2024_TRAFFIC,
+        "routes_covered": len(DPR_2024_TRAFFIC),
+        "terminal_coordinate_status": {
+            "Kolshet": "verified",
+            "Gaimukh": "verified",
+            "Vasai": "verified",
+            "Dombivli": "verified",
+            "Nagla Bunder": "verified",
+            "Parsik Bunder": "verified",
+            "Kalher": "pending verification",
+            "Anjur Dive": "pending verification"
+        }
     }
 
 def water_level_and_tide_data():

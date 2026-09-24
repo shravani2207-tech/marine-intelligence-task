@@ -207,8 +207,8 @@
                               "terminal_type":  "IWT Terminal",
                               "latitude":  19.2411,
                               "longitude":  72.9899,
-                              "source":  "https://iwai.nic.in",
-                              "notes":  "Jetty on Thane Creek (Ulhas River distributary) under IWAI\u0027s Kalyan-Thane-Mumbai waterway development for MMR."
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "Verified NW-53 terminal location tied to the IWAI DPR jetty/borehole references for Kolshet on Thane Creek."
                           },
                           {
                               "terminal_id":  22,
@@ -217,8 +217,48 @@
                               "terminal_type":  "IWT Terminal",
                               "latitude":  19.2515,
                               "longitude":  72.9944,
-                              "source":  "https://iwai.nic.in",
-                              "notes":  "Operational jetty on Thane Creek near Ghodbunder Road, currently used for tourist/floating services under MMR waterway plan."
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "Verified NW-53 terminal location tied to the IWAI DPR jetty/borehole references for Gaimukh on Thane Creek."
+                          },
+                          {
+                              "terminal_id":  23,
+                              "terminal_name":  "Vasai Terminal",
+                              "waterway_name":  "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+                              "terminal_type":  "IWT Terminal",
+                              "latitude":  19.328233,
+                              "longitude":  72.820672,
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "DPR borehole coordinates for Vasai terminal: 19°19'41.64\"N, 72°49'14.42\"E; coordinate set was used for the terminal point."
+                          },
+                          {
+                              "terminal_id":  24,
+                              "terminal_name":  "Dombivli Terminal",
+                              "waterway_name":  "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+                              "terminal_type":  "IWT Terminal",
+                              "latitude":  19.227811,
+                              "longitude":  72.067514,
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "DPR borehole coordinates for Dombivli terminal: 19°13'40.12\"N, 72°4'3.05\"E."
+                          },
+                          {
+                              "terminal_id":  25,
+                              "terminal_name":  "Nagla Bunder Terminal",
+                              "waterway_name":  "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+                              "terminal_type":  "IWT Terminal",
+                              "latitude":  19.294267,
+                              "longitude":  72.947339,
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "DPR borehole coordinates for Nagla Bunder: 19°17'39.36\"N, 72°56'50.42\"E."
+                          },
+                          {
+                              "terminal_id":  26,
+                              "terminal_name":  "Parsik Bunder Terminal",
+                              "waterway_name":  "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+                              "terminal_type":  "IWT Terminal",
+                              "latitude":  19.213756,
+                              "longitude":  72.014294,
+                              "source":  "IWAI DPR – IWT Vasai (Bassein) Creek / NW-53 (2024)",
+                              "notes":  "DPR borehole coordinates for Parsik Bunder: 19°12'49.52\"N, 72°0'51.46\"E."
                           }
                       ],
     "river_monitoring_stations":  [
