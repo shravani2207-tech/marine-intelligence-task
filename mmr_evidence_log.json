@@ -20,7 +20,7 @@
     {
       "file": "mmr_feasibility_report.json, mmr_financial_report.json, mmr_scenario_simulation_report.json",
       "change": "Recalculated scores and outputs with filtered terminal list",
-      "details": "Before scoring: 6 terminals (Corridor: 75.0, Intermodal: 0.0, avg port dist: 52.5km). After scoring (only Kolshet & Gaimukh): 2 terminals (Corridor: 53.3, Intermodal: 39.9, avg port dist: 30.05km). The intermodal score improved because excluding the far unverified terminals reduced the average nearest port distance to 30.05km (below 50km falloff threshold). These new scores are PROVISIONAL / NOT FINAL pending source verification."
+      "details": "Before scoring: 6 terminals (Corridor: 75.0, Intermodal: 0.0, avg port dist: 52.5km). After scoring (only Kolshet & Gaimukh): 2 terminals (Corridor: 53.3, Intermodal: 39.9, avg port dist: 30.05km). The intermodal score increased (from 0.0 to 39.9) because excluding the far unverified terminals reduced the average nearest port distance to 30.05km (below 50km falloff threshold). These new scores are PROVISIONAL / NOT FINAL pending source verification."
     },
     {
       "file": "waterways.json",
