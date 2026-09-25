@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+  "source_commit": "4f5c9cc",
+  "generated_at": "2026-09-25T08:57:22.537377+00:00",
+  "data_quality": {
+    "duplicate_coordinates": [],
+    "known_coordinate_anomalies": [],
+    "note": "Duplicate check is exact-match within tolerance across all loaded datasets (this is what surfaces issues like Kottapuram/Alappuzha sharing coordinates). Anomaly check is a named allowlist of previously flagged records, not a general outlier detector."
+  },
+  "results": []
+}

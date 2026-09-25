@@ -2,11 +2,7 @@
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-<<<<<<< Updated upstream
-    "generated_at": "2026-09-25T11:11:14Z",
-=======
-    "generated_at": "2026-09-25T11:56:23Z",
->>>>>>> Stashed changes
+    "generated_at": "2026-09-25T11:11:43Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2302,22 +2298,8 @@
       "reason": "KG_INGEST_ENDPOINT not configured yet"
     },
     "goudha_runtime": {
-<<<<<<< Updated upstream
       "status": "skipped",
       "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"
-=======
-      "status": "success",
-      "response": {
-        "status": "accepted",
-        "reference_id": "0b9b153f-b686-4d3e-b74b-cfe9e9c355d2",
-        "records_received": 43,
-        "message": "Reference dataset successfully registered.",
-        "artifact_id": null,
-        "hash": null,
-        "parent_hash": null,
-        "schema_version": null
-      }
->>>>>>> Stashed changes
     },
     "bucket": {
       "status": "skipped",
@@ -2349,11 +2331,7 @@
     "rivers_with_topology": 11,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 1
+    "convergence_adapters_live": 0
   },
-<<<<<<< Updated upstream
-  "export_version": "20260925T111114Z"
-=======
-  "export_version": "20260925T115623Z"
->>>>>>> Stashed changes
+  "export_version": "20260925T111143Z"
 }

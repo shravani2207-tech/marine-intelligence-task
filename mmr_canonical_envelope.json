@@ -1,7 +1,12 @@
 {
   "contract_version": "1.0.0",
+<<<<<<< Updated upstream
   "generated_at": "2026-09-25T11:13:17Z",
   "entity_count": 10,
+=======
+  "generated_at": "2026-09-25T08:55:05Z",
+  "entity_count": 12,
+>>>>>>> Stashed changes
   "entities": [
     {
       "entity_id": "WATERWAY_NW53",
@@ -39,7 +44,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -67,9 +76,15 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
+<<<<<<< Updated upstream
       "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -95,9 +110,15 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
+<<<<<<< Updated upstream
       "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -123,9 +144,43 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
+<<<<<<< Updated upstream
       "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_24",
+      "entity_type": "iwt_terminal",
+      "name": "Dombivli Terminal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.067514,
+          19.227811
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -151,9 +206,43 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
+<<<<<<< Updated upstream
       "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_26",
+      "entity_type": "iwt_terminal",
+      "name": "Parsik Bunder Terminal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.014294,
+          19.213756
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "IWAI DPR \u2013 IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -181,7 +270,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -209,7 +302,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -237,7 +334,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://mmb.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -265,7 +366,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://www.ramsar.org",
       "authority": "Ramsar Convention Secretariat",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -294,7 +399,11 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://in.esr.com/bhiwandi, https://www.mapletreelogisticstrust.com, https://www.indospace.in/maharashtra/bhiwandi/",
       "authority": "UNCONFIRMED - no official government authority found",
+<<<<<<< Updated upstream
       "timestamp": "2026-09-25T11:13:17Z",
+=======
+      "timestamp": "2026-09-25T08:55:05Z",
+>>>>>>> Stashed changes
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
