@@ -1,6 +1,6 @@
 {
   "contract_version": "1.0.0",
-  "generated_at": "2026-09-11T05:56:30Z",
+  "generated_at": "2026-09-25T08:48:46Z",
   "entity_count": 8,
   "entities": [
     {
@@ -39,7 +39,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -67,9 +67,9 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
-      "source": "https://iwai.nic.in",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -95,9 +95,9 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
-      "source": "https://iwai.nic.in",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -125,7 +125,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -153,7 +153,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -181,7 +181,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://mmb.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -209,7 +209,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://www.ramsar.org",
       "authority": "Ramsar Convention Secretariat",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -238,7 +238,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://in.esr.com/bhiwandi, https://www.mapletreelogisticstrust.com, https://www.indospace.in/maharashtra/bhiwandi/",
       "authority": "UNCONFIRMED - no official government authority found",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T08:48:46Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",

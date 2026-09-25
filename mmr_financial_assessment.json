@@ -18,7 +18,7 @@
   "spatial_reference": "EPSG:4326",
   "source": "mmr_financial_assessment.py (generated, not an external source)",
   "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
-  "timestamp": "2026-09-17T12:13:22Z",
+  "timestamp": "2026-09-25T08:48:46Z",
   "schema_version": "1.0.0",
   "provenance": {
     "origin": "marine-intelligence-task data layer",

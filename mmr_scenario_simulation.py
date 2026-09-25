@@ -62,9 +62,9 @@ def traffic_information():
         "terminal_coordinate_status": {
             "Kolshet": "verified",
             "Gaimukh": "verified",
-            "Vasai": "verified",
+            "Vasai": "UNVERIFIED",
             "Dombivli": "UNVERIFIED",
-            "Nagla Bunder": "verified",
+            "Nagla Bunder": "UNVERIFIED",
             "Parsik Bunder": "UNVERIFIED",
             "Kalher": "pending verification",
             "Anjur Dive": "pending verification"

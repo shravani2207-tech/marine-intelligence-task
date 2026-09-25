@@ -1,4 +1,4 @@
-﻿import json
+import json
 from datetime import datetime, timezone
 
 SCHEMA_VERSION = "1.0.0"
@@ -66,6 +66,8 @@ def build_entities():
     terminals = waterways["iwt_terminals"] if isinstance(waterways, dict) else waterways
     for t in terminals:
         if "NW-53" in t.get("waterway_name", ""):
+            if t.get("coordinate_verification") == "UNVERIFIED":
+                continue
             entities.append(envelope(
                 entity_id=f"TERMINAL_{t['terminal_id']}",
                 entity_type="iwt_terminal",

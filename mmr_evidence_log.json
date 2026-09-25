@@ -1,60 +1,85 @@
 {
-    "task":  "BHIV Bharat Mala - MMR Data Layer \u0026 Engine Extension",
-    "date_utc":  "2026-09-09T09:21:08Z",
-    "changes":  [
-                    {
-                        "file":  "waterways.json",
-                        "change":  "Marked Dombivli, Parsik Bunder, Kottapuram, and Alappuzha terminals as UNVERIFIED",
-                        "details":  "Added coordinate_verification flag and updated notes indicating lack of confirmed jetty coordinates."
-                    },
-                    {
-                        "file":  "mmr_feasibility.py",
-                        "change":  "Excluded UNVERIFIED terminals from NW-53 feasibility scoring",
-                        "details":  "Updated get_mmr_jetties filter."
-                    },
-                    {
-                        "file":  "mmr_scenario_simulation.py",
-                        "change":  "Fixed scenario metadata for Dombivli and Parsik Bunder",
-                        "details":  "Changed status from verified to UNVERIFIED for these terminals."
-                    },
-                    {
-                        "file":  "waterways.json",
-                        "change":  "Added 2 IWT terminals on NW-53 (Kalyan-Thane-Mumbai Waterway)",
-                        "details":  "terminal_id 21 (Kolshet Jetty), terminal_id 22 (Gaimukh Jetty)"
-                    },
-                    {
-                        "file":  "environmental.json",
-                        "change":  "Added Thane Creek Ramsar Wetland Site",
-                        "details":  "dataset_id 16, Ramsar Site No. 2490, designated 13 April 2022"
-                    },
-                    {
-                        "file":  "ports.json",
-                        "change":  "No changes needed",
-                        "details":  "Mumbai Port (id 2), JNPT (id 3), Rewas Port (id 34) already present"
-                    },
-                    {
-                        "file":  "coastal_zones.json",
-                        "change":  "No changes needed",
-                        "details":  "North Konkan Coastal Economic Zone (zone_id 4) already covers MMR"
-                    },
-                    {
-                        "file":  "national_gis_layer.py",
-                        "change":  "Wired Ulhas_NW53 into the engine",
-                        "details":  "Added river_coordinates[\u0027Ulhas_NW53\u0027], added INFRA_42 (Kolshet Jetty) + INFRA_43 (Gaimukh Jetty), fixed hardcoded expected_river_count (10-\u003e11) and multi_river_coverage check (==10 -\u003e ==11)"
-                    }
-                ],
-    "test_results":  {
-                         "command":  "python national_gis_layer.py",
-                         "river_count":  11,
-                         "expected_river_count":  11,
-                         "multi_river_coverage":  "True [PASSED]",
-                         "infra_count":  43,
-                         "rivers_with_topology":  11,
-                         "topology_relationships":  32,
-                         "geometry_validity":  "True [PASSED]",
-                         "overall_result":  "Data convergence successful, no crashes, all integrity checks PASSED except convergence_adapters_live (pre-existing, unrelated gap - live endpoints not yet configured for downstream systems)"
-                     },
-    "known_gaps":  [
-                       "logistics.json: no confirmed official PM GatiShakti MMLP found for Bhiwandi - assigned to Kaushlendra to resolve"
-                   ]
+  "task": "BHIV Bharat Mala - MMR Data Layer & Engine Extension",
+  "date_utc": "2026-09-25T08:49:35Z",
+  "changes": [
+    {
+      "file": "waterways.json",
+      "change": "Maintained UNVERIFIED status for Vasai, Nagla Bunder, Dombivli, and Parsik Bunder",
+      "details": "Dombivli and Parsik Bunder labelled as DPR borehole references with pending page/table source. Kept Kolshet and Gaimukh as only verified NW-53 terminals (source: IWAI DPR - IWT Vasai Creek / NW-53 (2024))."
+    },
+    {
+      "file": "mmr_canonical_envelope.py, mmr_scenario_simulation.py",
+      "change": "Added explicit verification-status filters for downstream systems",
+      "details": "mmr_canonical_envelope.py now skips UNVERIFIED terminals. mmr_scenario_simulation.py traffic metadata correctly lists Vasai and Nagla Bunder as UNVERIFIED."
+    },
+    {
+      "file": "map_to_knowledge_graph.py, national_gis_layer.py",
+      "change": "Checked downstream verification-status filtering",
+      "details": "national_gis_layer.py only includes explicit MMR/Ulhas_NW53 jetties (Kolshet and Gaimukh), thus implicitly filtering out UNVERIFIED terminals. map_to_knowledge_graph.py relies on its output, so it is also filtered."
+    },
+    {
+      "file": "mmr_feasibility_report.json, mmr_financial_report.json, mmr_scenario_simulation_report.json",
+      "change": "Recalculated scores and outputs with filtered terminal list",
+      "details": "Before scoring: 6 terminals (Corridor: 75.0, Intermodal: 0.0, avg port dist: 52.5km). After scoring (only Kolshet & Gaimukh): 2 terminals (Corridor: 53.3, Intermodal: 39.9, avg port dist: 30.05km). The intermodal score improved because excluding the far unverified terminals reduced the average nearest port distance to 30.05km (below 50km falloff threshold). These new scores are PROVISIONAL / NOT FINAL pending source verification."
+    },
+    {
+      "file": "waterways.json",
+      "change": "Marked Dombivli, Parsik Bunder, Kottapuram, and Alappuzha terminals as UNVERIFIED",
+      "details": "Added coordinate_verification flag and updated notes indicating lack of confirmed jetty coordinates."
+    },
+    {
+      "file": "mmr_feasibility.py",
+      "change": "Excluded UNVERIFIED terminals from NW-53 feasibility scoring",
+      "details": "Updated get_mmr_jetties filter."
+    },
+    {
+      "file": "mmr_scenario_simulation.py",
+      "change": "Fixed scenario metadata for Dombivli and Parsik Bunder",
+      "details": "Changed status from verified to UNVERIFIED for these terminals."
+    },
+    {
+      "file": "waterways.json",
+      "change": "Added 2 IWT terminals on NW-53 (Kalyan-Thane-Mumbai Waterway)",
+      "details": "terminal_id 21 (Kolshet Jetty), terminal_id 22 (Gaimukh Jetty)"
+    },
+    {
+      "file": "environmental.json",
+      "change": "Added Thane Creek Ramsar Wetland Site",
+      "details": "dataset_id 16, Ramsar Site No. 2490, designated 13 April 2022"
+    },
+    {
+      "file": "ports.json",
+      "change": "No changes needed",
+      "details": "Mumbai Port (id 2), JNPT (id 3), Rewas Port (id 34) already present"
+    },
+    {
+      "file": "coastal_zones.json",
+      "change": "No changes needed",
+      "details": "North Konkan Coastal Economic Zone (zone_id 4) already covers MMR"
+    },
+    {
+      "file": "national_gis_layer.py",
+      "change": "Wired Ulhas_NW53 into the engine",
+      "details": "Added river_coordinates['Ulhas_NW53'], added INFRA_42 (Kolshet Jetty) + INFRA_43 (Gaimukh Jetty), fixed hardcoded expected_river_count (10->11) and multi_river_coverage check (==10 -> ==11)"
+    }
+  ],
+  "test_results": {
+    "command": "python national_gis_layer.py",
+    "river_count": 11,
+    "expected_river_count": 11,
+    "multi_river_coverage": "True [PASSED]",
+    "infra_count": 43,
+    "rivers_with_topology": 11,
+    "topology_relationships": 32,
+    "geometry_validity": "True [PASSED]",
+    "overall_result": "Data convergence successful, no crashes, all integrity checks PASSED except convergence_adapters_live (pre-existing, unrelated gap - live endpoints not yet configured for downstream systems)",
+    "update_verification_validation": {
+      "command": "python mmr_feasibility.py ; python mmr_canonical_envelope.py ; python mmr_scenario_simulation.py",
+      "output": "mmr_feasibility_report.json shows jetty_count=2 (Kolshet, Gaimukh). mmr_canonical_envelope.json excludes UNVERIFIED.",
+      "checks_not_run": "Could not run python national_gis_layer.py directly to verify spatial_truth_export.json generation because geopandas module is missing on the current system environment."
+    }
+  },
+  "known_gaps": [
+    "logistics.json: no confirmed official PM GatiShakti MMLP found for Bhiwandi - assigned to Kaushlendra to resolve"
+  ]
 }

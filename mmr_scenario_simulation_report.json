@@ -1,7 +1,7 @@
 {
   "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Partial: DPR-Verified Traffic + Schema for Remaining Domains)",
-  "generated_at": "2026-09-24T10:22:42Z",
-  "jetty_count_covered": 4,
+  "generated_at": "2026-09-25T08:49:06Z",
+  "jetty_count_covered": 2,
   "schema_reference": "Modeled on Rhine/Danube River Information Services (RIS) data domains, per Akash Sir's spec",
   "fairway_information": {
     "status": "NOT_YET_ASSESSED",
@@ -90,9 +90,9 @@
     "terminal_coordinate_status": {
       "Kolshet": "verified",
       "Gaimukh": "verified",
-      "Vasai": "verified",
+      "Vasai": "UNVERIFIED",
       "Dombivli": "UNVERIFIED",
-      "Nagla Bunder": "verified",
+      "Nagla Bunder": "UNVERIFIED",
       "Parsik Bunder": "UNVERIFIED",
       "Kalher": "pending verification",
       "Anjur Dive": "pending verification"
