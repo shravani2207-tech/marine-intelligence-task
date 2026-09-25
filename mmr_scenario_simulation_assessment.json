@@ -12,13 +12,21 @@
       [
         72.9944,
         19.2515
+      ],
+      [
+        72.947339,
+        19.294267
+      ],
+      [
+        72.820672,
+        19.328233
       ]
     ]
   },
   "spatial_reference": "EPSG:4326",
   "source": "mmr_scenario_simulation.py (generated, not an external source)",
   "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
-  "timestamp": "2026-09-25T08:49:06Z",
+  "timestamp": "2026-09-25T11:13:17Z",
   "schema_version": "1.0.0",
   "provenance": {
     "origin": "marine-intelligence-task data layer",
@@ -121,9 +129,9 @@
       "terminal_coordinate_status": {
         "Kolshet": "verified",
         "Gaimukh": "verified",
-        "Vasai": "UNVERIFIED",
+        "Vasai": "verified",
         "Dombivli": "UNVERIFIED",
-        "Nagla Bunder": "UNVERIFIED",
+        "Nagla Bunder": "verified",
         "Parsik Bunder": "UNVERIFIED",
         "Kalher": "pending verification",
         "Anjur Dive": "pending verification"

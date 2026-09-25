@@ -228,8 +228,7 @@
             "latitude": 19.328233,
             "longitude": 72.820672,
             "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
-            "notes": "DPR borehole coordinates for Vasai terminal: 19\u00c2\u00b019'41.64\"N, 72\u00c2\u00b049'14.42\"E; coordinate set was used for the terminal point.",
-            "coordinate_verification": "UNVERIFIED"
+            "notes": "DPR borehole coordinates for Vasai terminal: 19\u00c2\u00b019'41.64\"N, 72\u00c2\u00b049'14.42\"E; coordinate set was used for the terminal point."
         },
         {
             "terminal_id": 24,
@@ -250,8 +249,7 @@
             "latitude": 19.294267,
             "longitude": 72.947339,
             "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
-            "notes": "DPR borehole coordinates for Nagla Bunder: 19\u00c2\u00b017'39.36\"N, 72\u00c2\u00b056'50.42\"E.",
-            "coordinate_verification": "UNVERIFIED"
+            "notes": "DPR borehole coordinates for Nagla Bunder: 19\u00c2\u00b017'39.36\"N, 72\u00c2\u00b056'50.42\"E."
         },
         {
             "terminal_id": 26,

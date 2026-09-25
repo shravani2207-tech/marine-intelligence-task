@@ -19,8 +19,8 @@
     },
     {
       "file": "mmr_feasibility_report.json, mmr_financial_report.json, mmr_scenario_simulation_report.json",
-      "change": "Recalculated scores and outputs with filtered terminal list",
-      "details": "Before scoring: 6 terminals (Corridor: 75.0, Intermodal: 0.0, avg port dist: 52.5km). After scoring (only Kolshet & Gaimukh): 2 terminals (Corridor: 53.3, Intermodal: 39.9, avg port dist: 30.05km). The intermodal score increased (from 0.0 to 39.9) because excluding the far unverified terminals reduced the average nearest port distance to 30.05km (below 50km falloff threshold). These new scores are PROVISIONAL / NOT FINAL pending source verification."
+      "change": "Recalculated scores and outputs with filtered terminal list (added Vasai and Nagla Bunder back)",
+      "details": "After scoring (Kolshet, Gaimukh, Vasai, Nagla Bunder): 4 terminals (Corridor: 66.7, Intermodal: 31.8, avg port dist: 34.075km). The intermodal score changed because of the added distance of Vasai (41.14km) and Nagla Bunder (35.06km)."
     },
     {
       "file": "waterways.json",
@@ -75,8 +75,8 @@
     "overall_result": "Data convergence successful, no crashes, all integrity checks PASSED except convergence_adapters_live (pre-existing, unrelated gap - live endpoints not yet configured for downstream systems)",
     "update_verification_validation": {
       "command": "python mmr_feasibility.py ; python mmr_canonical_envelope.py ; python mmr_scenario_simulation.py",
-      "output": "mmr_feasibility_report.json shows jetty_count=2 (Kolshet, Gaimukh). mmr_canonical_envelope.json excludes UNVERIFIED.",
-      "checks_not_run": "Could not run python national_gis_layer.py directly to verify spatial_truth_export.json generation because geopandas module is missing on the current system environment."
+      "output": "mmr_feasibility_report.json shows jetty_count=4 (Kolshet, Gaimukh, Vasai, Nagla Bunder). mmr_canonical_envelope.json correctly excludes Dombivli and Parsik Bunder (UNVERIFIED).",
+      "checks_not_run": "None. Successfully ran pip install geopandas and python national_gis_layer.py. Verified spatial_truth_export.json correctly excludes UNVERIFIED terminals."
     }
   },
   "known_gaps": [

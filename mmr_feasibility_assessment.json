@@ -12,13 +12,21 @@
       [
         72.9944,
         19.2515
+      ],
+      [
+        72.947339,
+        19.294267
+      ],
+      [
+        72.820672,
+        19.328233
       ]
     ]
   },
   "spatial_reference": "EPSG:4326",
   "source": "mmr_feasibility.py (generated, not an external source)",
   "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
-  "timestamp": "2026-09-25T08:48:46Z",
+  "timestamp": "2026-09-25T11:13:17Z",
   "schema_version": "1.0.0",
   "provenance": {
     "origin": "marine-intelligence-task data layer",
@@ -36,8 +44,8 @@
   ],
   "properties": {
     "structural_scores": {
-      "corridor_score": 53.3,
-      "intermodal_score": 39.9,
+      "corridor_score": 66.7,
+      "intermodal_score": 31.8,
       "flags": [],
       "note": "Structural scores only. Not a substitute for navigability, depth, seasonal, or congestion data."
     },
@@ -54,6 +62,16 @@
       },
       {
         "jetty": "Gaimukh Jetty",
+        "constraint": "Thane Creek Ramsar Wetland Site",
+        "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+      },
+      {
+        "jetty": "Vasai Terminal",
+        "constraint": "Thane Creek Ramsar Wetland Site",
+        "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
+      },
+      {
+        "jetty": "Nagla Bunder Terminal",
         "constraint": "Thane Creek Ramsar Wetland Site",
         "note": "Within Thane Creek Ramsar corridor -- dredging/siting requires ecological clearance."
       }
