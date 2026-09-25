@@ -1,8 +1,9 @@
-﻿import json
+import json
 import math
 from datetime import datetime, timezone
 
 from mmr_canonical_envelope import envelope, point_geom, SCHEMA_VERSION
+from mmr_shared_filters import get_mmr_jetties
 
 def load_json(path):
     with open(path, encoding="utf-8-sig") as f:
@@ -19,9 +20,6 @@ def haversine_km(lat1, lon1, lat2, lon2):
     a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
     return R * 2 * math.asin(math.sqrt(a))
 
-def get_mmr_jetties(waterways_data):
-    terminals = waterways_data["iwt_terminals"] if isinstance(waterways_data, dict) else waterways_data
-    return [t for t in terminals if "NW-53" in t.get("waterway_name", "")]
 
 def get_mmr_ports(ports_data):
     target_names = {"Mumbai Port", "Jawaharlal Nehru Port", "Rewas Port"}

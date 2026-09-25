@@ -1,5 +1,6 @@
-﻿import json
+import json
 from datetime import datetime, timezone
+from mmr_shared_filters import get_mmr_jetties
 
 SCHEMA_VERSION = "1.0.0"
 SPATIAL_REFERENCE = "EPSG:4326"
@@ -63,20 +64,18 @@ def build_entities():
     ))
 
     # --- IWT terminals on NW-53 ---
-    terminals = waterways["iwt_terminals"] if isinstance(waterways, dict) else waterways
-    for t in terminals:
-        if "NW-53" in t.get("waterway_name", ""):
-            entities.append(envelope(
-                entity_id=f"TERMINAL_{t['terminal_id']}",
-                entity_type="iwt_terminal",
-                name=t["terminal_name"],
-                geometry=point_geom(t["longitude"], t["latitude"]),
-                source=t.get("source"),
-                authority="Inland Waterways Authority of India (IWAI)",
-                properties={"waterway_name": t.get("waterway_name"), "classification": t.get("terminal_type", "IWT Terminal")},
-                confidence="HIGH",
-                known_unknowns=[]
-            ))
+    for t in get_mmr_jetties(waterways):
+        entities.append(envelope(
+            entity_id=f"TERMINAL_{t['terminal_id']}",
+            entity_type="iwt_terminal",
+            name=t["terminal_name"],
+            geometry=point_geom(t["longitude"], t["latitude"]),
+            source=t.get("source"),
+            authority="Inland Waterways Authority of India (IWAI)",
+            properties={"waterway_name": t.get("waterway_name"), "classification": t.get("terminal_type", "IWT Terminal")},
+            confidence="HIGH",
+            known_unknowns=[]
+        ))
 
     # --- MMR ports ---
     for p in ports:

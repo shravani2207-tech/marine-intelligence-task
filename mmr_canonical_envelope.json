@@ -1,7 +1,7 @@
 {
   "contract_version": "1.0.0",
-  "generated_at": "2026-09-11T05:56:30Z",
-  "entity_count": 8,
+  "generated_at": "2026-09-25T11:13:17Z",
+  "entity_count": 10,
   "entities": [
     {
       "entity_id": "WATERWAY_NW53",
@@ -39,7 +39,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://iwai.nic.in",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -67,9 +67,9 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
-      "source": "https://iwai.nic.in",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -95,9 +95,65 @@
         ]
       },
       "spatial_reference": "EPSG:4326",
-      "source": "https://iwai.nic.in",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
       "authority": "Inland Waterways Authority of India (IWAI)",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_23",
+      "entity_type": "iwt_terminal",
+      "name": "Vasai Terminal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.820672,
+          19.328233
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T11:13:17Z",
+      "schema_version": "1.0.0",
+      "provenance": {
+        "origin": "marine-intelligence-task data layer",
+        "added_by": "Shravani - BHIV Bharat Mala MMR extension",
+        "method": "manual entry from cited public source"
+      },
+      "confidence": "HIGH",
+      "known_unknowns": [],
+      "properties": {
+        "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+        "classification": "IWT Terminal"
+      }
+    },
+    {
+      "entity_id": "TERMINAL_25",
+      "entity_type": "iwt_terminal",
+      "name": "Nagla Bunder Terminal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.947339,
+          19.294267
+        ]
+      },
+      "spatial_reference": "EPSG:4326",
+      "source": "IWAI DPR \u00e2\u20ac\u201c IWT Vasai (Bassein) Creek / NW-53 (2024)",
+      "authority": "Inland Waterways Authority of India (IWAI)",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -125,7 +181,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -153,7 +209,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://shipmin.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -181,7 +237,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "http://mmb.gov.in/",
       "authority": "Ministry of Shipping / Maharashtra Maritime Board",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -209,7 +265,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://www.ramsar.org",
       "authority": "Ramsar Convention Secretariat",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
@@ -238,7 +294,7 @@
       "spatial_reference": "EPSG:4326",
       "source": "https://in.esr.com/bhiwandi, https://www.mapletreelogisticstrust.com, https://www.indospace.in/maharashtra/bhiwandi/",
       "authority": "UNCONFIRMED - no official government authority found",
-      "timestamp": "2026-09-11T05:56:30Z",
+      "timestamp": "2026-09-25T11:13:17Z",
       "schema_version": "1.0.0",
       "provenance": {
         "origin": "marine-intelligence-task data layer",
