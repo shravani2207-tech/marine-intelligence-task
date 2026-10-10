@@ -221,5 +221,45 @@ Extended for BHIV Bharat Mala / Marine Spatial Planning to cover the MMR corrido
 - Financial assessment: structural skeleton built (see above), pending real cost benchmarks from Akash Sir / IWAI-MMRDA sources for actual ROI numbers. Scenario Simulation: not yet implemented — blocked on confirming access to Map My India traffic/location API, NISAR satellite data, and tide/salinity/water-level data feeds
 - ~~`test_spatial_performance.py` raised two UserWarnings about geometry being in a geographic CRS~~ — **Resolved**: `.distance()` calls now reproject via `.to_crs(epsg=3857)` before computing distance; confirmed no warnings on re-run.
 
+## Backend API and role-based authentication
+
+The FastAPI backend provides JWT bearer authentication and stores users in SQLite.
+Configure `AUTH_SECRET_KEY` with a randomly generated secret of at least 32 bytes
+before starting the API. `DATABASE_PATH` is optional and defaults to
+`marine_intelligence.db` in the project root. Keep the signing key in the
+ignored `.env` file or a secret manager; do not commit it.
+
+```powershell
+python -m pip install -r requirements.txt
+python -c "import secrets; print(secrets.token_urlsafe(48))"
+# Save the generated value as AUTH_SECRET_KEY in .env.
+python -m backend.create_admin
+python -m uvicorn backend.main:app --reload
+```
+
+The initial administrator is created interactively by `python -m
+backend.create_admin`; there is no built-in/default account. Public registration
+always creates a Viewer account, and callers cannot select their own role.
+Administrators can list accounts, change roles, and deactivate/reactivate users.
+An administrator cannot deactivate their own account or remove the last active
+administrator.
+
+| Role | Permissions |
+|---|---|
+| Viewer | Read the allowlisted source datasets |
+| Analyst | Viewer permissions and read the allowlisted MMR assessments |
+| Admin | Analyst permissions and manage user accounts |
+
+Authentication endpoints are `POST /auth/register`, `POST /auth/login`, and
+`GET /auth/me`. Protected data routes are `GET /api/datasets/{dataset_name}`
+(`ports`, `waterways`, `coastal_zones`, `environmental`, `logistics`) and
+`GET /api/assessments/{assessment_name}` (`feasibility`, `financial`,
+`scenario_simulation`, `intelligence`). Send access tokens in the
+`Authorization: Bearer <token>` header. Tokens expire after 30 minutes.
+Administrator routes are `GET /admin/users`,
+`PATCH /admin/users/{user_id}/role`, and
+`PATCH /admin/users/{user_id}/active`.
+
+Run the authentication/API tests with `python -m unittest discover -s tests`.
 
 
