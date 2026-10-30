@@ -41,16 +41,16 @@ CONFIG = {
 # (e.g. after the Friday EOD check on Dombivli / Parsik Bunder).
 # ---------------------------------------------------------------------------
 VERIFICATION_REGISTRY = {
-    "kolshet":        {"status": "usable", "note": "Verified usable."},
-    "gaimukh":        {"status": "usable", "note": "Verified usable."},
-    "vasai":          {"status": "usable", "note": "Verified usable."},
-    "nagla bunder":   {"status": "usable", "note": "Verified usable."},
-    "dombivli": {
+    "kolshet jetty":        {"status": "usable", "note": "Verified usable."},
+    "gaimukh jetty":        {"status": "usable", "note": "Verified usable."},
+    "vasai terminal":          {"status": "usable", "note": "Verified usable."},
+    "nagla bunder terminal":   {"status": "usable", "note": "Verified usable."},
+    "dombivli terminal": {
         "status": "pending_verification",
         "note": "DPR coordinate reported near 72.0E, flagged anomalous. "
                  "Cross-verification target: Friday EOD. Excluded from scoring until resolved.",
     },
-    "parsik bunder": {
+    "parsik bunder terminal": {
         "status": "pending_verification",
         "note": "DPR coordinate reported near 72.0E, flagged anomalous. "
                  "Cross-verification target: Friday EOD. Excluded from scoring until resolved.",
