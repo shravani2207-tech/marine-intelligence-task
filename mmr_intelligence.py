@@ -67,7 +67,7 @@ def now_iso() -> str:
 def load_json(path: Optional[str]) -> Optional[Any]:
     if not path or not os.path.exists(path):
         return None
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 
