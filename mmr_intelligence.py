@@ -14,10 +14,10 @@ SOURCE_COMMIT = "4f5c9cc"  # repo state this pipeline was written against
 # CONFIG - point these at your actual repo files.
 # ---------------------------------------------------------------------------
 CONFIG = {
-    "waterways_json": "data/waterways.json",              # now 26 terminals + 25 stations
-    "ports_json": "data/ports.json",
-    "environmental_json": "data/environmental.json",
-    "logistics_json": "data/logistics.json",
+    "waterways_json": "waterways.json",              # now 26 terminals + 25 stations
+    "ports_json": "ports.json",
+    "environmental_json": "environmental.json",
+    "logistics_json": "logistics.json",
     "dpr_2024_traffic_json": "data/dpr_2024_traffic.json",  # 12 routes / 6 jetties, VERIFIED
     "mmr_feasibility_assessment_json": "mmr_feasibility_assessment.json",
     "mmr_financial_assessment_json": "mmr_financial_assessment.json",
