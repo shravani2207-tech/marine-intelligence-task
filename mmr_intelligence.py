@@ -4,27 +4,43 @@ import math
 import os
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Optional
 
 SCHEMA_VERSION = "1.0.0"
 PIPELINE_VERSION = "mmr_intelligence_pipeline@0.2.0"
 SOURCE_COMMIT = "4f5c9cc"  # repo state this pipeline was written against
 
+BASE_DIR = Path(__file__).resolve().parent
+
+def _resolve_data_path(filename: str) -> str:
+    """Resolve a file path relative to BASE_DIR, checking data/ subfolder or root."""
+    p = Path(filename)
+    if p.is_absolute() and p.exists():
+        return str(p)
+    candidate_root = BASE_DIR / p.name
+    candidate_data = BASE_DIR / "data" / p.name
+    if candidate_root.exists():
+        return str(candidate_root)
+    if candidate_data.exists():
+        return str(candidate_data)
+    return str(BASE_DIR / filename)
+
 # ---------------------------------------------------------------------------
 # CONFIG - point these at your actual repo files.
 # ---------------------------------------------------------------------------
 CONFIG = {
-    "waterways_json": "data/waterways.json",              # now 26 terminals + 25 stations
-    "ports_json": "data/ports.json",
-    "environmental_json": "data/environmental.json",
-    "logistics_json": "data/logistics.json",
-    "dpr_2024_traffic_json": "data/dpr_2024_traffic.json",  # 12 routes / 6 jetties, VERIFIED
-    "mmr_feasibility_assessment_json": "mmr_feasibility_assessment.json",
-    "mmr_financial_assessment_json": "mmr_financial_assessment.json",
+    "waterways_json": _resolve_data_path("waterways.json"),              # now 26 terminals + 25 stations
+    "ports_json": _resolve_data_path("ports.json"),
+    "environmental_json": _resolve_data_path("environmental.json"),
+    "logistics_json": _resolve_data_path("logistics.json"),
+    "dpr_2024_traffic_json": _resolve_data_path("dpr_2024_traffic.json"),  # missing from repo, handled separately
+    "mmr_feasibility_assessment_json": _resolve_data_path("mmr_feasibility_assessment.json"),
+    "mmr_financial_assessment_json": _resolve_data_path("mmr_financial_assessment.json"),
     "roads_json": None,   # MISSING per component status map
     "rail_json": None,    # MISSING per component status map
     "traffic_congestion_json": None,  # road congestion baseline - MISSING (distinct from DPR traffic)
-    "output_path": "mmr_intelligence_result.json",
+    "output_path": str(BASE_DIR / "mmr_intelligence_result.json"),
     "environmental_flag_radius_km": 5.0,
     "logistics_near_radius_km": 15.0,
     # coordinates within this tolerance of each other are treated as duplicates
@@ -41,22 +57,36 @@ CONFIG = {
 # (e.g. after the Friday EOD check on Dombivli / Parsik Bunder).
 # ---------------------------------------------------------------------------
 VERIFICATION_REGISTRY = {
-    "kolshet":        {"status": "usable", "note": "Verified usable."},
-    "gaimukh":        {"status": "usable", "note": "Verified usable."},
-    "vasai":          {"status": "usable", "note": "Verified usable."},
-    "nagla bunder":   {"status": "usable", "note": "Verified usable."},
+    "kolshet jetty":          {"status": "usable", "note": "Verified usable."},
+    "kolshet":                {"status": "usable", "note": "Verified usable."},
+    "gaimukh jetty":          {"status": "usable", "note": "Verified usable."},
+    "gaimukh":                {"status": "usable", "note": "Verified usable."},
+    "vasai terminal":         {"status": "usable", "note": "Verified usable."},
+    "vasai":                  {"status": "usable", "note": "Verified usable."},
+    "nagla bunder terminal":  {"status": "usable", "note": "Verified usable."},
+    "nagla bunder":           {"status": "usable", "note": "Verified usable."},
+    "dombivli terminal": {
+        "status": "pending_verification",
+        "note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. "
+                 "Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
+    },
     "dombivli": {
         "status": "pending_verification",
-        "note": "DPR coordinate reported near 72.0E, flagged anomalous. "
-                 "Cross-verification target: Friday EOD. Excluded from scoring until resolved.",
+        "note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. "
+                 "Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
+    },
+    "parsik bunder terminal": {
+        "status": "pending_verification",
+        "note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. "
+                 "Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
     },
     "parsik bunder": {
         "status": "pending_verification",
-        "note": "DPR coordinate reported near 72.0E, flagged anomalous. "
-                 "Cross-verification target: Friday EOD. Excluded from scoring until resolved.",
+        "note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. "
+                 "Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
     },
-    "kalher":      {"status": "pending_verification", "note": "Verification pending; not yet a validated production location."},
-    "anjur dive":  {"status": "pending_verification", "note": "Verification pending; not yet a validated production location."},
+    "kalher":        {"status": "pending_verification", "note": "Verification pending; not yet a validated production location."},
+    "anjur dive":    {"status": "pending_verification", "note": "Verification pending; not yet a validated production location."},
 }
 
 
@@ -67,7 +97,7 @@ def now_iso() -> str:
 def load_json(path: Optional[str]) -> Optional[Any]:
     if not path or not os.path.exists(path):
         return None
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8-sig") as f:
         return json.load(f)
 
 
@@ -85,8 +115,11 @@ def get_verification(terminal: dict) -> dict:
     registered as 'usable' defaults to pending -- the registry is an
     allowlist, not a denylist, so new/unrecognized terminals never sneak
     into scoring unverified."""
-    name = (terminal.get("terminal_name") or "").strip().lower()
-    entry = VERIFICATION_REGISTRY.get(name)
+    raw_name = (terminal.get("terminal_name") or "").strip().lower()
+    entry = VERIFICATION_REGISTRY.get(raw_name)
+    if not entry:
+        normalized = raw_name.replace(" terminal", "").replace(" jetty", "").strip()
+        entry = VERIFICATION_REGISTRY.get(normalized)
     if entry:
         return entry
     return {
@@ -158,7 +191,7 @@ def data_quality_scan(datasets: dict, config: dict) -> dict:
         for r in records:
             name = (r.get("terminal_name") or "").strip().lower()
             lon = r.get("longitude")
-            if name in ("dombivli", "parsik bunder") and lon is not None and round(lon, 1) == 72.0:
+            if any(k in name for k in ("dombivli", "parsik bunder")) and lon is not None and (int(lon) == 72 or round(lon, 1) in (72.0, 72.1)):
                 anomalies.append({
                     "label": r.get("terminal_name"), "dataset": dataset_name, "longitude": lon,
                     "note": "Matches the documented ~72.0E DPR coordinate anomaly; pending cross-verification.",
@@ -308,7 +341,12 @@ def stage_logistics(terminal: dict, logistics: Optional[list], config: dict) -> 
 # ---------------------------------------------------------------------------
 def stage_traffic(terminal: dict, dpr_traffic: Optional[dict]) -> StageResult:
     if not dpr_traffic:
-        return not_yet_assessed("dpr_2024_traffic", ["dpr_2024_traffic.json"])
+        return not_yet_assessed(
+            "dpr_2024_traffic",
+            ["dpr_2024_traffic.json"],
+            "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). "
+            "Waterway route traffic cannot be assessed until this file is supplied.",
+        )
 
     name = (terminal.get("terminal_name") or "").strip().lower()
     covered = dpr_traffic.get("jetties_covered", [])

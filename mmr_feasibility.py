@@ -1,12 +1,18 @@
 import json
 import math
 from datetime import datetime, timezone
+from pathlib import Path
 
 from mmr_canonical_envelope import envelope, point_geom, SCHEMA_VERSION
 from mmr_shared_filters import get_mmr_jetties
 
+BASE_DIR = Path(__file__).resolve().parent
+
 def load_json(path):
-    with open(path, encoding="utf-8-sig") as f:
+    p = Path(path)
+    if not p.is_absolute():
+        p = BASE_DIR / p
+    with open(p, encoding="utf-8-sig") as f:
         data = json.load(f)
     if isinstance(data, dict) and "value" in data and "Count" in data:
         return data["value"]
@@ -169,11 +175,11 @@ if __name__ == "__main__":
     waterways = load_json("waterways.json")
     jetties = get_mmr_jetties(waterways)
     report = build_report()
-    with open("mmr_feasibility_report.json", "w", encoding="utf-8") as f:
+    with open(BASE_DIR / "mmr_feasibility_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     print("MMR feasibility report generated: mmr_feasibility_report.json")
     assessment_entity = build_feasibility_assessment_entity(report, jetties)
-    with open("mmr_feasibility_assessment.json", "w", encoding="utf-8") as f:
+    with open(BASE_DIR / "mmr_feasibility_assessment.json", "w", encoding="utf-8") as f:
         json.dump(assessment_entity, f, indent=2)
     print("Canonical feasibility_assessment entity generated: mmr_feasibility_assessment.json")
     print(json.dumps(report, indent=2))

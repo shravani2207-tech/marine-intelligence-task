@@ -1,9 +1,12 @@
-﻿import json
+import json
 import time
+from pathlib import Path
 import geopandas as gpd
 from shapely.geometry import Point
 
-with open("spatial_truth_export.json") as f:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / "spatial_truth_export.json", encoding="utf-8-sig") as f:
     data = json.load(f)
 
 print("===============================================================")
@@ -81,6 +84,6 @@ print("the query PATTERN works correctly and performs well at current scale;")
 print("it does NOT constitute a load test at national production scale")
 print("(which would involve orders of magnitude more records).")
 
-with open("docs/PERFORMANCE_EVIDENCE.json", "w") as f:
+with open(BASE_DIR / "docs/PERFORMANCE_EVIDENCE.json", "w", encoding="utf-8") as f:
     json.dump(results, f, indent=2)
 print("\nSaved: docs/PERFORMANCE_EVIDENCE.json")

@@ -1,8 +1,11 @@
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 from mmr_canonical_envelope import envelope, point_geom
 from mmr_feasibility import load_json, get_mmr_jetties
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # -----------------------------------------------------------------------
 # SCHEMA DESIGN NOTE: This module's data categories are modeled on the
@@ -178,11 +181,11 @@ if __name__ == "__main__":
     waterways = load_json("waterways.json")
     jetties = get_mmr_jetties(waterways)
     report = build_scenario_simulation_report(jetties)
-    with open("mmr_scenario_simulation_report.json", "w", encoding="utf-8") as f:
+    with open(BASE_DIR / "mmr_scenario_simulation_report.json", "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     print("MMR scenario simulation report generated: mmr_scenario_simulation_report.json")
     entity = build_scenario_simulation_entity(report, jetties)
-    with open("mmr_scenario_simulation_assessment.json", "w", encoding="utf-8") as f:
+    with open(BASE_DIR / "mmr_scenario_simulation_assessment.json", "w", encoding="utf-8") as f:
         json.dump(entity, f, indent=2)
     print("Canonical scenario_simulation entity generated: mmr_scenario_simulation_assessment.json")
     print(json.dumps(report, indent=2))

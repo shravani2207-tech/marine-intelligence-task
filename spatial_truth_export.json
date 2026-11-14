@@ -1,8 +1,8 @@
-﻿{
+{
   "layer_metadata": {
     "owner": "Shravani (National Geospatial Intelligence Layer)",
     "version": "3.0.0",
-    "generated_at": "2026-09-25T11:56:23Z",
+    "generated_at": "2026-11-13T06:48:02Z",
     "spatial_reproducibility": true,
     "crs": "EPSG:4326",
     "coverage_note": "Representative multi-river prototype dataset, v3 expansion. Geometry is approximate, not survey-grade. See docs/GAP_ANALYSIS.md and docs/COVERAGE_MATRIX_AND_GAP_ANALYSIS.md for production data-acquisition plan."
@@ -2298,17 +2298,8 @@
       "reason": "KG_INGEST_ENDPOINT not configured yet"
     },
     "goudha_runtime": {
-      "status": "success",
-      "response": {
-        "status": "accepted",
-        "reference_id": "0b9b153f-b686-4d3e-b74b-cfe9e9c355d2",
-        "records_received": 43,
-        "message": "Reference dataset successfully registered.",
-        "artifact_id": null,
-        "hash": null,
-        "parent_hash": null,
-        "schema_version": null
-      }
+      "status": "skipped",
+      "reason": "GOUDHA_RUNTIME_ENDPOINT not configured yet"
     },
     "bucket": {
       "status": "skipped",
@@ -2340,7 +2331,7 @@
     "rivers_with_topology": 11,
     "geometry_validity": true,
     "convergence_adapters_ready": 6,
-    "convergence_adapters_live": 1
+    "convergence_adapters_live": 0
   },
-  "export_version": "20260925T115623Z"
+  "export_version": "20261113T064802Z"
 }

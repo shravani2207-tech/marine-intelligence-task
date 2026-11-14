@@ -26,7 +26,7 @@
   "spatial_reference": "EPSG:4326",
   "source": "mmr_scenario_simulation.py (generated, not an external source)",
   "authority": "marine-intelligence-task internal analysis -- not an official government assessment",
-  "timestamp": "2026-09-25T11:13:17Z",
+  "timestamp": "2026-11-13T06:47:50Z",
   "schema_version": "1.0.0",
   "provenance": {
     "origin": "marine-intelligence-task data layer",

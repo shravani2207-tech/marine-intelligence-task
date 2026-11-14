@@ -1,13 +1,18 @@
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 from mmr_shared_filters import get_mmr_jetties
 
+BASE_DIR = Path(__file__).resolve().parent
 SCHEMA_VERSION = "1.0.0"
 SPATIAL_REFERENCE = "EPSG:4326"
 NOW = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def load_json(path):
-    with open(path, encoding="utf-8-sig") as f:
+    p = Path(path)
+    if not p.is_absolute():
+        p = BASE_DIR / p
+    with open(p, encoding="utf-8-sig") as f:
         data = json.load(f)
     if isinstance(data, dict) and "value" in data and "Count" in data:
         return data["value"]
@@ -138,6 +143,6 @@ if __name__ == "__main__":
         "entity_count": len(entities),
         "entities": entities
     }
-    with open("mmr_canonical_envelope.json", "w", encoding="utf-8") as f:
+    with open(BASE_DIR / "mmr_canonical_envelope.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
     print(f"Canonical envelope generated: {len(entities)} entities -> mmr_canonical_envelope.json")

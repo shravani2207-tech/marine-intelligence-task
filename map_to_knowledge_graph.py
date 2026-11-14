@@ -1,7 +1,10 @@
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
-with open("spatial_truth_export.json") as f:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / "spatial_truth_export.json", encoding="utf-8-sig") as f:
     data = json.load(f)
 
 nodes = []
@@ -120,7 +123,7 @@ kg_export = {
     "edges": edges
 }
 
-with open("knowledge_graph_export.json", "w") as f:
+with open(BASE_DIR / "knowledge_graph_export.json", "w", encoding="utf-8") as f:
     json.dump(kg_export, f, indent=2)
 
 print(f"Knowledge Graph export generated: {len(nodes)} nodes, {len(edges)} edges")

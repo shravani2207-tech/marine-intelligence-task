@@ -1,6 +1,6 @@
 {
   "study": "NW-53 Kalyan-Thane-Mumbai Scenario Simulation (Partial: DPR-Verified Traffic + Schema for Remaining Domains)",
-  "generated_at": "2026-09-25T11:13:17Z",
+  "generated_at": "2026-11-13T06:47:50Z",
   "jetty_count_covered": 4,
   "schema_reference": "Modeled on Rhine/Danube River Information Services (RIS) data domains, per Akash Sir's spec",
   "fairway_information": {

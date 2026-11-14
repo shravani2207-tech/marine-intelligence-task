@@ -2,11 +2,4196 @@
   "schema_version": "1.0.0",
   "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
   "source_commit": "4f5c9cc",
-  "generated_at": "2026-09-25T08:57:22.537377+00:00",
+  "generated_at": "2026-11-13T06:56:31.333230+00:00",
   "data_quality": {
-    "duplicate_coordinates": [],
-    "known_coordinate_anomalies": [],
+    "duplicate_coordinates": [
+      {
+        "entity_a": {
+          "label": "Patna IWT Terminal",
+          "dataset": "waterways"
+        },
+        "entity_b": {
+          "label": "Patna",
+          "dataset": "logistics"
+        },
+        "latitude": 25.5941,
+        "longitude": 85.1376
+      },
+      {
+        "entity_a": {
+          "label": "Kottapuram IWT Terminal",
+          "dataset": "waterways"
+        },
+        "entity_b": {
+          "label": "Alappuzha IWT Terminal",
+          "dataset": "waterways"
+        },
+        "latitude": 9.4981,
+        "longitude": 76.3388
+      },
+      {
+        "entity_a": {
+          "label": "Kolkata IWT Terminal",
+          "dataset": "waterways"
+        },
+        "entity_b": {
+          "label": "Kolkata",
+          "dataset": "logistics"
+        },
+        "latitude": 22.5726,
+        "longitude": 88.3639
+      },
+      {
+        "entity_a": {
+          "label": "Kakinada Seaport",
+          "dataset": "ports"
+        },
+        "entity_b": {
+          "label": "Kakinada Anchorage Port",
+          "dataset": "ports"
+        },
+        "latitude": 16.9891,
+        "longitude": 82.2475
+      }
+    ],
+    "known_coordinate_anomalies": [
+      {
+        "label": "Dombivli Terminal",
+        "dataset": "waterways",
+        "longitude": 72.067514,
+        "note": "Matches the documented ~72.0E DPR coordinate anomaly; pending cross-verification."
+      },
+      {
+        "label": "Parsik Bunder Terminal",
+        "dataset": "waterways",
+        "longitude": 72.014294,
+        "note": "Matches the documented ~72.0E DPR coordinate anomaly; pending cross-verification."
+      }
+    ],
     "note": "Duplicate check is exact-match within tolerance across all loaded datasets (this is what surfaces issues like Kottapuram/Alappuzha sharing coordinates). Anomaly check is a named allowlist of previously flagged records, not a general outlier detector."
   },
-  "results": []
+  "results": [
+    {
+      "entity_id": "INTELLIGENCE_1",
+      "entity_type": "movement_intelligence_result",
+      "name": "Varanasi Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.318248+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Varanasi Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 626.84
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 634.98
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 674.15
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 849.2
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 851.97
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 5,
+                "park_name": "Varanasi",
+                "distance_km": 3.67
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Varanasi Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_2",
+      "entity_type": "movement_intelligence_result",
+      "name": "Haldia Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.318248+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Haldia Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 4.6
+              },
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 59.75
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 251.28
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 696.61
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 703.07
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Haldia Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_3",
+      "entity_type": "movement_intelligence_result",
+      "name": "Sahibganj Multi-Modal Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.319255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Sahibganj Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 309.33
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 361.11
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 564.61
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 953.41
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 958.89
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Sahibganj Multi-Modal Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_4",
+      "entity_type": "movement_intelligence_result",
+      "name": "Patna IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.319255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Patna IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 470.2
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 496.4
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 611.52
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 899.38
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 903.58
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 6,
+                "park_name": "Patna",
+                "distance_km": 0.0
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Patna IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_5",
+      "entity_type": "movement_intelligence_result",
+      "name": "Farakka IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.320255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Farakka IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 256.61
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 310.75
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 523.94
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 925.85
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 931.54
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Farakka IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_6",
+      "entity_type": "movement_intelligence_result",
+      "name": "Ghaziabad IWT Terminal",
+      "waterway_name": "NW-1 (Ganga-Bhagirathi-Hooghly)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.320255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Ghaziabad IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 17,
+                "port_name": "Dahej Port",
+                "distance_km": 916.04
+              },
+              {
+                "port_id": 23,
+                "port_name": "Bhavnagar Port",
+                "distance_km": 934.52
+              },
+              {
+                "port_id": 22,
+                "port_name": "Navlakhi Port",
+                "distance_km": 954.29
+              },
+              {
+                "port_id": 1,
+                "port_name": "Deendayal Port",
+                "distance_km": 957.26
+              },
+              {
+                "port_id": 18,
+                "port_name": "Magdalla Port",
+                "distance_km": 967.84
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Ghaziabad IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_7",
+      "entity_type": "movement_intelligence_result",
+      "name": "Jogighopa IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.321255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Jogighopa IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 466.61
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 530.4
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 775.67
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1208.44
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1214.54
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Jogighopa IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_8",
+      "entity_type": "movement_intelligence_result",
+      "name": "Pandu IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.321255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Pandu IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 527.08
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 589.37
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 837.0
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1279.12
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1285.41
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 2,
+                "park_name": "Guwahati",
+                "distance_km": 3.39
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Pandu IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_9",
+      "entity_type": "movement_intelligence_result",
+      "name": "Dhubri IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.322255+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Dhubri IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 421.0
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 484.77
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 727.0
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1154.28
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1160.29
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Dhubri IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_10",
+      "entity_type": "movement_intelligence_result",
+      "name": "Silghat IWT Terminal",
+      "waterway_name": "NW-2 (Brahmaputra)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.323258+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Silghat IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 607.16
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 667.3
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 913.68
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1360.53
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1366.96
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Silghat IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_11",
+      "entity_type": "movement_intelligence_result",
+      "name": "Karimganj IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.323258+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Karimganj IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 484.06
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 539.93
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 781.51
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1231.4
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1237.97
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Karimganj IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_12",
+      "entity_type": "movement_intelligence_result",
+      "name": "Kollam IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.324257+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Kollam IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 6,
+                "port_name": "Cochin Port",
+                "distance_km": 28.72
+              },
+              {
+                "port_id": 8,
+                "port_name": "V.O. Chidambaranar Port",
+                "distance_km": 266.99
+              },
+              {
+                "port_id": 5,
+                "port_name": "New Mangalore Port",
+                "distance_km": 336.06
+              },
+              {
+                "port_id": 7,
+                "port_name": "Chennai Port",
+                "distance_km": 548.33
+              },
+              {
+                "port_id": 40,
+                "port_name": "Karwar Port",
+                "distance_km": 557.17
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Kollam IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_13",
+      "entity_type": "movement_intelligence_result",
+      "name": "Kottapuram IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.324714+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Kottapuram IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 6,
+                "port_name": "Cochin Port",
+                "distance_km": 52.69
+              },
+              {
+                "port_id": 8,
+                "port_name": "V.O. Chidambaranar Port",
+                "distance_km": 213.39
+              },
+              {
+                "port_id": 5,
+                "port_name": "New Mangalore Port",
+                "distance_km": 414.95
+              },
+              {
+                "port_id": 7,
+                "port_name": "Chennai Port",
+                "distance_km": 587.01
+              },
+              {
+                "port_id": 9,
+                "port_name": "Kamarajar Port",
+                "distance_km": 602.08
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Kottapuram IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_14",
+      "entity_type": "movement_intelligence_result",
+      "name": "Alappuzha IWT Terminal",
+      "waterway_name": "NW-3 (West Coast Canal)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.325221+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Alappuzha IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 6,
+                "port_name": "Cochin Port",
+                "distance_km": 52.69
+              },
+              {
+                "port_id": 8,
+                "port_name": "V.O. Chidambaranar Port",
+                "distance_km": 213.39
+              },
+              {
+                "port_id": 5,
+                "port_name": "New Mangalore Port",
+                "distance_km": 414.95
+              },
+              {
+                "port_id": 7,
+                "port_name": "Chennai Port",
+                "distance_km": 587.01
+              },
+              {
+                "port_id": 9,
+                "port_name": "Kamarajar Port",
+                "distance_km": 602.08
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Alappuzha IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_15",
+      "entity_type": "movement_intelligence_result",
+      "name": "Kakinada IWT Terminal",
+      "waterway_name": "National Waterway",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.325221+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Kakinada IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 30,
+                "port_name": "Ravva Port",
+                "distance_km": 172.21
+              },
+              {
+                "port_id": 28,
+                "port_name": "Kakinada Seaport",
+                "distance_km": 178.58
+              },
+              {
+                "port_id": 29,
+                "port_name": "Kakinada Anchorage Port",
+                "distance_km": 178.58
+              },
+              {
+                "port_id": 26,
+                "port_name": "Krishnapatnam Port",
+                "distance_km": 257.16
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 304.57
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Kakinada IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_16",
+      "entity_type": "movement_intelligence_result",
+      "name": "Vijayawada IWT Terminal",
+      "waterway_name": "NW-4 (Godavari-Krishna)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.326229+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Vijayawada IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 30,
+                "port_name": "Ravva Port",
+                "distance_km": 175.2
+              },
+              {
+                "port_id": 28,
+                "port_name": "Kakinada Seaport",
+                "distance_km": 181.29
+              },
+              {
+                "port_id": 29,
+                "port_name": "Kakinada Anchorage Port",
+                "distance_km": 181.29
+              },
+              {
+                "port_id": 26,
+                "port_name": "Krishnapatnam Port",
+                "distance_km": 256.93
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 307.1
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Vijayawada IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_17",
+      "entity_type": "movement_intelligence_result",
+      "name": "Paradip IWT Terminal",
+      "waterway_name": "National Waterway",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.326229+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Paradip IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 61.68
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 221.43
+              },
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 280.35
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 473.22
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 479.6
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Paradip IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_18",
+      "entity_type": "movement_intelligence_result",
+      "name": "Dhamra IWT Terminal",
+      "waterway_name": "National Waterway",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.327228+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Dhamra IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 57.03
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 212.67
+              },
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 272.51
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 481.08
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 487.5
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Dhamra IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_19",
+      "entity_type": "movement_intelligence_result",
+      "name": "Kolkata IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.328228+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Kolkata IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 4.13
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 67.96
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 314.5
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 757.53
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 763.92
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 4,
+                "park_name": "Kolkata",
+                "distance_km": 0.0
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Kolkata IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_20",
+      "entity_type": "movement_intelligence_result",
+      "name": "Badarpur IWT Terminal",
+      "waterway_name": "NW-16 (Barak)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.329229+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "'Badarpur IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 12,
+                "port_name": "Kolkata Port",
+                "distance_km": 509.43
+              },
+              {
+                "port_id": 13,
+                "port_name": "Haldia Dock Complex",
+                "distance_km": 563.73
+              },
+              {
+                "port_id": 11,
+                "port_name": "Paradip Port",
+                "distance_km": 802.86
+              },
+              {
+                "port_id": 10,
+                "port_name": "Visakhapatnam Port",
+                "distance_km": 1253.11
+              },
+              {
+                "port_id": 27,
+                "port_name": "Gangavaram Port",
+                "distance_km": 1259.72
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 3,
+                "park_name": "Silchar",
+                "distance_km": 10.9
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "'Badarpur IWT Terminal' is not present in VERIFICATION_REGISTRY; treated as unverified by default until explicitly reviewed and added."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_21",
+      "entity_type": "movement_intelligence_result",
+      "name": "Kolshet Jetty",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.329229+00:00",
+      "verification_status": "usable",
+      "verification_note": "Verified usable.",
+      "included_in_scoring": true,
+      "overall_status": "PARTIAL",
+      "overall_confidence": "LOW",
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 29.44
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 31.31
+              },
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 36.26
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 51.85
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 67.83
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 11,
+                "park_name": "Bhiwandi Logistics Cluster",
+                "distance_km": 9.86
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": [
+            "Includes Bhiwandi cluster, which is private/non-MMLP, not an official PM GatiShakti hub."
+          ]
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "PARTIAL",
+          "value": {
+            "contributing_stages": [
+              "infrastructure",
+              "environmental_constraints",
+              "logistics_opportunity"
+            ],
+            "excluded_stages": [
+              "connectivity",
+              "dpr_2024_traffic"
+            ],
+            "qualitative_summary": "nearest port 29.44 km away; environmental constraint level LOW; logistics opportunity MEDIUM"
+          },
+          "confidence": "LOW",
+          "basis": "Composite of ASSESSED upstream stages only for a verification-status 'usable' jetty; confidence capped at weakest contributing stage. No numeric feasibility score is produced while connectivity (road/rail) remains unassessed.",
+          "source": [
+            "ports.json",
+            "logistics.json",
+            "environmental.json"
+          ],
+          "limitations": [
+            "Excludes: connectivity (NOT_YET_ASSESSED)",
+            "Excludes: dpr_2024_traffic (NOT_YET_ASSESSED)"
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_22",
+      "entity_type": "movement_intelligence_result",
+      "name": "Gaimukh Jetty",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.330228+00:00",
+      "verification_status": "usable",
+      "verification_note": "Verified usable.",
+      "included_in_scoring": true,
+      "overall_status": "PARTIAL",
+      "overall_confidence": "LOW",
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 30.66
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 32.42
+              },
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 37.5
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 53.1
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 69.05
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 11,
+                "park_name": "Bhiwandi Logistics Cluster",
+                "distance_km": 8.79
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": [
+            "Includes Bhiwandi cluster, which is private/non-MMLP, not an official PM GatiShakti hub."
+          ]
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "PARTIAL",
+          "value": {
+            "contributing_stages": [
+              "infrastructure",
+              "environmental_constraints",
+              "logistics_opportunity"
+            ],
+            "excluded_stages": [
+              "connectivity",
+              "dpr_2024_traffic"
+            ],
+            "qualitative_summary": "nearest port 30.66 km away; environmental constraint level LOW; logistics opportunity MEDIUM"
+          },
+          "confidence": "LOW",
+          "basis": "Composite of ASSESSED upstream stages only for a verification-status 'usable' jetty; confidence capped at weakest contributing stage. No numeric feasibility score is produced while connectivity (road/rail) remains unassessed.",
+          "source": [
+            "ports.json",
+            "logistics.json",
+            "environmental.json"
+          ],
+          "limitations": [
+            "Excludes: connectivity (NOT_YET_ASSESSED)",
+            "Excludes: dpr_2024_traffic (NOT_YET_ASSESSED)"
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_23",
+      "entity_type": "movement_intelligence_result",
+      "name": "Vasai Terminal",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.331228+00:00",
+      "verification_status": "usable",
+      "verification_note": "Verified usable.",
+      "included_in_scoring": true,
+      "overall_status": "PARTIAL",
+      "overall_confidence": "LOW",
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 41.14
+              },
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 42.4
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 45.73
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 58.75
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 76.56
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "PARTIAL",
+          "value": {
+            "contributing_stages": [
+              "infrastructure",
+              "environmental_constraints",
+              "logistics_opportunity"
+            ],
+            "excluded_stages": [
+              "connectivity",
+              "dpr_2024_traffic"
+            ],
+            "qualitative_summary": "nearest port 41.14 km away; environmental constraint level LOW; logistics opportunity LOW"
+          },
+          "confidence": "LOW",
+          "basis": "Composite of ASSESSED upstream stages only for a verification-status 'usable' jetty; confidence capped at weakest contributing stage. No numeric feasibility score is produced while connectivity (road/rail) remains unassessed.",
+          "source": [
+            "ports.json",
+            "logistics.json",
+            "environmental.json"
+          ],
+          "limitations": [
+            "Excludes: connectivity (NOT_YET_ASSESSED)",
+            "Excludes: dpr_2024_traffic (NOT_YET_ASSESSED)"
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_24",
+      "entity_type": "movement_intelligence_result",
+      "name": "Dombivli Terminal",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.331228+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 86.96
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 93.21
+              },
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 96.76
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 103.98
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 106.82
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "DPR borehole coordinate reported near 72.0E, flagged anomalous. Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_25",
+      "entity_type": "movement_intelligence_result",
+      "name": "Nagla Bunder Terminal",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.332228+00:00",
+      "verification_status": "usable",
+      "verification_note": "Verified usable.",
+      "included_in_scoring": true,
+      "overall_status": "PARTIAL",
+      "overall_confidence": "LOW",
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 35.06
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 37.79
+              },
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 40.18
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 56.33
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 73.03
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "MEDIUM",
+            "nearby_clusters": [
+              {
+                "park_id": 11,
+                "park_name": "Bhiwandi Logistics Cluster",
+                "distance_km": 12.15
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": [
+            "Includes Bhiwandi cluster, which is private/non-MMLP, not an official PM GatiShakti hub."
+          ]
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "PARTIAL",
+          "value": {
+            "contributing_stages": [
+              "infrastructure",
+              "environmental_constraints",
+              "logistics_opportunity"
+            ],
+            "excluded_stages": [
+              "connectivity",
+              "dpr_2024_traffic"
+            ],
+            "qualitative_summary": "nearest port 35.06 km away; environmental constraint level LOW; logistics opportunity MEDIUM"
+          },
+          "confidence": "LOW",
+          "basis": "Composite of ASSESSED upstream stages only for a verification-status 'usable' jetty; confidence capped at weakest contributing stage. No numeric feasibility score is produced while connectivity (road/rail) remains unassessed.",
+          "source": [
+            "ports.json",
+            "logistics.json",
+            "environmental.json"
+          ],
+          "limitations": [
+            "Excludes: connectivity (NOT_YET_ASSESSED)",
+            "Excludes: dpr_2024_traffic (NOT_YET_ASSESSED)"
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    },
+    {
+      "entity_id": "INTELLIGENCE_26",
+      "entity_type": "movement_intelligence_result",
+      "name": "Parsik Bunder Terminal",
+      "waterway_name": "NW-53 (Kalyan-Thane-Mumbai Waterway / Ulhas River)",
+      "schema_version": "1.0.0",
+      "pipeline_version": "mmr_intelligence_pipeline@0.2.0",
+      "source_commit": "4f5c9cc",
+      "timestamp": "2026-11-13T06:56:31.333230+00:00",
+      "verification_status": "pending_verification",
+      "verification_note": "DPR borehole coordinate reported near 72.0E, flagged anomalous. Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved.",
+      "included_in_scoring": false,
+      "overall_status": "EXCLUDED_PENDING_VERIFICATION",
+      "overall_confidence": null,
+      "overall_confidence_note": "Overall confidence is the MINIMUM confidence across ASSESSED stages, not an average. A single weak or missing input caps the whole result; this is deliberate.",
+      "stages": {
+        "infrastructure": {
+          "stage": "infrastructure",
+          "status": "ASSESSED",
+          "value": {
+            "nearby_ports": [
+              {
+                "port_id": 2,
+                "port_name": "Mumbai Port",
+                "distance_km": 91.69
+              },
+              {
+                "port_id": 35,
+                "port_name": "Mandwa Port",
+                "distance_km": 97.32
+              },
+              {
+                "port_id": 34,
+                "port_name": "Rewas Port",
+                "distance_km": 101.73
+              },
+              {
+                "port_id": 3,
+                "port_name": "Jawaharlal Nehru Port",
+                "distance_km": 108.94
+              },
+              {
+                "port_id": 37,
+                "port_name": "Alibag Port",
+                "distance_km": 110.4
+              }
+            ]
+          },
+          "confidence": "MEDIUM",
+          "basis": "Haversine distance from terminal to each port in ports.json, sorted ascending.",
+          "source": [
+            "ports.json"
+          ],
+          "limitations": [
+            "Point coordinates only; no channel depth or berth-side draft data."
+          ]
+        },
+        "connectivity": {
+          "stage": "connectivity",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Component status map lists road/rail connectivity as MISSING at commit 4f5c9cc; cannot be scored without a dataset.",
+          "source": [],
+          "limitations": [
+            "Missing input: road network dataset (e.g. OSM/NHAI)",
+            "Missing input: rail network dataset (e.g. Indian Railways GIS)"
+          ]
+        },
+        "environmental_constraints": {
+          "stage": "environmental_constraints",
+          "status": "ASSESSED",
+          "value": {
+            "constraint_level": "LOW",
+            "nearby_constraints": []
+          },
+          "confidence": "LOW",
+          "basis": "Point-distance proximity check (<= 5.0 km) against environmental.json centroids.",
+          "source": [
+            "environmental.json"
+          ],
+          "limitations": [
+            "Floodplain/watershed/protected-area polygons remain approximate bounding areas per the component status map (NEEDS INTEGRATION against official GIS boundaries).",
+            "Point-to-point proximity is a coarse proxy for actual polygon overlap."
+          ]
+        },
+        "logistics_opportunity": {
+          "stage": "logistics_opportunity",
+          "status": "ASSESSED",
+          "value": {
+            "opportunity_level": "LOW",
+            "nearby_clusters": []
+          },
+          "confidence": "MEDIUM",
+          "basis": "Count of logistics.json clusters within 15.0 km, banded HIGH(>=2)/MEDIUM(1)/LOW(0).",
+          "source": [
+            "logistics.json"
+          ],
+          "limitations": []
+        },
+        "dpr_2024_traffic": {
+          "stage": "dpr_2024_traffic",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "External DPR 2024 traffic dataset is missing from repository ('dpr_2024_traffic.json' not found). Waterway route traffic cannot be assessed until this file is supplied.",
+          "source": [],
+          "limitations": [
+            "Missing input: dpr_2024_traffic.json"
+          ]
+        },
+        "movement_feasibility": {
+          "stage": "movement_feasibility",
+          "status": "EXCLUDED_PENDING_VERIFICATION",
+          "value": null,
+          "confidence": null,
+          "basis": "NW-53 Scoring Rule: only verification-status 'usable' jetties participate in pipeline scoring. This terminal is excluded, not scored as low/uncertain.",
+          "source": [],
+          "limitations": [
+            "DPR borehole coordinate reported near 72.0E, flagged anomalous. Cross-verification target: pending authoritative DPR page/table. Excluded from scoring until resolved."
+          ]
+        },
+        "congestion_impact": {
+          "stage": "congestion_impact",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "Listed as MISSING in the component status map at commit 4f5c9cc. Note: DPR 2024 traffic (stage 6) is waterway route traffic, not road congestion, and does not unblock this stage.",
+          "source": [],
+          "limitations": [
+            "Missing input: Road congestion baseline (e.g. TomTom / Google Traffic / Maharashtra Traffic Dept)"
+          ]
+        },
+        "economic_operational": {
+          "stage": "economic_operational",
+          "status": "NOT_YET_ASSESSED",
+          "value": null,
+          "confidence": null,
+          "basis": "RATE_CONFIG remains unpopulated at commit 4f5c9cc; framework is REUSABLE but authoritative benchmark rates are still required.",
+          "source": [],
+          "limitations": [
+            "Missing input: land_dev_cost_per_hectare_inr",
+            "Missing input: water_channel_dev_cost_per_km_inr",
+            "Missing input: port_infra_setup_cost_per_berth_inr",
+            "Missing input: logistics_cost_per_tonne_km_inr"
+          ]
+        }
+      },
+      "provenance": {
+        "origin": "mmr_intelligence_pipeline.py",
+        "added_by": "automated_pipeline",
+        "method": "deterministic_composition_of_documented_modules"
+      }
+    }
+  ]
 }
